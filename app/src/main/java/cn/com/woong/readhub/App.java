@@ -9,6 +9,7 @@ import com.blankj.utilcode.util.Utils;
 
 import javax.inject.Inject;
 
+import cn.com.woong.readhub.di.component.DaggerAppComponent;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
@@ -26,7 +27,7 @@ public class App extends Application implements HasSupportFragmentInjector, HasA
         super.onCreate();
         mInstance = this;
         Utils.init(mInstance);
-//        DaggerAppComponent.create().inject(this);
+        DaggerAppComponent.create().inject(this);
     }
 
     public static Context getAppContext() {

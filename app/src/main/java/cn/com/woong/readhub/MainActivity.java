@@ -14,10 +14,8 @@ public class MainActivity extends BaseActivity {
     ViewPager viewPager;
     @BindView(R.id.rb_tab_hot)
     RadioButton rbTabHot;
-    @BindView(R.id.rb_tab_weke)
-    RadioButton rbTabWeke;
-    @BindView(R.id.rb_tab_chat)
-    RadioButton rbTabChat;
+    @BindView(R.id.rb_tab_info)
+    RadioButton rbTabInfo;
     @BindView(R.id.rb_tab_mine)
     RadioButton rbTabMine;
 

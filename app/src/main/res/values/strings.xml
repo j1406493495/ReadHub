@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">ReadHub</string>
     <string name="network_connect_error">请检查网络是否连接</string>
-    <string name="category">目录</string>
+    <string name="tab_hot">热门</string>
+    <string name="tab_info">资讯</string>
+    <string name="tab_mine">我的</string>
 </resources>

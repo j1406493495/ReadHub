@@ -28,24 +28,18 @@
             android:id="@+id/rb_tab_hot"
             style="@style/tab_radio_button_style"
             android:drawableTop="@drawable/ic_category_default"
-            android:text="@string/category"/>
+            android:text="@string/tab_hot"/>
 
         <RadioButton
-            android:id="@+id/rb_tab_weke"
+            android:id="@+id/rb_tab_info"
             style="@style/tab_radio_button_style"
             android:drawableTop="@drawable/ic_category_default"
-            android:text="@string/category"/>
-
-        <RadioButton
-            android:id="@+id/rb_tab_chat"
-            style="@style/tab_radio_button_style"
-            android:drawableTop="@drawable/ic_category_default"
-            android:text="@string/category"/>
+            android:text="@string/tab_info"/>
 
         <RadioButton
             android:id="@+id/rb_tab_mine"
             style="@style/tab_radio_button_style"
             android:drawableTop="@drawable/ic_category_default"
-            android:text="@string/category"/>
+            android:text="@string/tab_mine"/>
     </RadioGroup>
 </LinearLayout>
