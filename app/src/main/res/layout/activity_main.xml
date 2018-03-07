@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:clipToPadding="true"
+              android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/b6"/>
+
+    <RadioGroup
+        android:id="@+id/rg_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/b7"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_tab_hot"
+            style="@style/tab_radio_button_style"
+            android:drawableTop="@drawable/ic_category_default"
+            android:text="@string/category"/>
+
+        <RadioButton
+            android:id="@+id/rb_tab_weke"
+            style="@style/tab_radio_button_style"
+            android:drawableTop="@drawable/ic_category_default"
+            android:text="@string/category"/>
+
+        <RadioButton
+            android:id="@+id/rb_tab_chat"
+            style="@style/tab_radio_button_style"
+            android:drawableTop="@drawable/ic_category_default"
+            android:text="@string/category"/>
+
+        <RadioButton
+            android:id="@+id/rb_tab_mine"
+            style="@style/tab_radio_button_style"
+            android:drawableTop="@drawable/ic_category_default"
+            android:text="@string/category"/>
+    </RadioGroup>
+</LinearLayout>

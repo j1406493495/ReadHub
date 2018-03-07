@@ -1,0 +1,17 @@
+<resources>
+
+    <style name="radio_btn_common_style" parent="android:Widget.CompoundButton.RadioButton">
+        <item name="android:textColor">@drawable/selector_common_radio_btn</item>
+    </style>
+
+    <style name="tab_radio_button_style" parent="radio_btn_common_style">
+        <item name="android:layout_weight">1</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textSize">@dimen/f5</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:width">0dp</item>
+        <item name="android:button">@null</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+</resources>

@@ -1,0 +1,14 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="f1">20sp</dimen>
+    <dimen name="f2">18sp</dimen>
+    <dimen name="f3">16sp</dimen>
+    <dimen name="f4">14sp</dimen>
+    <dimen name="f5">13sp</dimen>
+    <dimen name="f6">12sp</dimen>
+    <dimen name="f7">11sp</dimen>
+    <dimen name="f8">10sp</dimen>
+    <dimen name="f9">9sp</dimen>
+
+    <dimen name="divider_height">1px</dimen>
+</resources>

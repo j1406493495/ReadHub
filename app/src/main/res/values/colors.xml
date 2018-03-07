@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="b1">#333333</color>        //【文字 黑色】- 标题，重要信息文字
+    <color name="b2">#666666</color>        //【文字 中灰】- 正文，默认状态文字
+    <color name="b3">#999999</color>        //【文字 灰色】- 提示性文字，次要信息文字
+    <color name="b4">#afb0b0</color>        //【失效，不可点击状态】
+    <color name="b5">#dedede</color>        //【分割线】 - 1px分割线，
+    <color name="b6">#f0f0f0</color>        //【背景 浅灰】 - 底层，无内容背景，搜索条，对话框，二级底部栏
+    <color name="b7">#ffffff</color>        //【背景 纯白】 - 内页背景，顶部底部栏
+
+    <color name="c1">#6c8cff</color>        //【文字 蓝色】- 重要，醒目，点击状态文字
+    <color name="c2">#5a8bff</color>        //
+    <color name="c3">#8070ff</color>        //
+    <color name="c4">#ff7376</color>        //
+    <color name="c5">#ff7400</color>        //【文字 橙色】- 重要，醒目，价格
+    <color name="c6">#ff5500</color>        //【文字 橙红色】- 未读消息提示
+    <color name="c7">#489d46</color>        //【文字 绿色】- 重要，醒目，价格
+
+    <color name="transparent">#00000000</color>
+    <color name="transparent_c1">#e5fd8000</color>
+    <color name="transparent_45_c1">#33fd8000</color>
+    <color name="transparent_40">#66000000</color>
+    <color name="transparent_70_b9">#3FFFFFFF</color>
+</resources>

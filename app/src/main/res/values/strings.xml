@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ReadHub</string>
+    <string name="network_connect_error">请检查网络是否连接</string>
+    <string name="category">目录</string>
+</resources>
