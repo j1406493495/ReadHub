@@ -35,12 +35,15 @@ dependencies {
     compile 'io.reactivex.rxjava2:rxandroid:2.0.2'
     compile 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     compile 'com.jakewharton:butterknife:8.8.1'
     compile 'com.github.bumptech.glide:glide:4.1.1'
     compile 'com.blankj:utilcode:1.13.1'
+    compile 'com.google.code.gson:gson:2.8.2'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
     compile 'com.google.dagger:dagger-android:2.11'
     compile 'com.google.dagger:dagger-android-support:2.11'
-    // if you use the support libraries
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.11'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.7.0'
+    compile 'com.squareup.okhttp3:okhttp:3.9.0'
 }
