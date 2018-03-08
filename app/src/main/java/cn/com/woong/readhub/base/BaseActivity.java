@@ -1,10 +1,12 @@
 package cn.com.woong.readhub.base;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import com.blankj.utilcode.util.NetworkUtils;
 import com.blankj.utilcode.util.ToastUtils;
+import com.trello.rxlifecycle2.LifecycleTransformer;
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+
 import javax.inject.Inject;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -13,7 +15,7 @@ import cn.com.woong.readhub.R;
 /**
  * @author wong
  */
-public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends Activity implements BaseContract.BaseView {
+public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends RxAppCompatActivity implements BaseContract.BaseView {
     @Nullable
     @Inject
     protected T mPresenter;
@@ -67,6 +69,11 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
 
     @Override
     public void onRetry() {}
+
+    @Override
+    public <T> LifecycleTransformer<T> bindToLife() {
+        return this.bindToLifecycle();
+    }
 
     /**
      * 贴上view

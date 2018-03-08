@@ -2,13 +2,15 @@ package cn.com.woong.readhub.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.blankj.utilcode.util.NetworkUtils;
 import com.blankj.utilcode.util.ToastUtils;
+import com.trello.rxlifecycle2.LifecycleTransformer;
+import com.trello.rxlifecycle2.components.support.RxFragment;
+
 import javax.inject.Inject;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -17,7 +19,7 @@ import cn.com.woong.readhub.R;
 /**
  * @author wong
  */
-public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends Fragment implements BaseContract.BaseView {
+public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends RxFragment implements BaseContract.BaseView {
     @Nullable
     @Inject
     protected T mPresenter;
@@ -81,6 +83,11 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
     @Override
     public void onRetry() {
         ToastUtils.showShort("onRetry");
+    }
+
+    @Override
+    public <T> LifecycleTransformer<T> bindToLife() {
+        return this.bindToLifecycle();
     }
 
     /**
