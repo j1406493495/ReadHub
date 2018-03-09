@@ -34,7 +34,7 @@ public interface BaseContract {
          * 失败重试
          * @param message
          */
-        void showFaild(String message);
+        void showFailed(String message);
 
         /**
          * 显示当前网络不可用

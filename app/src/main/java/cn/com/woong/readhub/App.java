@@ -9,6 +9,7 @@ import com.blankj.utilcode.util.Utils;
 
 import javax.inject.Inject;
 
+import butterknife.ButterKnife;
 import cn.com.woong.readhub.di.component.DaggerAppComponent;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
@@ -27,6 +28,7 @@ public class App extends Application implements HasSupportFragmentInjector, HasA
         super.onCreate();
         mInstance = this;
         Utils.init(mInstance);
+        ButterKnife.setDebug(true);
         DaggerAppComponent.create().inject(this);
     }
 
