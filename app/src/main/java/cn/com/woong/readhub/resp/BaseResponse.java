@@ -10,4 +10,8 @@ public class BaseResponse {
     public int code = -1;
     public long timestamp;
     public int status;
+
+    public int pageSize;
+    public int totalItems;
+    public int totalPages;
 }
