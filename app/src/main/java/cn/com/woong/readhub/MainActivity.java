@@ -8,9 +8,10 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.blankj.utilcode.util.BarUtils;
+
 import java.util.ArrayList;
 import butterknife.BindView;
-import butterknife.OnClick;
 import cn.com.woong.readhub.base.BaseActivity;
 import cn.com.woong.readhub.ui.mine.MineFragment;
 import cn.com.woong.readhub.ui.news.NewsFragment;
@@ -52,9 +53,16 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         initFragment();
 
+        BarUtils.setStatusBarVisibility(this, true);
+        BarUtils.setStatusBarColor(this, getResources().getColor(R.color.c1), 1);
+        titleBar.setTitleBarBgColor(getResources().getColor(R.color.c1));
+        titleBar.setTitleColor(getResources().getColor(R.color.b7));
+
         mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(mViewPagerAdapter);
         viewPager.setCurrentItem(0);
+        rbTabTopic.setChecked(true);
+        titleBar.setTitle(mTitleStrs.get(0));
 
         rgTab.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
