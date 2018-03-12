@@ -5,18 +5,23 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+
+import butterknife.BindView;
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.bean.NewsMo;
-import cn.com.woong.readhub.ui.mine.MineContract;
+import cn.com.woong.readhub.di.scope.PerFragment;
 
 /**
  * Created by wong on 2018/3/9.
  */
 
 public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
     private Context mContext;
     private ArrayList<NewsMo> mNewsMos = new ArrayList<>();
 
@@ -26,7 +31,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_news, null);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_news, parent, false);
         return new NewsViewHolder(view);
     }
 
