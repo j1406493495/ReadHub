@@ -1,7 +1,7 @@
 package cn.com.woong.readhub.di.module.fragments;
 
-import android.content.Context;
 
+import cn.com.woong.readhub.App;
 import cn.com.woong.readhub.di.scope.PerFragment;
 import cn.com.woong.readhub.ui.common.NewsAdapter;
 import dagger.Module;
@@ -16,7 +16,7 @@ import dagger.Provides;
 public class TopicFragmentModule {
 
     @Provides
-    static NewsAdapter providesNewsAdapter(Context context) {
-        return new NewsAdapter(context);
+    static NewsAdapter providesNewsAdapter() {
+        return new NewsAdapter(App.getAppContext());
     }
 }

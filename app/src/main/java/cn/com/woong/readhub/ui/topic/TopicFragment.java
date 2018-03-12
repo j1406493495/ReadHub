@@ -17,6 +17,7 @@ import butterknife.BindView;
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.base.BaseFragment;
 import cn.com.woong.readhub.bean.NewsMo;
+import cn.com.woong.readhub.di.scope.PerFragment;
 import cn.com.woong.readhub.ui.common.NewsAdapter;
 import dagger.android.support.AndroidSupportInjection;
 
@@ -30,6 +31,7 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
     @BindView(R.id.topic_refresh_layout)
     EasyRefreshLayout topicRefreshLayout;
 
+    @Inject
     NewsAdapter mNewsAdapter;
 
     private ArrayList<NewsMo> mNewsMos = new ArrayList<>();
@@ -47,7 +49,7 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
 
     @Override
     protected void initView(View view) {
-        mNewsAdapter = new NewsAdapter(getActivity());
+//        mNewsAdapter = new NewsAdapter(getActivity());
         topicRecyclerView.setAdapter(mNewsAdapter);
         topicRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 

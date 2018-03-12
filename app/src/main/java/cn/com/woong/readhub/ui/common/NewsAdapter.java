@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import cn.com.woong.readhub.App;
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.bean.NewsMo;
 import cn.com.woong.readhub.di.scope.PerFragment;
@@ -25,13 +26,14 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context mContext;
     private ArrayList<NewsMo> mNewsMos = new ArrayList<>();
 
+    @Inject
     public NewsAdapter(Context context) {
         mContext = context;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_news, parent, false);
+        View view = LayoutInflater.from(App.getAppContext()).inflate(R.layout.item_news, parent, false);
         return new NewsViewHolder(view);
     }
 
