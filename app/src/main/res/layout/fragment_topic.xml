@@ -5,14 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.ajguan.library.EasyRefreshLayout
-        android:id="@+id/topic_refresh_layout"
+    <cn.com.woong.readhub.ui.widget.NewsView
+        android:id="@+id/topic_news_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/topic_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    </com.ajguan.library.EasyRefreshLayout>
+        android:layout_height="match_parent"/>
 </LinearLayout>
