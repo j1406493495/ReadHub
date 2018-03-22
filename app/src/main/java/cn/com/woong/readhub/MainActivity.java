@@ -16,6 +16,7 @@ import cn.com.woong.readhub.base.BaseActivity;
 import cn.com.woong.readhub.ui.mine.MineFragment;
 import cn.com.woong.readhub.ui.news.NewsFragment;
 import cn.com.woong.readhub.ui.topic.TopicFragment;
+import cn.com.woong.readhub.ui.widget.ScrollViewPager;
 import cn.com.woong.readhub.ui.widget.TitleBarLayout;
 
 /**
@@ -26,7 +27,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.title_bar)
     TitleBarLayout titleBar;
     @BindView(R.id.view_pager)
-    ViewPager viewPager;
+    ScrollViewPager viewPager;
     @BindView(R.id.rg_tab)
     RadioGroup rgTab;
     @BindView(R.id.rb_tab_topic)
