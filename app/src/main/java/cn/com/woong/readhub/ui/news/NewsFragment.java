@@ -56,7 +56,6 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
     private void initViewPager() {
         mCurrentTabPos = 0;
         for (int i = 0, count = 3; i < count; i++) {
-//            newsTabLayout.addTab(newsTabLayout.newTab().setText(mTabTitle[i]));
             NewsView newsView = new NewsView(getActivity());
             newsView.setOnNewsListener(new NewsView.OnNewsListener() {
                 @Override
@@ -113,11 +112,13 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
         @NonNull
         @Override
         public Object instantiateItem(@NonNull ViewGroup container, int position) {
+            container.addView(mNewsViewList.get(position));
             return mNewsViewList.get(position);
         }
 
         @Override
         public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+            container.removeView(mNewsViewList.get(position));
         }
 
         @Nullable
