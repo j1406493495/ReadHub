@@ -62,7 +62,6 @@ public class MainActivity extends BaseActivity {
         mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(mViewPagerAdapter);
         viewPager.setCurrentItem(0);
-        viewPager.setCanScroll(true);
         rbTabTopic.setChecked(true);
         titleBar.setTitle(mTitleStrs.get(0));
 
