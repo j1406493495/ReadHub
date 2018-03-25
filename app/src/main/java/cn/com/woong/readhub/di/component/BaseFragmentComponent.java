@@ -1,7 +1,5 @@
 package cn.com.woong.readhub.di.component;
 
-
-
 import cn.com.woong.readhub.base.BaseFragment;
 import dagger.Subcomponent;
 import dagger.android.AndroidInjectionModule;

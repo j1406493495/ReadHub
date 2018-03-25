@@ -9,8 +9,6 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.ajguan.library.EasyRefreshLayout;
 import java.util.ArrayList;
-import javax.inject.Inject;
-import butterknife.BindView;
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.bean.NewsMo;
 import cn.com.woong.readhub.ui.common.NewsAdapter;

@@ -4,12 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
 import com.blankj.utilcode.util.BarUtils;
-
 import java.util.ArrayList;
 import butterknife.BindView;
 import cn.com.woong.readhub.base.BaseActivity;

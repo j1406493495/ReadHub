@@ -4,11 +4,8 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.support.v4.app.Fragment;
-
 import com.blankj.utilcode.util.Utils;
-
 import javax.inject.Inject;
-
 import butterknife.ButterKnife;
 import cn.com.woong.readhub.di.component.DaggerAppComponent;
 import dagger.android.AndroidInjector;
