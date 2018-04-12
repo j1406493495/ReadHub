@@ -5,6 +5,8 @@ import android.app.Application;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import com.blankj.utilcode.util.Utils;
+import com.facebook.stetho.Stetho;
+
 import javax.inject.Inject;
 import butterknife.ButterKnife;
 import cn.com.woong.readhub.di.component.DaggerAppComponent;
@@ -25,6 +27,7 @@ public class App extends Application implements HasSupportFragmentInjector, HasA
         super.onCreate();
         mInstance = this;
         Utils.init(mInstance);
+        Stetho.initializeWithDefaults(this);
         ButterKnife.setDebug(true);
         DaggerAppComponent.create().inject(this);
     }

@@ -6,8 +6,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
 import com.blankj.utilcode.util.BarUtils;
+
 import java.util.ArrayList;
+
 import butterknife.BindView;
 import cn.com.woong.readhub.base.BaseActivity;
 import cn.com.woong.readhub.ui.mine.MineFragment;
@@ -18,7 +21,7 @@ import cn.com.woong.readhub.ui.widget.TitleBarLayout;
 
 /**
  * @author woong
- * Created by wong on 2018/3/7.
+ *         Created by wong on 2018/3/7.
  */
 public class MainActivity extends BaseActivity {
     @BindView(R.id.title_bar)
@@ -112,6 +115,11 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+    }
+
+    @Override
+    protected void initData() {
+
     }
 
     private void initFragment() {

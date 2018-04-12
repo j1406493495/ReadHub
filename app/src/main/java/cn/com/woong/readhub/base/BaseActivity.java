@@ -26,6 +26,8 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
 
     protected abstract void initView();
 
+    protected abstract void initData();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,7 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
         unbinder = ButterKnife.bind(this);
         attachView();
         initView();
+        initData();
         if (!NetworkUtils.isConnected()) {
             showNoNet();
         }
