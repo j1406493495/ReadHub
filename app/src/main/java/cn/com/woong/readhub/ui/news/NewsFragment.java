@@ -53,6 +53,11 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
         initViewPager();
     }
 
+    @Override
+    protected void initData() {
+
+    }
+
     private void initViewPager() {
         mCurrentTabPos = 0;
         for (int i = 0, count = 3; i < count; i++) {

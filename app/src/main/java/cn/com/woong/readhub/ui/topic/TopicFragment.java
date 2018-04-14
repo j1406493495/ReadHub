@@ -35,11 +35,20 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
 
     @Override
     protected void initView(View view) {
-        mCurrentPage = 0;
+
+    }
+
+    @Override
+    protected void initData() {
+                mCurrentPage = 0;
 
         topicNewsView.setOnNewsListener(new NewsView.OnNewsListener() {
             @Override
             public void onNewsLoadMore() {
+                if (mPresenter != null) {
+                    mPresenter.refresh();
+                }
+
                 ArrayList<NewsMo> mNewsMos = new ArrayList<>();
 
                 for (int i = 0, count = 10; i < count; i++) {
@@ -51,11 +60,15 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
                 }
 
                 topicNewsView.updateNews(mNewsMos, mCurrentPage++);
-                topicNewsView.loadMoreComplete();
+//                topicNewsView.loadMoreComplete();
             }
 
             @Override
             public void onNewsRefreshing() {
+                if (mPresenter != null) {
+                    mPresenter.loadMore();
+                }
+
                 ArrayList<NewsMo> mNewsMos = new ArrayList<>();
                 mCurrentPage = 0;
 
@@ -68,7 +81,7 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
                 }
 
                 topicNewsView.updateNews(mNewsMos, mCurrentPage);
-                topicNewsView.refreshComplete();
+//                topicNewsView.refreshComplete();
             }
         });
     }

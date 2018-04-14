@@ -21,6 +21,11 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
     }
 
     @Override
+    protected void initData() {
+
+    }
+
+    @Override
     public void setHomeBanners() {
 
     }

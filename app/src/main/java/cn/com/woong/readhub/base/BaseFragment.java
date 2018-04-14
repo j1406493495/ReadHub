@@ -30,6 +30,8 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
 
     protected abstract void initView(View view);
 
+    protected abstract void initData();
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +48,12 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
         unbinder = ButterKnife.bind(this, mRootView);
         initView(mRootView);
         return mRootView;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        initData();
     }
 
     @Override

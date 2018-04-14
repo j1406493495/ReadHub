@@ -22,7 +22,7 @@ public class NewsView extends FrameLayout {
     RecyclerView newsRecyclerView;
     EasyRefreshLayout newsRefreshLayout;
 
-    NewsAdapter mNewsAdapter;
+    private NewsAdapter mNewsAdapter;
 
     public NewsView(@NonNull Context context) {
         this(context, null);
