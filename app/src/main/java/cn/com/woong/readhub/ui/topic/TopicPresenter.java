@@ -21,7 +21,7 @@ public class TopicPresenter extends BasePresenter<TopicContract.View> implements
     @Override
     public void getTopicNews(final String order) {
         App.apiService(ApiService.class)
-                .apiTopic(order, Constant.PAGE_SIZE)
+                .apiTopic(order, Constant.TOPIC_PAGE_SIZE)
                 .compose(RxSchedulers.<TopicResp>io_main())
                 .compose(mView.<TopicResp>bindToLife())
                 .subscribe(new Consumer<TopicResp>() {

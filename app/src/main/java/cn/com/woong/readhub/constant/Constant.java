@@ -7,5 +7,6 @@ package cn.com.woong.readhub.constant;
 public class Constant {
     public static final String SP_TOKEN = "sp_token";
 
-    public static final int PAGE_SIZE = 20;
+    public static final int TOPIC_PAGE_SIZE = 20;
+    public static final int NEWS_PAGE_SIZE = 10;
 }

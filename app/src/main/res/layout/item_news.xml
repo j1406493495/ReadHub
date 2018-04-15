@@ -2,13 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
-              android:layout_height="120dp"
+              android:layout_height="wrap_content"
               android:orientation="vertical">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
         app:cardCornerRadius="8dp">
 
         <RelativeLayout
@@ -21,9 +24,10 @@
                 android:id="@+id/tv_item_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_newspaper"
+                android:drawablePadding="4dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="标题"
                 android:textColor="@color/b1"
                 android:textSize="@dimen/font_16"/>
 
@@ -33,23 +37,20 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_item_title"
                 android:ellipsize="end"
-                android:maxLines="2"
-                android:text="正文"
+                android:maxLines="3"
                 android:textColor="@color/b2"
-                android:textSize="@dimen/font_13"/>
+                android:textSize="@dimen/font_14"/>
 
             <TextView
                 android:id="@+id/tv_item_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:text="13分钟前"
+                android:layout_below="@+id/tv_item_content"
+                android:gravity="bottom"
                 android:textColor="@color/b3"
                 android:textSize="@dimen/font_12"/>
 
         </RelativeLayout>
-
     </android.support.v7.widget.CardView>
-
 </LinearLayout>

@@ -26,7 +26,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="20dp"
                 android:gravity="center_vertical"
-                android:textColor="@color/b2"
+                android:textColor="@color/b3"
                 android:textSize="@dimen/font_12"/>
 
             <TextView

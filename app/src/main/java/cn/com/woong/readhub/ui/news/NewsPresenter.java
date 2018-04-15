@@ -1,8 +1,15 @@
 package cn.com.woong.readhub.ui.news;
 
+
 import javax.inject.Inject;
 
+import cn.com.woong.readhub.App;
 import cn.com.woong.readhub.base.BasePresenter;
+import cn.com.woong.readhub.constant.Constant;
+import cn.com.woong.readhub.domain.ApiService;
+import cn.com.woong.readhub.domain.RxSchedulers;
+import cn.com.woong.readhub.resp.NewsResp;
+import io.reactivex.functions.Consumer;
 
 /**
  * Created by wong on 2018/3/9.
@@ -15,17 +22,65 @@ public class NewsPresenter extends BasePresenter<NewsContract.View> implements N
     }
 
     @Override
-    public void getTechNews(String publishDate) {
+    public void getTechNews(final String publishDate) {
+        App.apiService(ApiService.class)
+                .apiTeachNews(publishDate, Constant.NEWS_PAGE_SIZE)
+                .compose(RxSchedulers.<NewsResp>io_main())
+                .compose(mView.<NewsResp>bindToLife())
+                .subscribe(new Consumer<NewsResp>() {
+                    @Override
+                    public void accept(NewsResp newsResp) throws Exception {
+                        if (newsResp != null && newsResp.data != null) {
+                            mView.updateTechNews(publishDate, newsResp.data);
+                        }
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
 
+                    }
+                });
     }
 
     @Override
-    public void getDevelopNews(String publishDate) {
+    public void getDevelopNews(final String publishDate) {
+        App.apiService(ApiService.class)
+                .apiDevelopNews(publishDate, Constant.NEWS_PAGE_SIZE)
+                .compose(RxSchedulers.<NewsResp>io_main())
+                .compose(mView.<NewsResp>bindToLife())
+                .subscribe(new Consumer<NewsResp>() {
+                    @Override
+                    public void accept(NewsResp newsResp) throws Exception {
+                        if (newsResp != null && newsResp.data != null) {
+                            mView.updateDevelopNews(publishDate, newsResp.data);
+                        }
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
 
+                    }
+                });
     }
 
     @Override
-    public void getBlockchainNews(String publishDate) {
+    public void getBlockchainNews(final String publishDate) {
+        App.apiService(ApiService.class)
+                .apiBlockchainNews(publishDate, Constant.NEWS_PAGE_SIZE)
+                .compose(RxSchedulers.<NewsResp>io_main())
+                .compose(mView.<NewsResp>bindToLife())
+                .subscribe(new Consumer<NewsResp>() {
+                    @Override
+                    public void accept(NewsResp newsResp) throws Exception {
+                        if (newsResp != null && newsResp.data != null) {
+                            mView.updateBlockchainNews(publishDate, newsResp.data);
+                        }
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
 
+                    }
+                });
     }
 }

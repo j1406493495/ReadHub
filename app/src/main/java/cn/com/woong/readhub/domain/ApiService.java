@@ -44,8 +44,8 @@ public interface ApiService {
      * @param pageSize
      * @return
      */
-    @GET("news/lab")
-    Observable<NewsResp> apiNews(
+    @GET("news")
+    Observable<NewsResp> apiTeachNews(
             @Query("lastCursor") String lastCursor,
             @Query("pageSize") int pageSize
     );
@@ -59,7 +59,7 @@ public interface ApiService {
      * @return
      */
     @GET("technews")
-    Observable<NewsResp> apiTechNews(
+    Observable<NewsResp> apiDevelopNews(
             @Query("lastCursor") String lastCursor,
             @Query("pageSize") int pageSize
     );

@@ -1,6 +1,9 @@
 package cn.com.woong.readhub.ui.news;
 
+import java.util.ArrayList;
+
 import cn.com.woong.readhub.base.BaseContract;
+import cn.com.woong.readhub.bean.NewsMo;
 
 /**
  * Created by wong on 2018/3/9.
@@ -8,9 +11,9 @@ import cn.com.woong.readhub.base.BaseContract;
 
 public interface NewsContract {
     interface View extends BaseContract.BaseView {
-        void updateTechNews();
-        void updateDevelopNews();
-        void updateBlockchainNews();
+        void updateTechNews(String publishDate, ArrayList<NewsMo> newsMos);
+        void updateDevelopNews(String publishDate, ArrayList<NewsMo> newsMos);
+        void updateBlockchainNews(String publishDate, ArrayList<NewsMo> newsMos);
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {

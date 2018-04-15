@@ -50,19 +50,19 @@ public class NewsView extends FrameLayout {
             @Override
             public void onLoadMore() {
                 mOnNewsListener.onNewsLoadMore();
-                newsRefreshLayout.loadMoreComplete();
             }
 
             @Override
             public void onRefreshing() {
                 mOnNewsListener.onNewsRefreshing();
-                newsRefreshLayout.refreshComplete();
             }
         });
     }
 
-    public void updateNews(ArrayList<NewsMo> newsMos, int page) {
-        mNewsAdapter.updateNews(newsMos, page);
+    public void updateNews(boolean clear, ArrayList<NewsMo> newsMos) {
+        mNewsAdapter.updateNews(clear, newsMos);
+        newsRefreshLayout.refreshComplete();
+        newsRefreshLayout.loadMoreComplete();
     }
 
     public void loadMoreComplete() {

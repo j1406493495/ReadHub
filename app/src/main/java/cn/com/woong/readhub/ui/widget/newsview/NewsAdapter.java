@@ -44,8 +44,8 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         return mNewsMos.size();
     }
 
-    public void updateNews(ArrayList<NewsMo> newsMos, int page) {
-        if (page == 1) {
+    public void updateNews(boolean clear, ArrayList<NewsMo> newsMos) {
+        if (clear) {
             mNewsMos.clear();
         }
 
