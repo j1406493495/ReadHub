@@ -93,16 +93,15 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
                 @Override
                 public void onNewsLoadMore() {
                     if (mPresenter != null) {
-                        mPublishDateList.set(pos, "");
                         switch (pos) {
                             case 0:
-                                mPresenter.getTechNews("");
+                                mPresenter.getTechNews(mPublishDateList.get(0));
                                 break;
                             case 1:
-                                mPresenter.getDevelopNews("");
+                                mPresenter.getDevelopNews(mPublishDateList.get(1));
                                 break;
                             case 2:
-                                mPresenter.getBlockchainNews("");
+                                mPresenter.getBlockchainNews(mPublishDateList.get(2));
                                 break;
                             default:
                                 break;
@@ -113,15 +112,16 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
                 @Override
                 public void onNewsRefreshing() {
                     if (mPresenter != null) {
+                        mPublishDateList.set(pos, "");
                         switch (pos) {
                             case 0:
-                                mPresenter.getTechNews(mPublishDateList.get(0));
+                                mPresenter.getTechNews("");
                                 break;
                             case 1:
-                                mPresenter.getDevelopNews(mPublishDateList.get(1));
+                                mPresenter.getDevelopNews("");
                                 break;
                             case 2:
-                                mPresenter.getBlockchainNews(mPublishDateList.get(2));
+                                mPresenter.getBlockchainNews("");
                                 break;
                             default:
                                 break;
