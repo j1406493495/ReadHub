@@ -1,4 +1,4 @@
-package cn.com.woong.readhub.ui.widget;
+package cn.com.woong.readhub.ui.widget.newsview;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,7 +11,6 @@ import com.ajguan.library.EasyRefreshLayout;
 import java.util.ArrayList;
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.bean.NewsMo;
-import cn.com.woong.readhub.ui.common.NewsAdapter;
 
 /**
  * @author woong

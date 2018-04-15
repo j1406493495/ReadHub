@@ -1,6 +1,9 @@
 package cn.com.woong.readhub.ui.topic;
 
+import java.util.ArrayList;
+
 import cn.com.woong.readhub.base.BaseContract;
+import cn.com.woong.readhub.bean.TopicMo;
 
 /**
  * Created by wong on 2018/3/9.
@@ -8,12 +11,10 @@ import cn.com.woong.readhub.base.BaseContract;
 
 public interface TopicContract {
     interface View extends BaseContract.BaseView {
-        void updateData();
+        void updateTopicData(String order, ArrayList<TopicMo> topicMos);
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void refresh();
-
-        void loadMore();
+        void getTopicNews(String order);
     }
 }

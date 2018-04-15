@@ -12,9 +12,8 @@ import cn.com.woong.readhub.base.BaseMo;
  */
 
 public class TopicMo extends BaseMo implements Parcelable {
-    public long id;
+    public String id;
     public String createAt;
-    public String eventData;
     public ArrayList<NewsMo> newsArray;
     public long order;
     public String publishDate;
@@ -23,6 +22,9 @@ public class TopicMo extends BaseMo implements Parcelable {
     public String updateAt;
     public String timeline;
 
+    public TopicMo() {
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -30,9 +32,8 @@ public class TopicMo extends BaseMo implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeLong(this.id);
+        dest.writeString(this.id);
         dest.writeString(this.createAt);
-        dest.writeString(this.eventData);
         dest.writeTypedList(newsArray);
         dest.writeLong(this.order);
         dest.writeString(this.publishDate);
@@ -42,13 +43,9 @@ public class TopicMo extends BaseMo implements Parcelable {
         dest.writeString(this.timeline);
     }
 
-    public TopicMo() {
-    }
-
     protected TopicMo(Parcel in) {
-        this.id = in.readLong();
+        this.id = in.readString();
         this.createAt = in.readString();
-        this.eventData = in.readString();
         this.newsArray = in.createTypedArrayList(NewsMo.CREATOR);
         this.order = in.readLong();
         this.publishDate = in.readString();
@@ -58,7 +55,7 @@ public class TopicMo extends BaseMo implements Parcelable {
         this.timeline = in.readString();
     }
 
-    public static final Parcelable.Creator<TopicMo> CREATOR = new Parcelable.Creator<TopicMo>() {
+    public static final Creator<TopicMo> CREATOR = new Creator<TopicMo>() {
         public TopicMo createFromParcel(Parcel source) {
             return new TopicMo(source);
         }

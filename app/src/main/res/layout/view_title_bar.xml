@@ -32,7 +32,7 @@
             android:paddingRight="14dp"
             android:paddingTop="8dp"
             android:textColor="@color/b1"
-            android:textSize="@dimen/f3"
+            android:textSize="@dimen/font_16"
             android:visibility="gone"/>
 
         <TextView
@@ -44,7 +44,7 @@
             android:gravity="center"
             android:maxLength="12"
             android:textColor="@color/b1"
-            android:textSize="@dimen/f2"
+            android:textSize="@dimen/font_18"
             android:visibility="gone"/>
 
         <ImageView
@@ -68,7 +68,7 @@
             android:paddingRight="14dp"
             android:paddingTop="8dp"
             android:textColor="@color/b2"
-            android:textSize="@dimen/f3"
+            android:textSize="@dimen/font_16"
             android:visibility="gone"/>
 
         <View

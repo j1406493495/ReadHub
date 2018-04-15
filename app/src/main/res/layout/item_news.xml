@@ -25,7 +25,7 @@
                 android:maxLines="1"
                 android:text="标题"
                 android:textColor="@color/b1"
-                android:textSize="@dimen/f3"/>
+                android:textSize="@dimen/font_16"/>
 
             <TextView
                 android:id="@+id/tv_item_content"
@@ -36,7 +36,7 @@
                 android:maxLines="2"
                 android:text="正文"
                 android:textColor="@color/b2"
-                android:textSize="@dimen/f5"/>
+                android:textSize="@dimen/font_13"/>
 
             <TextView
                 android:id="@+id/tv_item_time"
@@ -46,7 +46,7 @@
                 android:layout_alignParentRight="true"
                 android:text="13分钟前"
                 android:textColor="@color/b3"
-                android:textSize="@dimen/f6"/>
+                android:textSize="@dimen/font_12"/>
 
         </RelativeLayout>
 

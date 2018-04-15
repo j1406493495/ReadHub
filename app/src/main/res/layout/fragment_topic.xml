@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<com.ajguan.library.EasyRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/topic_refresh_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <cn.com.woong.readhub.ui.widget.NewsView
-        android:id="@+id/topic_news_view"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/topic_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-</LinearLayout>
+</com.ajguan.library.EasyRefreshLayout>

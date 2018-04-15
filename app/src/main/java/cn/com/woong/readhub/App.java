@@ -10,6 +10,7 @@ import com.facebook.stetho.Stetho;
 import javax.inject.Inject;
 import butterknife.ButterKnife;
 import cn.com.woong.readhub.di.component.DaggerAppComponent;
+import cn.com.woong.readhub.domain.ApiManager;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
@@ -21,11 +22,13 @@ import dagger.android.support.HasSupportFragmentInjector;
 
 public class App extends Application implements HasSupportFragmentInjector, HasActivityInjector {
     private static App mInstance;
+    private ApiManager mApiManager = null;
 
     @Override
     public void onCreate() {
         super.onCreate();
         mInstance = this;
+        mApiManager = new ApiManager();
         Utils.init(mInstance);
         Stetho.initializeWithDefaults(this);
         ButterKnife.setDebug(true);
@@ -38,6 +41,15 @@ public class App extends Application implements HasSupportFragmentInjector, HasA
 
     public static App getInstance() {
         return mInstance;
+    }
+
+
+    public static <T> T apiService(Class<T> clz) {
+        return getInstance().mApiManager.getService(clz);
+    }
+
+    public <T> void addApiService(Class<T> clz) {
+        getInstance().mApiManager.addService(clz);
     }
 
     @Inject

@@ -3,7 +3,7 @@ package cn.com.woong.readhub.di.module.fragments;
 
 import cn.com.woong.readhub.App;
 import cn.com.woong.readhub.di.scope.PerFragment;
-import cn.com.woong.readhub.ui.common.NewsAdapter;
+import cn.com.woong.readhub.ui.widget.newsview.NewsAdapter;
 import dagger.Module;
 import dagger.Provides;
 

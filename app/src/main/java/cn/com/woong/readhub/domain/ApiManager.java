@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.DeviceUtils;
+import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.NetworkUtils;
 import com.blankj.utilcode.util.SPUtils;
 
@@ -18,6 +19,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
 import cn.com.woong.readhub.App;
+import cn.com.woong.readhub.BuildConfig;
 import cn.com.woong.readhub.constant.Constant;
 import cn.com.woong.readhub.domain.cookie.SetCookieCache;
 import cn.com.woong.readhub.domain.converter.ResponseConverterFactory;
@@ -25,6 +27,7 @@ import cn.com.woong.readhub.domain.converter.StringConverterFactory;
 import cn.com.woong.readhub.domain.cookie.PersistentCookieJar;
 import cn.com.woong.readhub.domain.cookie.SharedPrefsCookiePersistor;
 import okhttp3.Authenticator;
+import okhttp3.CacheControl;
 import okhttp3.FormBody;
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
@@ -33,6 +36,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 import okhttp3.Route;
 import okhttp3.logging.HttpLoggingInterceptor;
 import okio.BufferedSink;
@@ -40,6 +44,7 @@ import okio.Okio;
 import okio.Sink;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * ApiManager
@@ -79,9 +84,10 @@ public class ApiManager {
         retrofit_webapi = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(client)
+                .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(StringConverterFactory.create())
-                .addConverterFactory(ResponseConverterFactory.create())
+//                .addConverterFactory(StringConverterFactory.create())
+//                .addConverterFactory(ResponseConverterFactory.create())
                 .build();
 
         SERVICE_RETROFIT_BIND.put(ApiService.class, retrofit_webapi);

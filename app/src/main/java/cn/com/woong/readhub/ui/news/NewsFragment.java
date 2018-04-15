@@ -1,25 +1,20 @@
 package cn.com.woong.readhub.ui.news;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.base.BaseFragment;
-import cn.com.woong.readhub.ui.widget.NewsView;
+import cn.com.woong.readhub.ui.widget.newsview.NewsView;
 import dagger.android.support.AndroidSupportInjection;
 
 /**
@@ -61,11 +56,21 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
     private void initViewPager() {
         mCurrentTabPos = 0;
         for (int i = 0, count = 3; i < count; i++) {
+            final int pos = i;
             NewsView newsView = new NewsView(getActivity());
             newsView.setOnNewsListener(new NewsView.OnNewsListener() {
                 @Override
                 public void onNewsLoadMore() {
-
+                    switch (pos) {
+                        case 0:
+                            break;
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        default:
+                            break;
+                    }
                 }
 
                 @Override
@@ -83,14 +88,10 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
             }
 
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
+            public void onTabUnselected(TabLayout.Tab tab) {}
 
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
+            public void onTabReselected(TabLayout.Tab tab) {}
         });
 
         mNewsViewPagerAdapter = new NewsViewPagerAdapter();
@@ -99,7 +100,17 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
     }
 
     @Override
-    public void setHomeBanners() {
+    public void updateTechNews() {
+
+    }
+
+    @Override
+    public void updateDevelopNews() {
+
+    }
+
+    @Override
+    public void updateBlockchainNews() {
 
     }
 

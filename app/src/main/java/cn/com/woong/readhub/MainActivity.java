@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -58,13 +60,20 @@ public class MainActivity extends BaseActivity {
         BarUtils.setStatusBarColor(this, getResources().getColor(R.color.c1), 1);
         titleBar.setTitleBarBgColor(getResources().getColor(R.color.c1));
         titleBar.setTitleColor(getResources().getColor(R.color.b7));
+    }
 
+    @Override
+    protected void initData() {
         mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(mViewPagerAdapter);
         viewPager.setCurrentItem(0);
         rbTabTopic.setChecked(true);
         titleBar.setTitle(mTitleStrs.get(0));
 
+        initListener();
+    }
+
+    private void initListener() {
         rgTab.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -115,11 +124,6 @@ public class MainActivity extends BaseActivity {
 
             }
         });
-    }
-
-    @Override
-    protected void initData() {
-
     }
 
     private void initFragment() {

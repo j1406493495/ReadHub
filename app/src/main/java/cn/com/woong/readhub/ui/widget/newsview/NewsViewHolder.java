@@ -1,12 +1,9 @@
-package cn.com.woong.readhub.ui.common;
+package cn.com.woong.readhub.ui.widget.newsview;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import javax.inject.Inject;
-
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.bean.NewsMo;

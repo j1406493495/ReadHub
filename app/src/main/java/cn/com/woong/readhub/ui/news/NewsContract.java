@@ -8,10 +8,14 @@ import cn.com.woong.readhub.base.BaseContract;
 
 public interface NewsContract {
     interface View extends BaseContract.BaseView {
-        void setHomeBanners();
+        void updateTechNews();
+        void updateDevelopNews();
+        void updateBlockchainNews();
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void refresh();
+        void getTechNews(String publishDate);
+        void getDevelopNews(String publishDate);
+        void getBlockchainNews(String publishDate);
     }
 }

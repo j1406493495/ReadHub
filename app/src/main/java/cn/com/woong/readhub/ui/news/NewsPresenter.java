@@ -11,10 +11,21 @@ import cn.com.woong.readhub.base.BasePresenter;
 public class NewsPresenter extends BasePresenter<NewsContract.View> implements NewsContract.Presenter {
     @Inject
     public NewsPresenter() {
+
     }
 
     @Override
-    public void refresh() {
+    public void getTechNews(String publishDate) {
+
+    }
+
+    @Override
+    public void getDevelopNews(String publishDate) {
+
+    }
+
+    @Override
+    public void getBlockchainNews(String publishDate) {
 
     }
 }

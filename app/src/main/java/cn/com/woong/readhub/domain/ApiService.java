@@ -3,6 +3,8 @@ package cn.com.woong.readhub.domain;
 import java.util.Map;
 
 import cn.com.woong.readhub.resp.BaseResponse;
+import cn.com.woong.readhub.resp.NewsResp;
+import cn.com.woong.readhub.resp.TopicResp;
 import io.reactivex.Observable;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
@@ -30,11 +32,10 @@ public interface ApiService {
      * @return
      */
     @GET("topic")
-    Observable<BaseResponse> apiTopic(
+    Observable<TopicResp> apiTopic(
             @Query("lastCursor") String lastCursor,
             @Query("pageSize") int pageSize
     );
-
 
     /**
      * 科技动态
@@ -43,8 +44,8 @@ public interface ApiService {
      * @param pageSize
      * @return
      */
-    @GET("news")
-    Observable<BaseResponse> apiNews(
+    @GET("news/lab")
+    Observable<NewsResp> apiNews(
             @Query("lastCursor") String lastCursor,
             @Query("pageSize") int pageSize
     );
@@ -58,7 +59,21 @@ public interface ApiService {
      * @return
      */
     @GET("technews")
-    Observable<BaseResponse> apiTechNews(
+    Observable<NewsResp> apiTechNews(
+            @Query("lastCursor") String lastCursor,
+            @Query("pageSize") int pageSize
+    );
+
+
+    /**
+     * 区块链资讯
+     *
+     * @param lastCursor
+     * @param pageSize
+     * @return
+     */
+    @GET("blockchain")
+    Observable<NewsResp> apiBlockchainNews(
             @Query("lastCursor") String lastCursor,
             @Query("pageSize") int pageSize
     );
