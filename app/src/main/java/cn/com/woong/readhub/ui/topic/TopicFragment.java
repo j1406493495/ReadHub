@@ -132,17 +132,9 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
 
         public void onBind(int pos) {
             TopicMo topicMo = mTopicMos.get(pos);
-//
-//            String[] timeStr = topicMo.publishDate.split("T");
-//            if (timeStr.length > 0) {
-//                tvTopicTime.setVisibility(View.VISIBLE);
-//                tvTopicTime.setText(timeStr[0]);
-//            } else {
-//                tvTopicTime.setVisibility(View.GONE);
-//            }
 
             long publishDate = CommonUtils.getTimeStampByReahubDateString(topicMo.publishDate);
-            tvTopicTime.setText(TimeUtils.millis2String(publishDate, new SimpleDateFormat("MM-dd' 'HH:mm ")));
+            tvTopicTime.setText(TimeUtils.millis2String(publishDate, new SimpleDateFormat("MM-dd' 'HH:mm")));
 
             tvTopicTitle.setText(topicMo.title);
             tvTopicSummary.setText(topicMo.summary);
