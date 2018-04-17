@@ -14,9 +14,4 @@ import dagger.Provides;
 @PerFragment
 @Module
 public class TopicFragmentModule {
-
-    @Provides
-    static NewsAdapter providesNewsAdapter() {
-        return new NewsAdapter(App.getAppContext());
-    }
 }
