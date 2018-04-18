@@ -4,4 +4,5 @@
     <string name="tab_hot">热门</string>
     <string name="tab_info">资讯</string>
     <string name="tab_mine">我的</string>
+    <string name="exit_program">双击退出程序</string>
 </resources>

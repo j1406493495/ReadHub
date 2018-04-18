@@ -30,10 +30,11 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
     @BindView(R.id.news_view_pager)
     ViewPager newsViewPager;
 
-    NewsViewPagerAdapter mNewsViewPagerAdapter;
-    ArrayList<NewsView> mNewsViewList = new ArrayList<>();
-    ArrayList<String> mPublishDateList = new ArrayList<>();
-    String[] mTabTitle = {"科技动态", "开发者资讯", "区块链快讯"};
+    private NewsViewPagerAdapter mNewsViewPagerAdapter;
+    private ArrayList<NewsView> mNewsViewList = new ArrayList<>();
+    private ArrayList<String> mPublishDateList = new ArrayList<>();
+    private String[] mTabTitle = {"科技动态", "开发者资讯", "区块链快讯"};
+    private int mCurrentTabPos = 0;
 
     @Override
     public void onAttach(Context context) {
@@ -60,6 +61,7 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
         newsTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                mCurrentTabPos = tab.getPosition();
                 if (mPresenter != null) {
                     switch (tab.getPosition()) {
                         case 0:
@@ -136,6 +138,25 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
         mNewsViewPagerAdapter = new NewsViewPagerAdapter();
         newsViewPager.setAdapter(mNewsViewPagerAdapter);
         newsTabLayout.setupWithViewPager(newsViewPager);
+    }
+
+    public void refreshNewsData() {
+        if (mPresenter != null) {
+            mPublishDateList.set(mCurrentTabPos, "");
+            switch (mCurrentTabPos) {
+                case 0:
+                    mPresenter.getTechNews("");
+                    break;
+                case 1:
+                    mPresenter.getDevelopNews("");
+                    break;
+                case 2:
+                    mPresenter.getBlockchainNews("");
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     @Override

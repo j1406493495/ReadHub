@@ -79,6 +79,13 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
         });
     }
 
+    public void refreshTopicData() {
+        mLastOrder = "";
+        if (mPresenter != null) {
+            mPresenter.getTopicNews(mLastOrder);
+        }
+    }
+
     @Override
     public void updateTopicData(String order, ArrayList<TopicMo> topicMos) {
         topicRefreshLayout.refreshComplete();
@@ -95,7 +102,6 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
     }
 
     private class TopicAdapter extends RecyclerView.Adapter {
-
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(getActivity()).inflate(R.layout.item_topic, parent, false);

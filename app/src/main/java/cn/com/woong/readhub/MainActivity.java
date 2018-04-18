@@ -10,6 +10,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.blankj.utilcode.util.BarUtils;
+import com.blankj.utilcode.util.ToastUtils;
 
 import java.util.ArrayList;
 
@@ -40,7 +41,7 @@ public class MainActivity extends BaseActivity {
     RadioButton rbTabMine;
 
     ViewPagerAdapter mViewPagerAdapter;
-
+    private long exitTime = 0;
     private ArrayList<String> mTitleStrs = new ArrayList<>();
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     private TopicFragment mTopicFragment;
@@ -136,6 +137,24 @@ public class MainActivity extends BaseActivity {
         mTitleStrs.add(getString(R.string.tab_hot));
         mTitleStrs.add(getString(R.string.tab_info));
         mTitleStrs.add(getString(R.string.tab_mine));
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if ((System.currentTimeMillis() - exitTime) > 1000) {
+            ToastUtils.showShort(R.string.exit_program);
+            exitTime = System.currentTimeMillis();
+            
+            if (rbTabTopic.isChecked()) {
+                mTopicFragment.refreshTopicData();
+            } else if (rbTabNews.isChecked()) {
+                mNewsFragment.refreshNewsData();
+            }
+        } else {
+            finish();
+            System.exit(0);
+        }
     }
 
     public class ViewPagerAdapter extends FragmentPagerAdapter {
