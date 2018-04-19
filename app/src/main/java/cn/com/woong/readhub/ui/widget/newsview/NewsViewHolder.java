@@ -18,21 +18,23 @@ import cn.com.woong.readhub.utils.CommonUtils;
  */
 
 public class NewsViewHolder extends RecyclerView.ViewHolder {
-    TextView tvItemTitle;
-    TextView tvItemTime;
-    TextView tvItemContent;
+    private TextView tvItemTitle;
+    private TextView tvItemTime;
+    private TextView tvItemAuthor;
+    private TextView tvItemContent;
 
     public NewsViewHolder(View itemView) {
         super(itemView);
-        ButterKnife.bind(itemView);
         tvItemTitle = itemView.findViewById(R.id.tv_item_title);
         tvItemContent = itemView.findViewById(R.id.tv_item_content);
+        tvItemAuthor = itemView.findViewById(R.id.tv_item_author);
         tvItemTime = itemView.findViewById(R.id.tv_item_time);
     }
 
     public void bind(NewsMo newsMo) {
         tvItemTitle.setText(newsMo.title);
         tvItemContent.setText(newsMo.summary);
+        tvItemAuthor.setText(newsMo.siteName + "/" + newsMo.authorName);
 
         long publishDate = CommonUtils.getTimeStampByReahubDateString(newsMo.publishDate);
         tvItemTime.setText(TimeUtils.millis2String(publishDate, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")));
