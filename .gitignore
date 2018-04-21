@@ -6,6 +6,6 @@
 .idea
 .DS_Store
 /build
-/key
+/app/key
 /captures
 .externalNativeBuild
