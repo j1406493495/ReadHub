@@ -2,11 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
-        woong {
-            keyAlias 'woong.com.cn'
-            keyPassword 'woong'
+        tSignConfig {
+            keyAlias 'woongkey'
+            keyPassword '123456'
+            storeFile file("key/woongkey.jks")
+            storePassword '123456'
         }
     }
+
     compileSdkVersion 27
     defaultConfig {
         applicationId "cn.com.woong.readhub"
@@ -16,6 +19,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         debug {
             minifyEnabled false
@@ -23,10 +27,24 @@ android {
         }
 
         release {
-            minifyEnabled false
+            zipAlignEnabled true
+            shrinkResources true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.tSignConfig
         }
     }
+
+    //在apk文件后边生成版本号信息
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "coffee308_en_v" + defaultConfig.versionName + "-${releaseTime()}.apk"
+        }
+    }
+}
+
+def releaseTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
 }
 
 dependencies {
