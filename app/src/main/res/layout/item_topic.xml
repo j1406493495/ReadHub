@@ -40,7 +40,7 @@
                 android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:maxLines="1"
-                android:textColor="@color/b1"
+                android:textColor="@color/c8"
                 android:textSize="@dimen/font_16"/>
 
             <TextView

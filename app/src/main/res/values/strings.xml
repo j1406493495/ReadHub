@@ -6,4 +6,5 @@
     <string name="tab_mine">我的</string>
     <string name="exit_program">双击退出程序</string>
     <string name="timeline_event">相关事件</string>
+    <string name="readhub_str">ReadHub</string>
 </resources>

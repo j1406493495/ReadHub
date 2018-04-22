@@ -29,7 +29,7 @@
                 android:drawablePadding="4dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:textColor="@color/b1"
+                android:textColor="@color/c8"
                 android:textSize="@dimen/font_16"/>
 
             <TextView
@@ -46,8 +46,8 @@
                 android:id="@+id/tv_item_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
                 android:layout_below="@+id/tv_item_content"
                 android:gravity="bottom"
                 android:textColor="@color/b3"

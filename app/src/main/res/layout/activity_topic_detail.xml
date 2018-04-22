@@ -1,50 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:clipToPadding="true"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <cn.com.woong.readhub.ui.widget.TitleBarLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_topic_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColor="@color/b1"
+                android:textSize="@dimen/font_20"/>
 
-        <TextView
-            android:id="@+id/tv_topic_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:textColor="@color/b1"
-            android:textSize="@dimen/font_20"/>
+            <TextView
+                android:id="@+id/tv_topic_summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="@color/b2"
+                android:textSize="@dimen/font_16"/>
 
-        <TextView
-            android:id="@+id/tv_topic_summary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="20dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textColor="@color/b2"
-            android:textSize="@dimen/font_16"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/news_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"/>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/news_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"/>
+            <TextView
+                android:id="@+id/tv_topic_timeline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="20dp"
+                android:text="@string/timeline_event"
+                android:textColor="@color/b1"
+                android:textSize="@dimen/font_16"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:paddingLeft="20dp"
-            android:text="@string/timeline_event"
-            android:textColor="@color/b2"
-            android:textSize="@dimen/font_14"/>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/timeline_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-</ScrollView>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/timeline_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

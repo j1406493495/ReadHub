@@ -23,6 +23,7 @@ import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.base.BaseActivity;
 import cn.com.woong.readhub.bean.TopicMo;
 import cn.com.woong.readhub.bean.TopicTimeLineMo;
+import cn.com.woong.readhub.ui.widget.TitleBarLayout;
 import cn.com.woong.readhub.ui.widget.newsview.NewsAdapter;
 import cn.com.woong.readhub.utils.CommonUtils;
 import dagger.android.AndroidInjection;
@@ -33,12 +34,16 @@ import dagger.android.AndroidInjection;
  */
 
 public class TopicDetailActivity extends BaseActivity<TopicDetailPresenter> implements TopicDetailContract.View {
+    @BindView(R.id.title_bar)
+    TitleBarLayout titleBar;
     @BindView(R.id.tv_topic_title)
     TextView tvTopicTitle;
     @BindView(R.id.tv_topic_summary)
     TextView tvTopicSummary;
     @BindView(R.id.news_recycler_view)
     RecyclerView newsRecyclerView;
+    @BindView(R.id.tv_topic_timeline)
+    TextView tvTopicTimeLine;
     @BindView(R.id.timeline_recycler_view)
     RecyclerView timelineRecyclerView;
 
@@ -71,7 +76,18 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailPresenter> impl
 
     @Override
     protected void initView() {
-        BarUtils.setStatusBarVisibility(this, false);
+        BarUtils.setStatusBarVisibility(this, true);
+        BarUtils.setStatusBarColor(this, getResources().getColor(R.color.c1), 1);
+        titleBar.setTitle(getString(R.string.readhub_str));
+        titleBar.setTitleBarBgColor(getResources().getColor(R.color.c1));
+        titleBar.setTitleColor(getResources().getColor(R.color.b7));
+
+        titleBar.setLeftBack(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         mTimeLineAdapter = new TimeLineAdapter();
         timelineRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -98,7 +114,13 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailPresenter> impl
         mNewsAdapter.updateNews(true, topicMo.newsArray);
 
         mTopicTimeLineMos.clear();
-        mTopicTimeLineMos.addAll(topicMo.timeline.topics);
+        if (topicMo.timeline != null && topicMo.timeline.topics != null
+                && topicMo.timeline.topics.size() > 0) {
+            mTopicTimeLineMos.addAll(topicMo.timeline.topics);
+        } else {
+            tvTopicTimeLine.setVisibility(View.GONE);
+            timelineRecyclerView.setVisibility(View.GONE);
+        }
         mTimeLineAdapter.notifyDataSetChanged();
     }
 
@@ -121,9 +143,9 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailPresenter> impl
     }
 
     private class TimeLineViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTimelineTime;
-        TextView tvTimelineLine;
-        TextView tvTimelineTitle;
+        private TextView tvTimelineTime;
+        private TextView tvTimelineLine;
+        private TextView tvTimelineTitle;
 
         public TimeLineViewHolder(View itemView) {
             super(itemView);
@@ -134,7 +156,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailPresenter> impl
         }
 
         public void onBind(int pos) {
-            TopicTimeLineMo topicTimeLineMo = mTopicTimeLineMos.get(pos);
+            final TopicTimeLineMo topicTimeLineMo = mTopicTimeLineMos.get(pos);
 
             if (pos >= mTopicTimeLineMos.size() - 1) {
                 tvTimelineLine.setVisibility(View.GONE);
@@ -147,6 +169,13 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailPresenter> impl
                     new SimpleDateFormat("yyyy/MM/dd")));
 
             tvTimelineTitle.setText(topicTimeLineMo.title);
+
+            tvTimelineTitle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    TopicDetailActivity.startTopicDetailActivity(TopicDetailActivity.this, topicTimeLineMo.id);
+                }
+            });
         }
     }
 }

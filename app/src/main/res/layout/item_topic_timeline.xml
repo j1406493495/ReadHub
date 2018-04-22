@@ -27,7 +27,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_toRightOf="@+id/tv_timeline_time"
-        android:textColor="@color/b2"
+        android:textColor="@color/c8"
         android:textSize="@dimen/font_14"/>
 
 </RelativeLayout>

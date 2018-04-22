@@ -15,6 +15,7 @@
     <color name="c5">#ff7400</color>        //【文字 橙色】- 重要，醒目，价格
     <color name="c6">#ff5500</color>        //【文字 橙红色】- 未读消息提示
     <color name="c7">#489d46</color>        //【文字 绿色】- 重要，醒目，价格
+    <color name="c8">#607D8B</color>
 
     <color name="transparent">#00000000</color>
     <color name="transparent_c1">#e5fd8000</color>
