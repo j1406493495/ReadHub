@@ -161,21 +161,21 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
 
     @Override
     public void updateTechNews(String publishDate, ArrayList<NewsMo> newsMos) {
-        mPublishDateList.set(0, String.valueOf(CommonUtils.getTimeStampByReahubDateString(
+        mPublishDateList.set(0, String.valueOf(CommonUtils.getTimeStampByReadhubDateString(
                 newsMos.get(newsMos.size() - 1).publishDate)));
         mNewsViewList.get(0).updateNews(TextUtils.isEmpty(publishDate), newsMos);
     }
 
     @Override
     public void updateDevelopNews(String publishDate, ArrayList<NewsMo> newsMos) {
-        mPublishDateList.set(1, String.valueOf(CommonUtils.getTimeStampByReahubDateString(
+        mPublishDateList.set(1, String.valueOf(CommonUtils.getTimeStampByReadhubDateString(
                 newsMos.get(newsMos.size() - 1).publishDate)));
         mNewsViewList.get(1).updateNews(TextUtils.isEmpty(publishDate), newsMos);
     }
 
     @Override
     public void updateBlockchainNews(String publishDate, ArrayList<NewsMo> newsMos) {
-        mPublishDateList.set(2, String.valueOf(CommonUtils.getTimeStampByReahubDateString(
+        mPublishDateList.set(2, String.valueOf(CommonUtils.getTimeStampByReadhubDateString(
                 newsMos.get(newsMos.size() - 1).publishDate)));
         mNewsViewList.get(2).updateNews(TextUtils.isEmpty(publishDate), newsMos);
     }

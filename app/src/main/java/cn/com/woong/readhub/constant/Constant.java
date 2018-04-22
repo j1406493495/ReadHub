@@ -9,4 +9,6 @@ public class Constant {
 
     public static final int TOPIC_PAGE_SIZE = 20;
     public static final int NEWS_PAGE_SIZE = 10;
+
+    public static final String TOPIC_URL = "https://readhub.me/topic/";
 }

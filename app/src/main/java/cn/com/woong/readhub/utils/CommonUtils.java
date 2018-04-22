@@ -11,7 +11,11 @@ import java.util.TimeZone;
 
 public class CommonUtils {
 
-    public static Long getTimeStampByReahubDateString(String date){
+    public static Long getTimeStampByReadhubDateString(String date){
+        if (date == null) {
+            return 0L;
+        }
+
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.CHINA);
         format.setTimeZone(TimeZone.getTimeZone("UTC"));
         try {
@@ -22,3 +26,4 @@ public class CommonUtils {
         }
     }
 }
+

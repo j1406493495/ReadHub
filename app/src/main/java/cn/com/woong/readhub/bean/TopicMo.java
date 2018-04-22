@@ -20,7 +20,7 @@ public class TopicMo extends BaseMo implements Parcelable {
     public String summary;
     public String title;
     public String updateAt;
-    public String timeline;
+    public TimeLineMo timeline;
 
     public TopicMo() {
     }
@@ -40,7 +40,7 @@ public class TopicMo extends BaseMo implements Parcelable {
         dest.writeString(this.summary);
         dest.writeString(this.title);
         dest.writeString(this.updateAt);
-        dest.writeString(this.timeline);
+        dest.writeParcelable(this.timeline, 0);
     }
 
     protected TopicMo(Parcel in) {
@@ -52,7 +52,7 @@ public class TopicMo extends BaseMo implements Parcelable {
         this.summary = in.readString();
         this.title = in.readString();
         this.updateAt = in.readString();
-        this.timeline = in.readString();
+        this.timeline = in.readParcelable(TimeLineMo.class.getClassLoader());
     }
 
     public static final Creator<TopicMo> CREATOR = new Creator<TopicMo>() {

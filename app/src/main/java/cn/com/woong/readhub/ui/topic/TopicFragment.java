@@ -1,6 +1,7 @@
 package cn.com.woong.readhub.ui.topic;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -19,6 +20,7 @@ import butterknife.BindView;
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.base.BaseFragment;
 import cn.com.woong.readhub.bean.TopicMo;
+import cn.com.woong.readhub.ui.topic.topicdetail.TopicDetailActivity;
 import cn.com.woong.readhub.utils.CommonUtils;
 import dagger.android.support.AndroidSupportInjection;
 
@@ -120,6 +122,7 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
     }
 
     private class TopicViewHolder extends RecyclerView.ViewHolder {
+        CardView topicCardView;
         TextView tvTopicTime;
         TextView tvTopicTitle;
         TextView tvTopicSummary;
@@ -129,6 +132,7 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
         public TopicViewHolder(View itemView) {
             super(itemView);
 
+            topicCardView = itemView.findViewById(R.id.topic_card_view);
             tvTopicTime = itemView.findViewById(R.id.tv_topic_time);
             tvTopicTitle = itemView.findViewById(R.id.tv_topic_title);
             tvTopicSummary = itemView.findViewById(R.id.tv_topic_summary);
@@ -137,9 +141,9 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
         }
 
         public void onBind(int pos) {
-            TopicMo topicMo = mTopicMos.get(pos);
+            final TopicMo topicMo = mTopicMos.get(pos);
 
-            long publishDate = CommonUtils.getTimeStampByReahubDateString(topicMo.publishDate);
+            long publishDate = CommonUtils.getTimeStampByReadhubDateString(topicMo.publishDate);
             tvTopicTime.setText(TimeUtils.millis2String(publishDate, new SimpleDateFormat("MM-dd' 'HH:mm")));
 
             tvTopicTitle.setText(topicMo.title);
@@ -170,6 +174,15 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
                 tvNewsTwo.setVisibility(View.GONE);
                 tvNewsOne.setVisibility(View.GONE);
             }
+
+            topicCardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    String url = Constant.TOPIC_URL + topicMo.id;
+//                    NewsDetailActivity.startNewsDetailActivity(getActivity(), url);
+                    TopicDetailActivity.startTopicDetailActivity(getActivity(), topicMo.id);
+                }
+            });
         }
     }
 }

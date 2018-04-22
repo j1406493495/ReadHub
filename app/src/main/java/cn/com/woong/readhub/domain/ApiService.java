@@ -2,6 +2,7 @@ package cn.com.woong.readhub.domain;
 
 import java.util.Map;
 
+import cn.com.woong.readhub.bean.TopicMo;
 import cn.com.woong.readhub.resp.BaseResponse;
 import cn.com.woong.readhub.resp.NewsResp;
 import cn.com.woong.readhub.resp.TopicResp;
@@ -15,6 +16,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PartMap;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
@@ -36,6 +38,15 @@ public interface ApiService {
             @Query("lastCursor") String lastCursor,
             @Query("pageSize") int pageSize
     );
+
+    /**
+     * topic detail
+     * @param topicId
+     * @return
+     */
+    @GET("topic/{topicId}")
+    Observable<TopicMo> apiTopicDetail(
+            @Path("topicId") String topicId);
 
     /**
      * 科技动态

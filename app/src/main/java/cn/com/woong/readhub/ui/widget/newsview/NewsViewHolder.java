@@ -10,7 +10,6 @@ import com.blankj.utilcode.util.TimeUtils;
 
 import java.text.SimpleDateFormat;
 
-import butterknife.ButterKnife;
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.bean.NewsMo;
 import cn.com.woong.readhub.ui.news.NewsDetailActivity;
@@ -45,7 +44,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
         tvItemContent.setText(newsMo.summary);
         tvItemAuthor.setText(newsMo.siteName + "/" + newsMo.authorName);
 
-        long publishDate = CommonUtils.getTimeStampByReahubDateString(newsMo.publishDate);
+        long publishDate = CommonUtils.getTimeStampByReadhubDateString(newsMo.publishDate);
         tvItemTime.setText(TimeUtils.millis2String(publishDate, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")));
 
         newsCardView.setOnClickListener(new View.OnClickListener() {
