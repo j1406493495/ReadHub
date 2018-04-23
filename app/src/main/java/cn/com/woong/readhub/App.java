@@ -13,6 +13,7 @@ import javax.inject.Inject;
 import butterknife.ButterKnife;
 import cn.com.woong.readhub.di.component.DaggerAppComponent;
 import cn.com.woong.readhub.domain.ApiManager;
+import cn.com.woong.readhub.domain.apiservice.GankioApiService;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
@@ -51,6 +52,8 @@ public class App extends Application implements HasSupportFragmentInjector, HasA
         Stetho.initializeWithDefaults(this);
         ButterKnife.setDebug(true);
         DaggerAppComponent.create().inject(this);
+
+        addApiService(GankioApiService.class);
     }
 
     public <T> void addApiService(Class<T> clz) {

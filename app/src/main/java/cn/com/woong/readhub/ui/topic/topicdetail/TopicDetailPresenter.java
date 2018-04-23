@@ -5,10 +5,8 @@ import javax.inject.Inject;
 import cn.com.woong.readhub.App;
 import cn.com.woong.readhub.base.BasePresenter;
 import cn.com.woong.readhub.bean.TopicMo;
-import cn.com.woong.readhub.constant.Constant;
-import cn.com.woong.readhub.domain.ApiService;
+import cn.com.woong.readhub.domain.apiservice.ReadhubApiService;
 import cn.com.woong.readhub.domain.RxSchedulers;
-import cn.com.woong.readhub.resp.TopicResp;
 import io.reactivex.functions.Consumer;
 
 /**
@@ -22,7 +20,7 @@ public class TopicDetailPresenter extends BasePresenter<TopicDetailContract.View
 
     @Override
     public void getTopicDetail(String topicId) {
-        App.apiService(ApiService.class)
+        App.apiService(ReadhubApiService.class)
                 .apiTopicDetail(topicId)
                 .compose(RxSchedulers.<TopicMo>io_main())
                 .compose(mView.<TopicMo>bindToLife())

@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 import cn.com.woong.readhub.App;
+import cn.com.woong.readhub.domain.apiservice.ReadhubApiService;
 import cn.com.woong.readhub.domain.converter.StringConverterFactory;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -52,7 +53,7 @@ public class ApiManager {
                 .addConverterFactory(StringConverterFactory.create())
                 .build();
 
-        mRetrofitServiceHashMap.put(ApiService.class, mApiRetrofit);
+        mRetrofitServiceHashMap.put(ReadhubApiService.class, mApiRetrofit);
     }
 
     public <T> void addService(Class<T> clz) {

@@ -1,4 +1,4 @@
-package cn.com.woong.readhub.domain;
+package cn.com.woong.readhub.domain.apiservice;
 
 import java.util.Map;
 
@@ -21,10 +21,10 @@ import retrofit2.http.Query;
 
 /**
  * @author woong
- * ApiService 中方法命名和接口名称一致 例:api/login=apiLogin
+ * ReadhubApiService 中方法命名和接口名称一致 例:api/login=apiLogin
  */
 
-public interface ApiService {
+public interface ReadhubApiService {
 
     /**
      * 热门话题
