@@ -1,7 +1,7 @@
 package cn.com.woong.readhub.di.module.activitys;
 
-import cn.com.woong.readhub.App;
 import cn.com.woong.readhub.di.scope.PerActivity;
+import cn.com.woong.readhub.ui.topic.topicdetail.TopicDetailActivity;
 import cn.com.woong.readhub.ui.widget.newsview.NewsAdapter;
 import dagger.Module;
 import dagger.Provides;
@@ -15,7 +15,7 @@ import dagger.Provides;
 @Module
 public class TopicDetailActivityModule {
     @Provides
-    public NewsAdapter providerNewsAdapter() {
-        return new NewsAdapter(App.getAppContext());
+    public NewsAdapter providerNewsAdapter(TopicDetailActivity topicDetailActivity) {
+        return new NewsAdapter(topicDetailActivity);
     }
 }

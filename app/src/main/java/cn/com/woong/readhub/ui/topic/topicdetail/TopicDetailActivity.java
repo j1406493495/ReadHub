@@ -47,14 +47,13 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailPresenter> impl
     @BindView(R.id.timeline_recycler_view)
     RecyclerView timelineRecyclerView;
 
+    @Inject
+    NewsAdapter mNewsAdapter;
+
     private static final String TOPIC_ID = "topic_id";
     private String mTopicId;
 
     TimeLineAdapter mTimeLineAdapter;
-
-    @Inject
-    NewsAdapter mNewsAdapter;
-
     private ArrayList<TopicTimeLineMo> mTopicTimeLineMos = new ArrayList<>();
 
     public static void startTopicDetailActivity(Context context, String topicId) {
