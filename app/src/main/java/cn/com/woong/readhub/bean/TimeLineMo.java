@@ -5,9 +5,6 @@ import android.os.Parcelable;
 
 import java.util.ArrayList;
 
-import cn.com.woong.readhub.base.BaseMo;
-import cn.com.woong.readhub.bean.TopicTimeLineMo;
-
 /**
  * Created by wong on 2018/4/22.
  */

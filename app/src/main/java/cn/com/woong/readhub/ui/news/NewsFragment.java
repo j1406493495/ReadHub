@@ -143,6 +143,7 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
     public void refreshNewsData() {
         if (mPresenter != null) {
             mPublishDateList.set(mCurrentTabPos, "");
+            mNewsViewList.get(mCurrentTabPos).scrollToPosition(0);
             switch (mCurrentTabPos) {
                 case 0:
                     mPresenter.getTechNews("");

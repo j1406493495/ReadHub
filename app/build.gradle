@@ -61,6 +61,7 @@ dependencies {
     compile 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
     compile 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
     compile 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
+    compile 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'

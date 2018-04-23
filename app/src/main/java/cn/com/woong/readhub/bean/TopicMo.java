@@ -5,8 +5,6 @@ import android.os.Parcelable;
 
 import java.util.ArrayList;
 
-import cn.com.woong.readhub.base.BaseMo;
-
 /**
  * Created by wong on 2018/3/9.
  */

@@ -65,6 +65,10 @@ public class NewsView extends FrameLayout {
         newsRefreshLayout.loadMoreComplete();
     }
 
+    public void scrollToPosition(int pos) {
+        newsRecyclerView.scrollToPosition(pos);
+    }
+
     public void loadMoreComplete() {
         newsRefreshLayout.loadMoreComplete();
     }

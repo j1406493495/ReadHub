@@ -83,6 +83,7 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
 
     public void refreshTopicData() {
         mLastOrder = "";
+        topicRecyclerView.scrollToPosition(0);
         if (mPresenter != null) {
             mPresenter.getTopicNews(mLastOrder);
         }

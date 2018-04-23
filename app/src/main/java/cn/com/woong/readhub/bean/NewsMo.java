@@ -3,8 +3,6 @@ package cn.com.woong.readhub.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import cn.com.woong.readhub.base.BaseMo;
-
 /**
  * Created by wong on 2018/3/9.
  */
