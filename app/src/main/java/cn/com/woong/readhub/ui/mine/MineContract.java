@@ -8,10 +8,8 @@ import cn.com.woong.readhub.base.BaseContract;
 
 public interface MineContract {
     interface View extends BaseContract.BaseView {
-        void setHomeBanners();
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void refresh();
     }
 }
