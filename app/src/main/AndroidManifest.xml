@@ -28,5 +28,7 @@
         <activity android:name=".ui.news.NewsDetailActivity"/>
 
         <activity android:name=".ui.topic.topicdetail.TopicDetailActivity"/>
+
+        <activity android:name=".ui.mine.about.AboutActivity"/>
     </application>
 </manifest>
