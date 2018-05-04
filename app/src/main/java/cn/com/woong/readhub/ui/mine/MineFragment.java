@@ -10,6 +10,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.base.BaseFragment;
+import cn.com.woong.readhub.ui.mine.about.AboutActivity;
 import cn.com.woong.readhub.ui.widget.ArrowItemView;
 
 /**
@@ -32,6 +33,11 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
 
     @Override
     protected void initData() {
-
+        arrowAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AboutActivity.startAboutActivity(getActivity());
+            }
+        });
     }
 }
