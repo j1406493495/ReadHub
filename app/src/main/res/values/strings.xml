@@ -8,4 +8,10 @@
     <string name="timeline_event">相关事件</string>
     <string name="readhub_str">热门详情</string>
     <string name="about">关于</string>
+    <string name="woong">Woong</string>
+    <string name="gmail">woonghuijin@gmail.com</string>
+    <string name="woong_blog">个人博客</string>
+    <string name="woong_blog_info">http://woong.com.cn/</string>
+    <string name="woong_github">GitHub</string>
+    <string name="woong_github_info">https://github.com/j1406493495</string>
 </resources>
