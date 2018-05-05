@@ -89,7 +89,7 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="20dp"
                 android:layout_toLeftOf="@+id/iv_share"
-                android:src="@drawable/ic_collect_normal"/>
+                android:src="@drawable/ic_collect"/>
 
             <TextView
                 android:id="@+id/tv_item_author"

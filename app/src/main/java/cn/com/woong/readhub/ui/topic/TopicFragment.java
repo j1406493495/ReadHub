@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ajguan.library.EasyRefreshLayout;
@@ -20,6 +21,7 @@ import butterknife.BindView;
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.base.BaseFragment;
 import cn.com.woong.readhub.bean.TopicMo;
+import cn.com.woong.readhub.db.DBManager;
 import cn.com.woong.readhub.ui.topic.topicdetail.TopicDetailActivity;
 import cn.com.woong.readhub.utils.CommonUtils;
 import dagger.android.support.AndroidSupportInjection;
@@ -129,6 +131,8 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
         TextView tvTopicSummary;
         TextView tvNewsOne;
         TextView tvNewsTwo;
+        ImageView ivTopicCollect;
+        ImageView ivTopicShare;
 
         public TopicViewHolder(View itemView) {
             super(itemView);
@@ -139,6 +143,8 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
             tvTopicSummary = itemView.findViewById(R.id.tv_topic_summary);
             tvNewsOne = itemView.findViewById(R.id.tv_news_one);
             tvNewsTwo = itemView.findViewById(R.id.tv_news_two);
+            ivTopicCollect = itemView.findViewById(R.id.iv_collect);
+            ivTopicShare = itemView.findViewById(R.id.iv_share);
         }
 
         public void onBind(int pos) {
@@ -179,9 +185,14 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
             topicCardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    String url = Constant.TOPIC_URL + topicMo.id;
-//                    NewsDetailActivity.startNewsDetailActivity(getActivity(), url);
                     TopicDetailActivity.startTopicDetailActivity(getActivity(), topicMo.id);
+                }
+            });
+
+            ivTopicCollect.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DBManager.getInstance(getActivity()).insertTopicMo(topicMo);
                 }
             });
         }

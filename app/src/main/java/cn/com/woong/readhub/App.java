@@ -11,6 +11,7 @@ import com.facebook.stetho.Stetho;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import cn.com.woong.readhub.db.DBManager;
 import cn.com.woong.readhub.di.component.DaggerAppComponent;
 import cn.com.woong.readhub.domain.ApiManager;
 import cn.com.woong.readhub.domain.apiservice.GankioApiService;
@@ -52,6 +53,7 @@ public class App extends Application implements HasSupportFragmentInjector, HasA
         Stetho.initializeWithDefaults(this);
         ButterKnife.setDebug(true);
         DaggerAppComponent.create().inject(this);
+        DBManager.getInstance(this).init();
 
         addApiService(GankioApiService.class);
     }

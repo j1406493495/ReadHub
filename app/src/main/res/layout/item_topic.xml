@@ -100,12 +100,12 @@
 
             <ImageView
                 android:id="@+id/iv_collect"
-                android:layout_width="20dp"
+                android:layout_width="40dp"
                 android:layout_height="20dp"
                 android:layout_alignTop="@+id/iv_share"
-                android:layout_marginRight="20dp"
+                android:paddingRight="20dp"
                 android:layout_toLeftOf="@+id/iv_share"
-                android:src="@drawable/ic_collect_normal"/>
+                android:src="@drawable/ic_collect"/>
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>

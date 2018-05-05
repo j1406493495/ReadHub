@@ -3,11 +3,17 @@ package cn.com.woong.readhub.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Generated;
+
 /**
  * Created by wong on 2018/3/9.
  */
 
+@Entity
 public class NewsMo extends BaseMo implements Parcelable {
+    @Id
     public long id;
     public String title;
     public String summary;
@@ -18,6 +24,9 @@ public class NewsMo extends BaseMo implements Parcelable {
     public String language;
     public String authorName;
     public String publishDate;
+
+    public NewsMo() {
+    }
 
     @Override
     public int describeContents() {
@@ -38,7 +47,84 @@ public class NewsMo extends BaseMo implements Parcelable {
         dest.writeString(this.publishDate);
     }
 
-    public NewsMo() {
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getSummary() {
+        return this.summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public String getSummaryAuto() {
+        return this.summaryAuto;
+    }
+
+    public void setSummaryAuto(String summaryAuto) {
+        this.summaryAuto = summaryAuto;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getMobileUrl() {
+        return this.mobileUrl;
+    }
+
+    public void setMobileUrl(String mobileUrl) {
+        this.mobileUrl = mobileUrl;
+    }
+
+    public String getSiteName() {
+        return this.siteName;
+    }
+
+    public void setSiteName(String siteName) {
+        this.siteName = siteName;
+    }
+
+    public String getLanguage() {
+        return this.language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getAuthorName() {
+        return this.authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
+
+    public String getPublishDate() {
+        return this.publishDate;
+    }
+
+    public void setPublishDate(String publishDate) {
+        this.publishDate = publishDate;
     }
 
     protected NewsMo(Parcel in) {
@@ -54,7 +140,23 @@ public class NewsMo extends BaseMo implements Parcelable {
         this.publishDate = in.readString();
     }
 
-    public static final Parcelable.Creator<NewsMo> CREATOR = new Parcelable.Creator<NewsMo>() {
+    @Generated(hash = 349755279)
+    public NewsMo(long id, String title, String summary, String summaryAuto,
+            String url, String mobileUrl, String siteName, String language,
+            String authorName, String publishDate) {
+        this.id = id;
+        this.title = title;
+        this.summary = summary;
+        this.summaryAuto = summaryAuto;
+        this.url = url;
+        this.mobileUrl = mobileUrl;
+        this.siteName = siteName;
+        this.language = language;
+        this.authorName = authorName;
+        this.publishDate = publishDate;
+    }
+
+    public static final Creator<NewsMo> CREATOR = new Creator<NewsMo>() {
         public NewsMo createFromParcel(Parcel source) {
             return new NewsMo(source);
         }

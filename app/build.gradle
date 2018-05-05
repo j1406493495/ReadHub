@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
 
 android {
     signingConfigs {
@@ -38,7 +39,7 @@ android {
     //在apk文件后边生成版本号信息
     android.applicationVariants.all { variant ->
         variant.outputs.all {
-            outputFileName = "Readhub" + defaultConfig.versionName + "-${releaseTime()}.apk"
+            outputFileName = "Readhub_" + defaultConfig.versionName + "-${releaseTime()}.apk"
         }
     }
 
@@ -80,4 +81,5 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.9.1'
     compile 'com.github.anzaizai:EasyRefreshLayout:1.3.1'
     compile 'com.just.agentweb:agentweb:4.0.2'
+    implementation 'org.greenrobot:greendao:3.2.2'
 }
