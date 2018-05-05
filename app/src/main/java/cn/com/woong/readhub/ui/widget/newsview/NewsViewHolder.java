@@ -45,7 +45,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
         tvItemAuthor.setText(newsMo.siteName + "/" + newsMo.authorName);
 
         long publishDate = CommonUtils.getTimeStampByReadhubDateString(newsMo.publishDate);
-        tvItemTime.setText(TimeUtils.millis2String(publishDate, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")));
+        tvItemTime.setText(TimeUtils.millis2String(publishDate, new SimpleDateFormat("MM-dd HH:mm")));
 
         newsCardView.setOnClickListener(new View.OnClickListener() {
             @Override
