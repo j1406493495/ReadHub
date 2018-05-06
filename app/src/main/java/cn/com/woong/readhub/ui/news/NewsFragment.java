@@ -140,6 +140,14 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
         newsTabLayout.setupWithViewPager(newsViewPager);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        for (NewsView newsView : mNewsViewList) {
+            newsView.loadMoreComplete();
+        }
+    }
+
     public void refreshNewsData() {
         if (mPresenter != null) {
             mPublishDateList.set(mCurrentTabPos, "");

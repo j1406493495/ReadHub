@@ -24,6 +24,7 @@ import cn.com.woong.readhub.base.BaseFragment;
 import cn.com.woong.readhub.bean.TopicMo;
 import cn.com.woong.readhub.db.DBManager;
 import cn.com.woong.readhub.ui.topic.topicdetail.TopicDetailActivity;
+import cn.com.woong.readhub.ui.widget.newsview.NewsView;
 import cn.com.woong.readhub.utils.CommonUtils;
 import dagger.android.support.AndroidSupportInjection;
 
@@ -186,6 +187,7 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
             topicCardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    topicRefreshLayout.loadMoreComplete();
                     TopicDetailActivity.startTopicDetailActivity(getActivity(), topicMo.id);
                 }
             });
