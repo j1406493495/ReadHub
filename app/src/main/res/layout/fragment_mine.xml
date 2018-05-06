@@ -3,10 +3,30 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/b6">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/b6"
+    android:orientation="vertical">
+
+    <cn.com.woong.readhub.ui.widget.ArrowItemView
+        android:id="@+id/arrow_read_later"
+        app:arrowContent="@string/read_later"
+        app:arrowLabel="@drawable/ic_collect_blue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+
+    <cn.com.woong.readhub.ui.widget.ArrowItemView
+        android:id="@+id/arrow_setting"
+        app:arrowContent="@string/setting"
+        app:arrowLabel="@drawable/ic_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"/>
 
     <cn.com.woong.readhub.ui.widget.ArrowItemView
         android:id="@+id/arrow_about"
+        app:arrowContent="@string/about"
+        app:arrowLabel="@drawable/ic_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"/>

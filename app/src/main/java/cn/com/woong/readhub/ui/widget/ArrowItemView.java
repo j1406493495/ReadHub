@@ -1,6 +1,7 @@
 package cn.com.woong.readhub.ui.widget;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +16,9 @@ import cn.com.woong.readhub.R;
  */
 
 public class ArrowItemView extends RelativeLayout {
-    TextView tvArrowItem;
-    ImageView ivArrowItem;
+    ImageView ivArrowLabel;
+    TextView tvArrowContent;
+    ImageView ivArrow;
     RelativeLayout rlArrowItem;
 
     public ArrowItemView(Context context) {
@@ -29,18 +31,24 @@ public class ArrowItemView extends RelativeLayout {
 
     public ArrowItemView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
         init();
+
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ArrowItemView);
+        tvArrowContent.setText(typedArray.getString(R.styleable.ArrowItemView_arrowContent));
+        ivArrowLabel.setImageResource(typedArray.getResourceId(R.styleable.ArrowItemView_arrowLabel, R.drawable.ic_info));
     }
 
     private void init() {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.view_arrow_item, this);
 
-        tvArrowItem = view.findViewById(R.id.tv_arrow_item);
-        ivArrowItem = view.findViewById(R.id.iv_arrow_item);
+        ivArrowLabel = view.findViewById(R.id.iv_arrow_label);
+        tvArrowContent = view.findViewById(R.id.tv_arrow_content);
+        ivArrow = view.findViewById(R.id.iv_arrow);
         rlArrowItem = view.findViewById(R.id.rl_arrow_item);
     }
 
     public void setArrowContent(String content) {
-        tvArrowItem.setText(content);
+        tvArrowContent.setText(content);
     }
 }

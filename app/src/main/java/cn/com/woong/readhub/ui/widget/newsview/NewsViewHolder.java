@@ -1,17 +1,21 @@
 package cn.com.woong.readhub.ui.widget.newsview;
 
 import android.content.Context;
+import android.provider.ContactsContract;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.TimeUtils;
+import com.blankj.utilcode.util.ToastUtils;
 
 import java.text.SimpleDateFormat;
 
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.bean.NewsMo;
+import cn.com.woong.readhub.db.DBManager;
 import cn.com.woong.readhub.ui.news.NewsDetailActivity;
 import cn.com.woong.readhub.utils.CommonUtils;
 
@@ -27,6 +31,8 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
     private TextView tvItemTime;
     private TextView tvItemAuthor;
     private TextView tvItemContent;
+    private ImageView ivCollect;
+    private ImageView ivShare;
 
     public NewsViewHolder(Context context, View itemView) {
         super(itemView);
@@ -37,6 +43,8 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
         tvItemContent = itemView.findViewById(R.id.tv_item_content);
         tvItemAuthor = itemView.findViewById(R.id.tv_item_author);
         tvItemTime = itemView.findViewById(R.id.tv_item_time);
+        ivCollect = itemView.findViewById(R.id.iv_collect);
+        ivShare = itemView.findViewById(R.id.iv_share);
     }
 
     public void bind(final NewsMo newsMo) {
@@ -51,6 +59,14 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View v) {
                 NewsDetailActivity.startNewsDetailActivity(mContext, newsMo.mobileUrl);
+            }
+        });
+
+        ivCollect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.showShort(R.string.add_read_delay);
+                DBManager.getInstance(mContext).insertNewsMo(newsMo);
             }
         });
     }

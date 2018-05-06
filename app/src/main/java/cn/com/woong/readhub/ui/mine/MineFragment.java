@@ -28,7 +28,6 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
 
     @Override
     protected void initView(View view) {
-        arrowAbout.setArrowContent(getString(R.string.about));
     }
 
     @Override

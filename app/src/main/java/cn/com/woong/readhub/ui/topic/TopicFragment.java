@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.ajguan.library.EasyRefreshLayout;
 import com.blankj.utilcode.util.TimeUtils;
+import com.blankj.utilcode.util.ToastUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -192,6 +193,7 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
             ivTopicCollect.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    ToastUtils.showShort(R.string.add_read_delay);
                     DBManager.getInstance(getActivity()).insertTopicMo(topicMo);
                 }
             });
