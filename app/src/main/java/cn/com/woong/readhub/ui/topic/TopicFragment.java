@@ -108,7 +108,7 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
         mLastOrder = String.valueOf(topicMos.get(topicMos.size() - 1).order);
     }
 
-    private class TopicAdapter extends RecyclerView.Adapter {
+    public class TopicAdapter extends RecyclerView.Adapter {
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(getActivity()).inflate(R.layout.item_topic, parent, false);
@@ -126,7 +126,7 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
         }
     }
 
-    private class TopicViewHolder extends RecyclerView.ViewHolder {
+    public class TopicViewHolder extends RecyclerView.ViewHolder {
         CardView topicCardView;
         TextView tvTopicTime;
         TextView tvTopicTitle;
