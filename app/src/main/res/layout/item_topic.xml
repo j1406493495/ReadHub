@@ -103,6 +103,8 @@
                 android:layout_width="40dp"
                 android:layout_height="20dp"
                 android:layout_alignTop="@+id/iv_share"
+                android:paddingTop="1px"
+                android:paddingBottom="1px"
                 android:paddingRight="20dp"
                 android:layout_toLeftOf="@+id/iv_share"
                 android:src="@drawable/ic_collect"/>

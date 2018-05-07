@@ -88,6 +88,13 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailPresenter> impl
             }
         });
 
+        titleBar.setRightImage(R.drawable.ic_share_white, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         mTimeLineAdapter = new TimeLineAdapter();
         timelineRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         timelineRecyclerView.setAdapter(mTimeLineAdapter);
