@@ -26,7 +26,7 @@
 
         <activity android:name=".MainActivity"/>
 
-        <activity android:name=".ui.news.NewsDetailActivity"/>
+        <activity android:name=".ui.WebActivity"/>
 
         <activity android:name=".ui.topic.topicdetail.TopicDetailActivity"/>
 

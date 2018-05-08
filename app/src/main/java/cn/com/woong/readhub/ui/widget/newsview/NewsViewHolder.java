@@ -1,7 +1,6 @@
 package cn.com.woong.readhub.ui.widget.newsview;
 
 import android.content.Context;
-import android.provider.ContactsContract;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -16,7 +15,7 @@ import java.text.SimpleDateFormat;
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.bean.NewsMo;
 import cn.com.woong.readhub.db.DBManager;
-import cn.com.woong.readhub.ui.news.NewsDetailActivity;
+import cn.com.woong.readhub.ui.WebActivity;
 import cn.com.woong.readhub.utils.CommonUtils;
 
 /**
@@ -58,7 +57,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
         newsCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NewsDetailActivity.startNewsDetailActivity(mContext, newsMo.mobileUrl);
+                WebActivity.startWebActivity(mContext, newsMo.mobileUrl);
             }
         });
 

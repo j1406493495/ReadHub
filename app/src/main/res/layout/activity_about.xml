@@ -61,12 +61,13 @@
             android:textSize="@dimen/font_14"/>
 
         <TextView
+            android:id="@+id/tv_blog_url"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignTop="@+id/tv_blog"
             android:text="@string/woong_blog_info"
-            android:textColor="@color/b2"
+            android:textColor="@color/c2"
             android:textSize="@dimen/font_14"/>
 
         <TextView
@@ -88,12 +89,13 @@
             android:textSize="@dimen/font_14"/>
 
         <TextView
+            android:id="@+id/tv_github_url"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignTop="@+id/tv_github"
             android:text="@string/woong_github_info"
-            android:textColor="@color/b2"
+            android:textColor="@color/c2"
             android:textSize="@dimen/font_14"/>
 
         <TextView
