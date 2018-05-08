@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/rl_arrow_item"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
@@ -24,11 +25,23 @@
         android:textSize="@dimen/font_14"/>
 
     <ImageView
-        android:id="@+id/iv_arrow"
+        android:id="@+id/iv_arrow_right"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:paddingRight="10dp"
         android:src="@drawable/ic_arrow_right"/>
+
+    <com.suke.widget.SwitchButton
+        android:id="@+id/switch_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        app:sb_checked="true"
+        app:sb_checked_color="@color/c1"
+        app:sb_show_indicator="false"/>
 </RelativeLayout>

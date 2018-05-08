@@ -3,5 +3,7 @@
     <declare-styleable name="ArrowItemView">
         <attr name="arrowContent" format="string"/>
         <attr name="arrowLabel" format="reference"/>
+        <attr name="arrowLabelVisible" format="boolean"/>
+        <attr name="arrowRightVisible" format="boolean"/>
     </declare-styleable>
 </resources>

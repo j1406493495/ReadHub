@@ -82,4 +82,5 @@ dependencies {
     compile 'com.github.anzaizai:EasyRefreshLayout:1.3.1'
     compile 'com.just.agentweb:agentweb:4.0.2'
     implementation 'org.greenrobot:greendao:3.2.2'
+    compile 'com.github.zcweng:switch-button:0.0.3@aar'
 }

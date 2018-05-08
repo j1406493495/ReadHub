@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.suke.widget.SwitchButton;
+
 import cn.com.woong.readhub.R;
 
 /**
@@ -18,7 +21,8 @@ import cn.com.woong.readhub.R;
 public class ArrowItemView extends RelativeLayout {
     ImageView ivArrowLabel;
     TextView tvArrowContent;
-    ImageView ivArrow;
+    ImageView ivArrowRight;
+    SwitchButton switchButton;
     RelativeLayout rlArrowItem;
 
     public ArrowItemView(Context context) {
@@ -37,6 +41,12 @@ public class ArrowItemView extends RelativeLayout {
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ArrowItemView);
         tvArrowContent.setText(typedArray.getString(R.styleable.ArrowItemView_arrowContent));
         ivArrowLabel.setImageResource(typedArray.getResourceId(R.styleable.ArrowItemView_arrowLabel, R.drawable.ic_info));
+
+        boolean labelVisible = typedArray.getBoolean(R.styleable.ArrowItemView_arrowLabelVisible, true);
+        ivArrowLabel.setVisibility(labelVisible ? VISIBLE : GONE);
+
+        boolean rightVisible = typedArray.getBoolean(R.styleable.ArrowItemView_arrowRightVisible, true);
+        ivArrowRight.setVisibility(rightVisible ? VISIBLE : GONE);
     }
 
     private void init() {
@@ -44,11 +54,45 @@ public class ArrowItemView extends RelativeLayout {
 
         ivArrowLabel = view.findViewById(R.id.iv_arrow_label);
         tvArrowContent = view.findViewById(R.id.tv_arrow_content);
-        ivArrow = view.findViewById(R.id.iv_arrow);
+        ivArrowRight = view.findViewById(R.id.iv_arrow_right);
+        switchButton = view.findViewById(R.id.switch_button);
         rlArrowItem = view.findViewById(R.id.rl_arrow_item);
+
+        switchButton.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
+                if (mOnArrowListener != null) {
+                    mOnArrowListener.onSwitchChange(isChecked);
+                }
+            }
+        });
     }
 
     public void setArrowContent(String content) {
         tvArrowContent.setText(content);
+    }
+
+    public void setArrowLabelVisible(boolean visible) {
+        ivArrowLabel.setVisibility(visible ? VISIBLE : GONE);
+    }
+
+    public void setArrowRightVisible(boolean visible) {
+        ivArrowRight.setVisibility(visible ? VISIBLE : GONE);
+    }
+
+    public void setSwitchButtonVisible(boolean visible) {
+        switchButton.setVisibility(visible ? VISIBLE : GONE);
+    }
+
+    /**
+     * arrow item 事件监听
+     */
+    private OnArrowListener mOnArrowListener;
+    public void setOnArrowListener(OnArrowListener listener) {
+        mOnArrowListener = listener;
+    }
+
+    public interface OnArrowListener {
+        void onSwitchChange(boolean checkable);
     }
 }

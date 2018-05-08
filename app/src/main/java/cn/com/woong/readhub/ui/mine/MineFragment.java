@@ -13,6 +13,7 @@ import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.base.BaseFragment;
 import cn.com.woong.readhub.ui.mine.about.AboutActivity;
 import cn.com.woong.readhub.ui.mine.readlater.ReadLaterActivity;
+import cn.com.woong.readhub.ui.mine.set.SettingActivity;
 import cn.com.woong.readhub.ui.widget.ArrowItemView;
 
 /**
@@ -38,11 +39,6 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
 
     @Override
     protected void initData() {
-        arrowAbout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });
     }
 
     @OnClick({R.id.arrow_about, R.id.arrow_read_later, R.id.arrow_setting})
@@ -55,6 +51,7 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
                 ReadLaterActivity.startReadLaterActivity(getActivity());
                 break;
             case R.id.arrow_setting:
+                SettingActivity.startSettingActivity(getActivity());
                 break;
             default:
                 break;

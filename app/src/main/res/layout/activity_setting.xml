@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:background="@color/b6"
+              android:clipToPadding="true"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
 
+    <cn.com.woong.readhub.ui.widget.TitleBarLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"/>
+
+    <cn.com.woong.readhub.ui.widget.ArrowItemView
+        android:id="@+id/arrow_english"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="10dp"
+        app:arrowContent="@string/english_showable"
+        app:arrowLabelVisible="false"
+        app:arrowRightVisible="false"/>
 </LinearLayout>
