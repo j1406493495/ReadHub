@@ -139,7 +139,6 @@ public class MainActivity extends BaseActivity {
         mTitleStrs.add(getString(R.string.tab_mine));
     }
 
-
     @Override
     public void onBackPressed() {
         if ((System.currentTimeMillis() - exitTime) > 1000) {

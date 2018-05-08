@@ -7,10 +7,12 @@ import android.view.ViewGroup;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.base.BaseFragment;
 import cn.com.woong.readhub.ui.mine.about.AboutActivity;
+import cn.com.woong.readhub.ui.mine.readlater.ReadLaterActivity;
 import cn.com.woong.readhub.ui.widget.ArrowItemView;
 
 /**
@@ -20,6 +22,10 @@ import cn.com.woong.readhub.ui.widget.ArrowItemView;
 public class MineFragment extends BaseFragment<MineContract.Presenter> implements MineContract.View {
     @BindView(R.id.arrow_about)
     ArrowItemView arrowAbout;
+    @BindView(R.id.arrow_read_later)
+    ArrowItemView arrowReadLater;
+    @BindView(R.id.arrow_setting)
+    ArrowItemView arrowSetting;
 
     @Override
     protected int getLayoutId() {
@@ -35,8 +41,24 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
         arrowAbout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AboutActivity.startAboutActivity(getActivity());
             }
         });
     }
+
+    @OnClick({R.id.arrow_about, R.id.arrow_read_later, R.id.arrow_setting})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.arrow_about:
+                AboutActivity.startAboutActivity(getActivity());
+                break;
+            case R.id.arrow_read_later:
+                ReadLaterActivity.startReadLaterActivity(getActivity());
+                break;
+            case R.id.arrow_setting:
+                break;
+            default:
+                break;
+        }
+    }
+
 }

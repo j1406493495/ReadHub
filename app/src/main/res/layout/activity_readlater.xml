@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:clipToPadding="true"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
 
     <cn.com.woong.readhub.ui.widget.TitleBarLayout
         android:id="@+id/title_bar"
@@ -14,6 +16,7 @@
         android:id="@+id/readlater_tab_layout"
         android:layout_width="match_parent"
         android:layout_height="44dp"
+        android:background="@color/b7"
         app:tabIndicatorColor="@color/c1"
         app:tabSelectedTextColor="@color/c1"
         app:tabTextColor="@color/b1"/>

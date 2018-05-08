@@ -31,5 +31,9 @@
         <activity android:name=".ui.topic.topicdetail.TopicDetailActivity"/>
 
         <activity android:name=".ui.mine.about.AboutActivity"/>
+
+        <activity android:name=".ui.mine.readlater.ReadLaterActivity"/>
+
+        <activity android:name=".ui.mine.set.SettingActivity"/>
     </application>
 </manifest>
