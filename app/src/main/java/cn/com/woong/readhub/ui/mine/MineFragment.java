@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.tencent.bugly.beta.Beta;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -56,6 +58,7 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
                 SettingActivity.startSettingActivity(getActivity());
                 break;
             case R.id.arrow_check_update:
+                Beta.checkUpgrade();
                 break;
             default:
                 break;
