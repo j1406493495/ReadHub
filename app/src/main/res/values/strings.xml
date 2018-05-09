@@ -18,4 +18,5 @@
     <string name="setting">设置</string>
     <string name="read_later">稍后读</string>
     <string name="english_showable">是否显示英文新闻</string>
+    <string name="check_update">检查更新</string>
 </resources>

@@ -27,6 +27,8 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
     ArrowItemView arrowReadLater;
     @BindView(R.id.arrow_setting)
     ArrowItemView arrowSetting;
+    @BindView(R.id.arrow_check_update)
+    ArrowItemView arrowCheckUpdate;
 
     @Override
     protected int getLayoutId() {
@@ -41,7 +43,7 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
     protected void initData() {
     }
 
-    @OnClick({R.id.arrow_about, R.id.arrow_read_later, R.id.arrow_setting})
+    @OnClick({R.id.arrow_about, R.id.arrow_read_later, R.id.arrow_setting, R.id.arrow_check_update})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.arrow_about:
@@ -53,9 +55,10 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
             case R.id.arrow_setting:
                 SettingActivity.startSettingActivity(getActivity());
                 break;
+            case R.id.arrow_check_update:
+                break;
             default:
                 break;
         }
     }
-
 }

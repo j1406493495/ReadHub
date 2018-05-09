@@ -243,3 +243,8 @@ public static java.lang.String TABLENAME;
 -dontwarn com.squareup.javapoet.**
 -dontwarn com.google.common.**
 
+#bugly
+-dontwarn com.tencent.bugly.**
+-keep public class com.tencent.bugly.**{*;}
+-keep class android.support.**{*;}
+

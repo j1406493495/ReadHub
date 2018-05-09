@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 
 import com.blankj.utilcode.util.Utils;
 import com.facebook.stetho.Stetho;
+import com.tencent.bugly.Bugly;
+import com.tencent.bugly.crashreport.CrashReport;
 
 import javax.inject.Inject;
 
@@ -52,6 +54,7 @@ public class App extends Application implements HasSupportFragmentInjector, HasA
         Utils.init(mInstance);
         Stetho.initializeWithDefaults(this);
         ButterKnife.setDebug(true);
+        Bugly.init(getApplicationContext(), "aee572880a", true);
         DaggerAppComponent.create().inject(this);
         DBManager.getInstance(this).init();
 
