@@ -10,11 +10,14 @@ import android.widget.TextView;
 import com.blankj.utilcode.util.TimeUtils;
 import com.blankj.utilcode.util.ToastUtils;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.text.SimpleDateFormat;
 
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.bean.NewsMo;
 import cn.com.woong.readhub.db.DBManager;
+import cn.com.woong.readhub.eventbus.Event;
 import cn.com.woong.readhub.ui.WebActivity;
 import cn.com.woong.readhub.utils.CommonUtils;
 
@@ -32,6 +35,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
     private TextView tvItemContent;
     private ImageView ivCollect;
     private ImageView ivShare;
+    private ImageView ivDelete;
 
     public NewsViewHolder(Context context, View itemView) {
         super(itemView);
@@ -44,6 +48,12 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
         tvItemTime = itemView.findViewById(R.id.tv_item_time);
         ivCollect = itemView.findViewById(R.id.iv_collect);
         ivShare = itemView.findViewById(R.id.iv_share);
+        ivDelete = itemView.findViewById(R.id.iv_delete);
+    }
+
+    public void showDelete() {
+        ivDelete.setVisibility(View.VISIBLE);
+        ivCollect.setVisibility(View.GONE);
     }
 
     public void bind(final NewsMo newsMo) {
@@ -66,6 +76,15 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View v) {
                 ToastUtils.showShort(R.string.add_read_delay);
                 DBManager.getInstance(mContext).insertNewsMo(newsMo);
+            }
+        });
+
+        ivDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Event.ReadLaterNewsRemoveEvent event = new Event.ReadLaterNewsRemoveEvent();
+                event.position = getLayoutPosition();
+                EventBus.getDefault().post(event);
             }
         });
     }

@@ -103,11 +103,23 @@
                 android:layout_width="40dp"
                 android:layout_height="20dp"
                 android:layout_alignTop="@+id/iv_share"
-                android:paddingTop="1px"
+                android:layout_toLeftOf="@+id/iv_share"
                 android:paddingBottom="1px"
                 android:paddingRight="20dp"
-                android:layout_toLeftOf="@+id/iv_share"
+                android:paddingTop="1px"
                 android:src="@drawable/ic_collect"/>
+
+            <ImageView
+                android:id="@+id/iv_delete"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_alignTop="@+id/iv_share"
+                android:layout_toLeftOf="@+id/iv_share"
+                android:paddingBottom="1px"
+                android:paddingRight="20dp"
+                android:paddingTop="1px"
+                android:src="@drawable/ic_delete"
+                android:visibility="gone"/>
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>

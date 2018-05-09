@@ -10,11 +10,14 @@ import android.widget.TextView;
 import com.blankj.utilcode.util.TimeUtils;
 import com.blankj.utilcode.util.ToastUtils;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.text.SimpleDateFormat;
 
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.bean.TopicMo;
 import cn.com.woong.readhub.db.DBManager;
+import cn.com.woong.readhub.eventbus.Event;
 import cn.com.woong.readhub.ui.topic.topicdetail.TopicDetailActivity;
 import cn.com.woong.readhub.utils.CommonUtils;
 
@@ -31,6 +34,7 @@ public class TopicViewHolder extends RecyclerView.ViewHolder {
     TextView tvNewsTwo;
     ImageView ivTopicCollect;
     ImageView ivTopicShare;
+    ImageView ivTopicDelete;
 
     private Context mContext;
 
@@ -46,10 +50,15 @@ public class TopicViewHolder extends RecyclerView.ViewHolder {
         tvNewsTwo = itemView.findViewById(R.id.tv_news_two);
         ivTopicCollect = itemView.findViewById(R.id.iv_collect);
         ivTopicShare = itemView.findViewById(R.id.iv_share);
+        ivTopicDelete = itemView.findViewById(R.id.iv_delete);
+    }
+
+    public void showDelete() {
+        ivTopicDelete.setVisibility(View.VISIBLE);
+        ivTopicCollect.setVisibility(View.GONE);
     }
 
     public void onBind(final TopicMo topicMo) {
-
         long publishDate = CommonUtils.getTimeStampByReadhubDateString(topicMo.publishDate);
         tvTopicTime.setText(TimeUtils.millis2String(publishDate, new SimpleDateFormat("MM-dd' 'HH:mm")));
 
@@ -94,6 +103,15 @@ public class TopicViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View v) {
                 ToastUtils.showShort(R.string.add_read_delay);
                 DBManager.getInstance(mContext).insertTopicMo(topicMo);
+            }
+        });
+
+        ivTopicDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Event.ReadLaterTopicRemoveEvent event = new Event.ReadLaterTopicRemoveEvent();
+                event.position = getLayoutPosition();
+                EventBus.getDefault().post(event);
             }
         });
     }

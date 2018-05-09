@@ -27,8 +27,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="20dp"
-                android:paddingTop="2dp"
                 android:gravity="center"
+                android:paddingTop="2dp"
                 android:textColor="@color/b3"
                 android:textSize="@dimen/font_12"/>
 
@@ -83,15 +83,28 @@
 
             <ImageView
                 android:id="@+id/iv_collect"
-                android:layout_width="20dp"
+                android:layout_width="40dp"
                 android:layout_height="20dp"
                 android:layout_alignTop="@+id/iv_share"
-                android:paddingTop="1px"
-                android:paddingBottom="1px"
                 android:layout_marginLeft="30dp"
-                android:layout_marginRight="20dp"
                 android:layout_toLeftOf="@+id/iv_share"
+                android:paddingBottom="1px"
+                android:paddingRight="20dp"
+                android:paddingTop="1px"
                 android:src="@drawable/ic_collect"/>
+
+            <ImageView
+                android:id="@+id/iv_delete"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_alignTop="@+id/iv_share"
+                android:layout_marginLeft="30dp"
+                android:layout_toLeftOf="@+id/iv_share"
+                android:paddingBottom="1px"
+                android:paddingRight="20dp"
+                android:paddingTop="1px"
+                android:src="@drawable/ic_delete"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/tv_item_author"

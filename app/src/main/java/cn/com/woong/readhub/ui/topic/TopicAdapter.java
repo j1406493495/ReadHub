@@ -6,10 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.greenrobot.greendao.annotation.ToMany;
+
 import java.util.ArrayList;
 
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.bean.TopicMo;
+import cn.com.woong.readhub.db.DBManager;
 
 /**
  * Created by wong on 2018/5/8.
@@ -18,9 +21,14 @@ import cn.com.woong.readhub.bean.TopicMo;
 public class TopicAdapter extends RecyclerView.Adapter {
     private Context mContext;
     private ArrayList<TopicMo> mTopicMos = new ArrayList<>();
+    private boolean mShowDelete;
 
     public TopicAdapter(Context context) {
         mContext = context;
+    }
+
+    public void showDelete(boolean show) {
+        mShowDelete = show;
     }
 
     @Override
@@ -31,6 +39,10 @@ public class TopicAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        if (mShowDelete) {
+            ((TopicViewHolder) holder).showDelete();
+        }
+
         ((TopicViewHolder) holder).onBind(mTopicMos.get(position));
     }
 
@@ -46,5 +58,12 @@ public class TopicAdapter extends RecyclerView.Adapter {
 
         mTopicMos.addAll(topicMos);
         notifyDataSetChanged();
+    }
+
+    public void removeTopic(int position) {
+        DBManager.getInstance(mContext).deleteTopicMo(mTopicMos.get(position));
+        mTopicMos.remove(position);
+        notifyItemRemoved(position);
+
     }
 }

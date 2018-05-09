@@ -15,6 +15,10 @@ import android.view.ViewGroup;
 
 import com.blankj.utilcode.util.BarUtils;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -23,6 +27,7 @@ import cn.com.woong.readhub.base.BaseActivity;
 import cn.com.woong.readhub.bean.NewsMo;
 import cn.com.woong.readhub.bean.TopicMo;
 import cn.com.woong.readhub.db.DBManager;
+import cn.com.woong.readhub.eventbus.Event;
 import cn.com.woong.readhub.ui.topic.TopicAdapter;
 import cn.com.woong.readhub.ui.topic.TopicFragment;
 import cn.com.woong.readhub.ui.widget.TitleBarLayout;
@@ -86,6 +91,8 @@ public class ReadLaterActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        EventBus.getDefault().register(this);
+
         mViewPagerAdapter = new ViewPagerAdapter();
         readlaterViewPager.setAdapter(mViewPagerAdapter);
         readlaterTabLayout.setupWithViewPager(readlaterViewPager);
@@ -94,14 +101,32 @@ public class ReadLaterActivity extends BaseActivity {
         mNewsMos = (ArrayList<NewsMo>) DBManager.getInstance(this).queryAllNewsMo();
 
         mTopicAdapter = new TopicAdapter(this);
+        mTopicAdapter.showDelete(true);
         mTopicRecycler.setAdapter(mTopicAdapter);
         mTopicRecycler.setLayoutManager(new LinearLayoutManager(this));
         mTopicAdapter.updateTopics(true, mTopicMos);
 
         mNewsAdapter = new NewsAdapter(this);
+        mNewsAdapter.showDelete(true);
         mNewsRecycler.setAdapter(mNewsAdapter);
         mNewsRecycler.setLayoutManager(new LinearLayoutManager(this));
         mNewsAdapter.updateNews(true, mNewsMos);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void removeTopicEvent(Event.ReadLaterTopicRemoveEvent event) {
+        mTopicAdapter.removeTopic(event.position);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void removeNewsEvent(Event.ReadLaterNewsRemoveEvent event) {
+        mNewsAdapter.removeNews(event.position);
     }
 
     public class ViewPagerAdapter extends PagerAdapter {
