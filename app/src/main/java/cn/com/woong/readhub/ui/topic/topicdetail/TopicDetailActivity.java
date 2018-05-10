@@ -1,5 +1,6 @@
 package cn.com.woong.readhub.ui.topic.topicdetail;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,10 +9,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.BarUtils;
 import com.blankj.utilcode.util.TimeUtils;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,7 +29,9 @@ import cn.com.woong.readhub.bean.TopicTimeLineMo;
 import cn.com.woong.readhub.ui.widget.TitleBarLayout;
 import cn.com.woong.readhub.ui.widget.newsview.NewsAdapter;
 import cn.com.woong.readhub.utils.CommonUtils;
+import cn.com.woong.readhub.utils.ScreenShotUtil;
 import dagger.android.AndroidInjection;
+import io.reactivex.functions.Consumer;
 
 /**
  * @author woong
@@ -36,6 +41,8 @@ import dagger.android.AndroidInjection;
 public class TopicDetailActivity extends BaseActivity<TopicDetailPresenter> implements TopicDetailContract.View {
     @BindView(R.id.title_bar)
     TitleBarLayout titleBar;
+    @BindView(R.id.topic_detail_scrollview)
+    ScrollView topicDetailScrollView;
     @BindView(R.id.tv_topic_title)
     TextView tvTopicTitle;
     @BindView(R.id.tv_topic_summary)
@@ -88,10 +95,19 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailPresenter> impl
             }
         });
 
-        titleBar.setRightImage(R.drawable.ic_share_white, new View.OnClickListener() {
+        titleBar.setRightImage(R.drawable.ic_save_pic, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                new RxPermissions(TopicDetailActivity.this)
+                        .request(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        .subscribe(new Consumer<Boolean>() {
+                            @Override
+                            public void accept(Boolean aBoolean) throws Exception {
+                                if (aBoolean) {
+                                    ScreenShotUtil.getBitmapByView(TopicDetailActivity.this, topicDetailScrollView);
+                                }
+                            }
+                        });
             }
         });
 

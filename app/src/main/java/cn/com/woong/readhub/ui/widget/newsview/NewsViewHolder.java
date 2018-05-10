@@ -1,5 +1,7 @@
 package cn.com.woong.readhub.ui.widget.newsview;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -85,6 +87,19 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
                 Event.ReadLaterNewsRemoveEvent event = new Event.ReadLaterNewsRemoveEvent();
                 event.position = getLayoutPosition();
                 EventBus.getDefault().post(event);
+            }
+        });
+
+        ivShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager clipboardManager = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData mClipData = ClipData.newPlainText("ShareUrl", newsMo.mobileUrl);
+
+                if (clipboardManager != null) {
+                    clipboardManager.setPrimaryClip(mClipData);
+                    ToastUtils.showShort(R.string.copy_url);
+                }
             }
         });
     }

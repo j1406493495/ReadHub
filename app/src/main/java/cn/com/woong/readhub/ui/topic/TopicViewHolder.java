@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.blankj.utilcode.util.TimeUtils;
 import com.blankj.utilcode.util.ToastUtils;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -20,6 +21,7 @@ import cn.com.woong.readhub.db.DBManager;
 import cn.com.woong.readhub.eventbus.Event;
 import cn.com.woong.readhub.ui.topic.topicdetail.TopicDetailActivity;
 import cn.com.woong.readhub.utils.CommonUtils;
+import cn.com.woong.readhub.utils.ScreenShotUtil;
 
 /**
  * Created by wong on 2018/5/8.
@@ -33,7 +35,6 @@ public class TopicViewHolder extends RecyclerView.ViewHolder {
     TextView tvNewsOne;
     TextView tvNewsTwo;
     ImageView ivTopicCollect;
-    ImageView ivTopicShare;
     ImageView ivTopicDelete;
 
     private Context mContext;
@@ -49,7 +50,6 @@ public class TopicViewHolder extends RecyclerView.ViewHolder {
         tvNewsOne = itemView.findViewById(R.id.tv_news_one);
         tvNewsTwo = itemView.findViewById(R.id.tv_news_two);
         ivTopicCollect = itemView.findViewById(R.id.iv_collect);
-        ivTopicShare = itemView.findViewById(R.id.iv_share);
         ivTopicDelete = itemView.findViewById(R.id.iv_delete);
     }
 

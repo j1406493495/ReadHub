@@ -85,4 +85,5 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.1.1'
     compile 'com.github.zcweng:switch-button:0.0.3@aar'
     compile 'com.tencent.bugly:crashreport_upgrade:latest.release'
+    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
 }

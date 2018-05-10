@@ -79,7 +79,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/tv_divider"
                 android:layout_marginRight="5dp"
-                android:src="@drawable/ic_share_gray"/>
+                android:src="@drawable/ic_share"/>
 
             <ImageView
                 android:id="@+id/iv_collect"
