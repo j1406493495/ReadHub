@@ -38,8 +38,8 @@ public class ScreenShotUtil {
         Canvas canvas = new Canvas(bitmap);
         scrollView.draw(canvas);
 
-        Bitmap head = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.share_term_table_header);
-        Bitmap foot = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.share_term_table_footer);
+        Bitmap head = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_share_header);
+        Bitmap foot = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_share_footer);
         Bitmap v = toConformBitmap(head, bitmap, foot);
 
         File saveDir = new File(FILE_SAVE_PATH);
@@ -100,7 +100,7 @@ public class ScreenShotUtil {
             Bitmap fillBitmap = Bitmap.createBitmap(infoBitmapWidth - headWidth, headHeight, Bitmap.Config.ARGB_8888);
             Canvas headCanvas = new Canvas(fillBitmap);
             headCanvas.drawColor(Color.WHITE);
-            headCanvas.drawBitmap(fillBitmap, headWidth, 0, null);
+            canvas.drawBitmap(fillBitmap, headWidth, 0, null);
         }
 
         // 在 0，headHeight坐标开始填充infoBitmap
@@ -113,7 +113,7 @@ public class ScreenShotUtil {
             Bitmap fillBitmap = Bitmap.createBitmap(infoBitmapWidth - footWidth, footHeight, Bitmap.Config.ARGB_8888);
             Canvas footCanvas = new Canvas(fillBitmap);
             footCanvas.drawColor(Color.WHITE);
-            footCanvas.drawBitmap(fillBitmap, footWidth, headHeight + infoBitmapHeight, null);
+            canvas.drawBitmap(fillBitmap, footWidth, headHeight + infoBitmapHeight, null);
         }
 
         canvas.save(Canvas.ALL_SAVE_FLAG);
