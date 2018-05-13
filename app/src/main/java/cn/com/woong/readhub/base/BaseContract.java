@@ -26,15 +26,13 @@ public interface BaseContract {
 
         /**
          * 显示请求成功
-         * @param message
          */
-        void showSuccess(String message);
+        void showSuccess();
 
         /**
          * 失败重试
-         * @param message
          */
-        void showFailed(String message);
+        void showFailed();
 
         /**
          * 显示当前网络不可用

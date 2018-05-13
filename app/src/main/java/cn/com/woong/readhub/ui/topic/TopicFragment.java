@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewStub;
 import android.widget.TextView;
 
 import com.ajguan.library.EasyRefreshLayout;
@@ -13,7 +14,11 @@ import butterknife.BindView;
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.base.BaseFragment;
 import cn.com.woong.readhub.bean.TopicMo;
+import cn.com.woong.readhub.ui.widget.EmptyView;
 import dagger.android.support.AndroidSupportInjection;
+
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 
 /**
  * @author woong

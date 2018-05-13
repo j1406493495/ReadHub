@@ -34,7 +34,7 @@ public class TopicPresenter extends BasePresenter<TopicContract.View> implements
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-
+                        mView.showFailed();
                     }
                 });
     }

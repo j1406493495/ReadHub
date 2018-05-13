@@ -22,4 +22,5 @@
     <string name="copy_url">链接已复制到剪切板</string>
     <string name="save_pic_failed">图片保存失败</string>
     <string name="save_pic_success">图片保存成功</string>
+    <string name="no_readlater">暂无稍后读</string>
 </resources>

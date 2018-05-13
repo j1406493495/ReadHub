@@ -1,8 +1,8 @@
 package cn.com.woong.readhub.ui.mine.readlater;
 
 import android.app.Activity;
-import android.app.FragmentManager;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -12,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewStub;
 
 import com.blankj.utilcode.util.BarUtils;
 
@@ -22,6 +23,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.base.BaseActivity;
 import cn.com.woong.readhub.bean.NewsMo;
@@ -29,14 +31,17 @@ import cn.com.woong.readhub.bean.TopicMo;
 import cn.com.woong.readhub.db.DBManager;
 import cn.com.woong.readhub.eventbus.Event;
 import cn.com.woong.readhub.ui.topic.TopicAdapter;
-import cn.com.woong.readhub.ui.topic.TopicFragment;
+import cn.com.woong.readhub.ui.widget.EmptyView;
+import cn.com.woong.readhub.ui.widget.ShowEmptyRecyclerView;
 import cn.com.woong.readhub.ui.widget.TitleBarLayout;
 import cn.com.woong.readhub.ui.widget.newsview.NewsAdapter;
-import cn.com.woong.readhub.ui.widget.newsview.NewsView;
+
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 
 /**
  * @author wong
- * Created by wong on 2018/5/7.
+ *         Created by wong on 2018/5/7.
  */
 
 public class ReadLaterActivity extends BaseActivity {
@@ -47,8 +52,8 @@ public class ReadLaterActivity extends BaseActivity {
     @BindView(R.id.readlater_view_pager)
     ViewPager readlaterViewPager;
 
-    private RecyclerView mNewsRecycler;
-    private RecyclerView mTopicRecycler;
+    private ShowEmptyRecyclerView mNewsRecycler;
+    private ShowEmptyRecyclerView mTopicRecycler;
     private TopicAdapter mTopicAdapter;
     private NewsAdapter mNewsAdapter;
     private ViewPagerAdapter mViewPagerAdapter;
@@ -81,8 +86,8 @@ public class ReadLaterActivity extends BaseActivity {
             }
         });
 
-        mTopicRecycler = new RecyclerView(this);
-        mNewsRecycler = new RecyclerView(this);
+        mTopicRecycler = new ShowEmptyRecyclerView(this);
+        mNewsRecycler = new ShowEmptyRecyclerView(this);
 
         mReadLaterViews.clear();
         mReadLaterViews.add(mTopicRecycler);
@@ -102,31 +107,49 @@ public class ReadLaterActivity extends BaseActivity {
 
         mTopicAdapter = new TopicAdapter(this);
         mTopicAdapter.showDelete(true);
-        mTopicRecycler.setAdapter(mTopicAdapter);
-        mTopicRecycler.setLayoutManager(new LinearLayoutManager(this));
+        mTopicRecycler.getRecyclerView().setAdapter(mTopicAdapter);
+        mTopicRecycler.getRecyclerView().setLayoutManager(new LinearLayoutManager(this));
         mTopicAdapter.updateTopics(true, mTopicMos);
 
         mNewsAdapter = new NewsAdapter(this);
         mNewsAdapter.showDelete(true);
-        mNewsRecycler.setAdapter(mNewsAdapter);
-        mNewsRecycler.setLayoutManager(new LinearLayoutManager(this));
+        mNewsRecycler.getRecyclerView().setAdapter(mNewsAdapter);
+        mNewsRecycler.getRecyclerView().setLayoutManager(new LinearLayoutManager(this));
         mNewsAdapter.updateNews(true, mNewsMos);
+
+        if (mTopicMos.size() == 0) {
+            mTopicRecycler.showEmptyView(true, getString(R.string.no_readlater));
+        }
+
+        if (mNewsMos.size() == 0) {
+            mNewsRecycler.showEmptyView(true, getString(R.string.no_readlater));
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void removeTopicEvent(Event.ReadLaterTopicRemoveEvent event) {
+        mTopicAdapter.removeTopic(event.position);
+
+        mTopicMos.remove(event.position);
+        if (mTopicMos.size() == 0) {
+            mTopicRecycler.showEmptyView(true, getString(R.string.no_readlater));
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void removeNewsEvent(Event.ReadLaterNewsRemoveEvent event) {
+        mNewsAdapter.removeNews(event.position);
+
+        mNewsMos.remove(event.position);
+        if (mNewsMos.size() == 0) {
+            mNewsRecycler.showEmptyView(true, getString(R.string.no_readlater));
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void removeTopicEvent(Event.ReadLaterTopicRemoveEvent event) {
-        mTopicAdapter.removeTopic(event.position);
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void removeNewsEvent(Event.ReadLaterNewsRemoveEvent event) {
-        mNewsAdapter.removeNews(event.position);
     }
 
     public class ViewPagerAdapter extends PagerAdapter {

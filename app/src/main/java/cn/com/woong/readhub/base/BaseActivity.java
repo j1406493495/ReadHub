@@ -56,13 +56,11 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
     public void hideLoading() {}
 
     @Override
-    public void showSuccess(String successMsg) {
-        ToastUtils.showShort(successMsg);
+    public void showSuccess() {
     }
 
     @Override
-    public void showFailed(String errorMsg) {
-        ToastUtils.showShort(errorMsg);
+    public void showFailed() {
     }
 
     @Override
