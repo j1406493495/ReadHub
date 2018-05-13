@@ -37,6 +37,11 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
         attachView();
         initView();
         initData();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         if (!NetworkUtils.isConnected()) {
             showNoNet();
         }

@@ -36,6 +36,11 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         attachView();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         if (!NetworkUtils.isConnected()) {
             showNoNet();
         }
