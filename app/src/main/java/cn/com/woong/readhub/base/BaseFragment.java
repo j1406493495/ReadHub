@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.blankj.utilcode.util.NetworkUtils;
 import com.blankj.utilcode.util.ToastUtils;
+import com.kaopiz.kprogresshud.KProgressHUD;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 
@@ -25,6 +26,7 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
     protected T mPresenter;
     private Unbinder unbinder;
     private View mRootView, mErrorView, mEmptyView;
+    private KProgressHUD mKProgressHUD;
 
     protected abstract int getLayoutId();
 
@@ -70,19 +72,28 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
 
     @Override
     public void showLoading() {
-        ToastUtils.showShort("showLoading");
+        mKProgressHUD = KProgressHUD.create(getActivity());
+        mKProgressHUD.setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                .setCancellable(true)
+                .setAnimationSpeed(2)
+                .setDimAmount(0.5f)
+                .show();
     }
 
     @Override
     public void hideLoading() {
-        ToastUtils.showShort("hideLoading");
+        if (mKProgressHUD != null) {
+            mKProgressHUD.dismiss();
+        }
     }
 
     @Override
     public void showSuccess() {}
 
     @Override
-    public void showFailed() {}
+    public void showFailed() {
+        ToastUtils.showShort(R.string.request_api_failed);
+    }
 
     @Override
     public void showNoNet() {

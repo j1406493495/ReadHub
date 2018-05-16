@@ -23,4 +23,5 @@
     <string name="save_pic_failed">图片保存失败</string>
     <string name="save_pic_success">图片保存成功</string>
     <string name="no_readlater">暂无稍后读</string>
+    <string name="request_api_failed">请求数据失败</string>
 </resources>

@@ -37,7 +37,7 @@ public class NewsPresenter extends BasePresenter<NewsContract.View> implements N
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-
+                        mView.showFailed();
                     }
                 });
     }
@@ -58,7 +58,7 @@ public class NewsPresenter extends BasePresenter<NewsContract.View> implements N
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-
+                        mView.showFailed();
                     }
                 });
     }
@@ -79,7 +79,7 @@ public class NewsPresenter extends BasePresenter<NewsContract.View> implements N
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-
+                        mView.showFailed();
                     }
                 });
     }

@@ -20,6 +20,7 @@ public class TopicDetailPresenter extends BasePresenter<TopicDetailContract.View
 
     @Override
     public void getTopicDetail(String topicId) {
+        mView.showLoading();
         App.apiService(ReadhubApiService.class)
                 .apiTopicDetail(topicId)
                 .compose(RxSchedulers.<TopicMo>io_main())
@@ -27,6 +28,7 @@ public class TopicDetailPresenter extends BasePresenter<TopicDetailContract.View
                 .subscribe(new Consumer<TopicMo>() {
                     @Override
                     public void accept(TopicMo topicMo) throws Exception {
+                        mView.hideLoading();
                         if (topicMo != null) {
                             mView.updateTopicDetail(topicMo);
                         }
@@ -34,7 +36,7 @@ public class TopicDetailPresenter extends BasePresenter<TopicDetailContract.View
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-
+                        mView.showFailed();
                     }
                 });
     }
