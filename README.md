@@ -1,11 +1,17 @@
 # Readhub
 Readhub非官方Android客户端。
 
+扫码下载apk：
+
+![](https://github.com/j1406493495/ReadHub/blob/3409f3b65ba90d6b031696adc98a5f755daee153/app/src/main/res/drawable-xhdpi/ic_download_qrcode.png)
+
 
 
 ### 项目预览
 
 gif图清晰度不足，还请见谅。
+
+
 
 ##### 热门话题、科技动态、开发者资讯、区块链资讯
 
@@ -21,9 +27,13 @@ gif图清晰度不足，还请见谅。
 
 ##### 截图分享
 
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fre5k9vqdij30k01m5guu.jpg)
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fre5z2pyzij30do13qwit.jpg)
+
+
 
 ### 项目简介
+
+
 
 ##### 技术简介
 
