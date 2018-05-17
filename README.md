@@ -3,7 +3,7 @@ Readhub非官方Android客户端。
 
 扫码下载apk：
 
-![](https://github.com/j1406493495/ReadHub/blob/3409f3b65ba90d6b031696adc98a5f755daee153/app/src/main/res/drawable-xhdpi/ic_download_qrcode.png)
+![](https://ws1.sinaimg.cn/large/006tKfTcgy1fre67aarugj307k07kmyc.jpg)
 
 
 
@@ -130,4 +130,4 @@ private static final String BASE_URL = "https://api.readhub.me/";
 
 本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名
 
-最后编辑时间为:2018-03-04 00:00:00
+最后编辑时间为:2018-05-17 18:00:00
