@@ -30,14 +30,9 @@
                 android:textSize="@dimen/font_20"/>
 
             <TextView
-                android:textColor="@color/b2"
-                android:layout_width="match_parent"
-                android:layout_height="1px"/>
-
-            <TextView
                 android:id="@+id/tv_topic_summary"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="20dp"
                 android:paddingLeft="10dp"
@@ -48,7 +43,7 @@
             <android.support.v4.view.ViewPager
                 android:id="@+id/news_view_pager"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="100dp"/>
 
             <TextView
                 android:id="@+id/tv_news_indicator"

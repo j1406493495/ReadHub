@@ -172,7 +172,6 @@ public class ReadLaterActivity extends BaseActivity {
         public Object instantiateItem(ViewGroup container, int position) {
             container.addView(mReadLaterViews.get(position));
             return mReadLaterViews.get(position);
-
         }
 
         @Nullable
