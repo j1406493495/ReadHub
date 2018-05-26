@@ -65,31 +65,31 @@ public class TopicViewHolder extends RecyclerView.ViewHolder {
         tvTopicTitle.setText(topicMo.title);
         tvTopicSummary.setText(topicMo.summary);
 
-        if (topicMo.newsArray != null) {
-            if (topicMo.newsArray.size() >= 2 ) {
-                if (!topicMo.newsArray.get(1).title.equals(topicMo.newsArray.get(0).title)) {
-                    tvNewsOne.setVisibility(View.VISIBLE);
-                    tvNewsOne.setText(topicMo.newsArray.get(1).title);
-                } else {
-                    tvNewsOne.setVisibility(View.GONE);
-                }
-
-                if (topicMo.newsArray.size() > 2
-                        &&!topicMo.newsArray.get(2).title.equals(topicMo.newsArray.get(0).title)
-                        && !topicMo.newsArray.get(2).title.equals(topicMo.newsArray.get(1).title)) {
-                    tvNewsTwo.setVisibility(View.VISIBLE);
-                    tvNewsTwo.setText(topicMo.newsArray.get(2).title);
-                } else {
-                    tvNewsTwo.setVisibility(View.GONE);
-                }
-            } else {
-                tvNewsTwo.setVisibility(View.GONE);
-                tvNewsOne.setVisibility(View.GONE);
-            }
-        } else {
-            tvNewsTwo.setVisibility(View.GONE);
-            tvNewsOne.setVisibility(View.GONE);
-        }
+//        if (topicMo.newsArray != null) {
+//            if (topicMo.newsArray.size() >= 2 ) {
+//                if (!topicMo.newsArray.get(1).title.equals(topicMo.newsArray.get(0).title)) {
+//                    tvNewsOne.setVisibility(View.VISIBLE);
+//                    tvNewsOne.setText(topicMo.newsArray.get(1).title);
+//                } else {
+//                    tvNewsOne.setVisibility(View.GONE);
+//                }
+//
+//                if (topicMo.newsArray.size() > 2
+//                        &&!topicMo.newsArray.get(2).title.equals(topicMo.newsArray.get(0).title)
+//                        && !topicMo.newsArray.get(2).title.equals(topicMo.newsArray.get(1).title)) {
+//                    tvNewsTwo.setVisibility(View.VISIBLE);
+//                    tvNewsTwo.setText(topicMo.newsArray.get(2).title);
+//                } else {
+//                    tvNewsTwo.setVisibility(View.GONE);
+//                }
+//            } else {
+//                tvNewsTwo.setVisibility(View.GONE);
+//                tvNewsOne.setVisibility(View.GONE);
+//            }
+//        } else {
+//            tvNewsTwo.setVisibility(View.GONE);
+//            tvNewsOne.setVisibility(View.GONE);
+//        }
 
         topicCardView.setOnClickListener(new View.OnClickListener() {
             @Override

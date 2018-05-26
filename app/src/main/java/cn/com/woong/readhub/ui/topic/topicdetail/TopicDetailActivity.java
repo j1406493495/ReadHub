@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -47,15 +48,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailPresenter> impl
     TextView tvTopicTitle;
     @BindView(R.id.tv_topic_summary)
     TextView tvTopicSummary;
-    @BindView(R.id.news_recycler_view)
-    RecyclerView newsRecyclerView;
+    @BindView(R.id.news_view_pager)
+    ViewPager newsViewPager;
+    @BindView(R.id.tv_news_indicator)
+    TextView tvNewsIndicator;
     @BindView(R.id.tv_topic_timeline)
     TextView tvTopicTimeLine;
     @BindView(R.id.timeline_recycler_view)
     RecyclerView timelineRecyclerView;
-
-    @Inject
-    NewsAdapter mNewsAdapter;
 
     private static final String TOPIC_ID = "topic_id";
     private String mTopicId;
@@ -114,9 +114,6 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailPresenter> impl
         mTimeLineAdapter = new TimeLineAdapter();
         timelineRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         timelineRecyclerView.setAdapter(mTimeLineAdapter);
-
-        newsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        newsRecyclerView.setAdapter(mNewsAdapter);
     }
 
     @Override
@@ -132,8 +129,6 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailPresenter> impl
     public void updateTopicDetail(TopicMo topicMo) {
         tvTopicTitle.setText(topicMo.title);
         tvTopicSummary.setText(topicMo.summary);
-
-        mNewsAdapter.updateNews(true, topicMo.newsArray);
 
         mTopicTimeLineMos.clear();
         if (topicMo.timeline != null && topicMo.timeline.topics != null

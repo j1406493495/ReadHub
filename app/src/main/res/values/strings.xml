@@ -24,4 +24,5 @@
     <string name="save_pic_success">图片保存成功</string>
     <string name="no_readlater">暂无稍后读</string>
     <string name="request_api_failed">请求数据失败</string>
+    <string name="see_more_news">左右滑动查看更多 %1$d/%2$d</string>
 </resources>

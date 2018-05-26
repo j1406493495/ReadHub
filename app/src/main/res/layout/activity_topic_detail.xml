@@ -26,13 +26,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:textColor="@color/b1"
+                android:textColor="@color/c8"
                 android:textSize="@dimen/font_20"/>
+
+            <TextView
+                android:textColor="@color/b2"
+                android:layout_width="match_parent"
+                android:layout_height="1px"/>
 
             <TextView
                 android:id="@+id/tv_topic_summary"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="20dp"
                 android:paddingLeft="10dp"
@@ -40,11 +45,20 @@
                 android:textColor="@color/b2"
                 android:textSize="@dimen/font_16"/>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/news_recycler_view"
+            <android.support.v4.view.ViewPager
+                android:id="@+id/news_view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tv_news_indicator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="@string/see_more_news"
+                android:textColor="@color/b3"
+                android:textSize="@dimen/font_12"/>
 
             <TextView
                 android:id="@+id/tv_topic_timeline"
