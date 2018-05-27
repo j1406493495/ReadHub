@@ -3,7 +3,7 @@ Readhub非官方Android客户端。
 
 扫码下载apk：
 
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1fre67aarugj307k07kmyc.jpg)
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1frq52hobp9j30aq0aq0vb.jpg)
 
 
 
@@ -27,7 +27,7 @@ gif图清晰度不足，还请见谅。
 
 ##### 截图分享
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1fre5z2pyzij30do13qwit.jpg)
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1frq53o33y2j30ge15sq8c.jpg)
 
 
 
