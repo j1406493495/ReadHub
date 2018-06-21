@@ -12,8 +12,11 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import cn.com.woong.readhub.R;
+import cn.com.woong.readhub.base.BaseDaggerFragment;
 import cn.com.woong.readhub.base.BaseFragment;
 import cn.com.woong.readhub.bean.NewsMo;
 import cn.com.woong.readhub.ui.widget.newsview.NewsView;
@@ -24,7 +27,7 @@ import dagger.android.support.AndroidSupportInjection;
  * Created by wong on 2018/3/9.
  */
 
-public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsContract.View {
+public class NewsFragment extends BaseDaggerFragment<NewsPresenter> implements NewsContract.View {
     @BindView(R.id.news_tab_layout)
     TabLayout newsTabLayout;
     @BindView(R.id.news_view_pager)
@@ -35,12 +38,6 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
     private ArrayList<String> mPublishDateList = new ArrayList<>();
     private String[] mTabTitle = {"科技动态", "开发者资讯", "区块链快讯"};
     private int mCurrentTabPos = 0;
-
-    @Override
-    public void onAttach(Context context) {
-        AndroidSupportInjection.inject(this);
-        super.onAttach(context);
-    }
 
     @Override
     protected int getLayoutId() {

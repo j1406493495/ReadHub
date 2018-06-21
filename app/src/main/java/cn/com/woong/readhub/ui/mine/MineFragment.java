@@ -22,7 +22,7 @@ import cn.com.woong.readhub.ui.widget.ArrowItemView;
  * Created by wong on 2018/3/9.
  */
 
-public class MineFragment extends BaseFragment<MineContract.Presenter> implements MineContract.View {
+public class MineFragment extends BaseFragment {
     @BindView(R.id.arrow_about)
     ArrowItemView arrowAbout;
     @BindView(R.id.arrow_read_later)

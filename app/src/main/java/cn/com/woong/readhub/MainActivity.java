@@ -40,13 +40,14 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.rb_tab_mine)
     RadioButton rbTabMine;
 
+    private TopicFragment mTopicFragment;
+    private NewsFragment mNewsFragment;
+    private MineFragment mMineFragment;
+
     ViewPagerAdapter mViewPagerAdapter;
     private long exitTime = 0;
     private ArrayList<String> mTitleStrs = new ArrayList<>();
     private ArrayList<Fragment> mFragments = new ArrayList<>();
-    private TopicFragment mTopicFragment;
-    private NewsFragment mNewsFragment;
-    private MineFragment mMineFragment;
 
     @Override
     protected int getLayoutId() {

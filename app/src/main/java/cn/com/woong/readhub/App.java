@@ -8,15 +8,13 @@ import android.support.v4.app.Fragment;
 import com.blankj.utilcode.util.Utils;
 import com.facebook.stetho.Stetho;
 import com.tencent.bugly.Bugly;
-import com.tencent.bugly.crashreport.CrashReport;
 
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import cn.com.woong.readhub.db.DBManager;
-import cn.com.woong.readhub.di.component.DaggerAppComponent;
+import cn.com.woong.readhub.dagger.component.DaggerAppComponent;
 import cn.com.woong.readhub.domain.ApiManager;
-import cn.com.woong.readhub.domain.apiservice.GankioApiService;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
@@ -57,8 +55,6 @@ public class App extends Application implements HasSupportFragmentInjector, HasA
         Bugly.init(getApplicationContext(), "aee572880a", true);
         DaggerAppComponent.create().inject(this);
         DBManager.getInstance(this).init();
-
-        addApiService(GankioApiService.class);
     }
 
     public <T> void addApiService(Class<T> clz) {

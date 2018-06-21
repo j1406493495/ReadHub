@@ -9,9 +9,15 @@ import android.view.ViewStub;
 import android.widget.TextView;
 
 import com.ajguan.library.EasyRefreshLayout;
+import com.blankj.utilcode.util.LogUtils;
+
 import java.util.ArrayList;
+
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import cn.com.woong.readhub.R;
+import cn.com.woong.readhub.base.BaseDaggerFragment;
 import cn.com.woong.readhub.base.BaseFragment;
 import cn.com.woong.readhub.bean.TopicMo;
 import cn.com.woong.readhub.ui.widget.EmptyView;
@@ -24,20 +30,16 @@ import static android.view.View.VISIBLE;
  * @author woong
  *         Created by wong on 2018/3/9.
  */
-public class TopicFragment extends BaseFragment<TopicPresenter> implements TopicContract.View {
+public class TopicFragment extends BaseDaggerFragment<TopicPresenter> implements TopicContract.View {
     @BindView(R.id.topic_refresh_layout)
     EasyRefreshLayout topicRefreshLayout;
     @BindView(R.id.topic_recycler_view)
     RecyclerView topicRecyclerView;
 
-    private String mLastOrder;
-    private TopicAdapter mTopicAdapter;
+    @Inject
+    TopicAdapter mTopicAdapter;
 
-    @Override
-    public void onAttach(Context context) {
-        AndroidSupportInjection.inject(this);
-        super.onAttach(context);
-    }
+    private String mLastOrder;
 
     @Override
     protected int getLayoutId() {
@@ -46,7 +48,6 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
 
     @Override
     protected void initView(View view) {
-        mTopicAdapter = new TopicAdapter(getActivity());
         topicRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         topicRecyclerView.setAdapter(mTopicAdapter);
     }
@@ -54,6 +55,7 @@ public class TopicFragment extends BaseFragment<TopicPresenter> implements Topic
     @Override
     protected void initData() {
         mLastOrder = "";
+        LogUtils.i("TopicFragment initData mPresenter === " + mPresenter);
         if (mPresenter != null) {
             mPresenter.getTopicNews(mLastOrder);
         }

@@ -1,5 +1,7 @@
 package cn.com.woong.readhub.base;
 
+import javax.inject.Inject;
+
 /**
  * @author wong
  */

@@ -10,6 +10,8 @@ import org.greenrobot.greendao.annotation.ToMany;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.bean.TopicMo;
 import cn.com.woong.readhub.db.DBManager;

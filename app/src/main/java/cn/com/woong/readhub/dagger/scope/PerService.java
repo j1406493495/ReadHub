@@ -1,4 +1,4 @@
-package cn.com.woong.readhub.di.scope;
+package cn.com.woong.readhub.dagger.scope;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
@@ -12,5 +12,5 @@ import javax.inject.Scope;
 @Scope
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-public @interface PerApp {
+public @interface PerService {
 }

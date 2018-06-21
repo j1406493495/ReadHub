@@ -22,10 +22,14 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.base.BaseActivity;
+import cn.com.woong.readhub.base.BaseDaggerActivity;
+import cn.com.woong.readhub.base.BasePresenter;
 import cn.com.woong.readhub.bean.NewsMo;
 import cn.com.woong.readhub.bean.TopicMo;
 import cn.com.woong.readhub.db.DBManager;
@@ -44,7 +48,7 @@ import static android.view.View.VISIBLE;
  *         Created by wong on 2018/5/7.
  */
 
-public class ReadLaterActivity extends BaseActivity {
+public class ReadLaterActivity extends BaseDaggerActivity<BasePresenter> {
     @BindView(R.id.title_bar)
     TitleBarLayout titleBar;
     @BindView(R.id.readlater_tab_layout)
@@ -52,10 +56,15 @@ public class ReadLaterActivity extends BaseActivity {
     @BindView(R.id.readlater_view_pager)
     ViewPager readlaterViewPager;
 
-    private ShowEmptyRecyclerView mNewsRecycler;
-    private ShowEmptyRecyclerView mTopicRecycler;
-    private TopicAdapter mTopicAdapter;
-    private NewsAdapter mNewsAdapter;
+    @Inject
+    ShowEmptyRecyclerView mNewsRecycler;
+    @Inject
+    ShowEmptyRecyclerView mTopicRecycler;
+    @Inject
+    TopicAdapter mTopicAdapter;
+    @Inject
+    NewsAdapter mNewsAdapter;
+
     private ViewPagerAdapter mViewPagerAdapter;
     private ArrayList<View> mReadLaterViews = new ArrayList<>();
     private ArrayList<TopicMo> mTopicMos = new ArrayList<>();
@@ -86,9 +95,6 @@ public class ReadLaterActivity extends BaseActivity {
             }
         });
 
-        mTopicRecycler = new ShowEmptyRecyclerView(this);
-        mNewsRecycler = new ShowEmptyRecyclerView(this);
-
         mReadLaterViews.clear();
         mReadLaterViews.add(mTopicRecycler);
         mReadLaterViews.add(mNewsRecycler);
@@ -105,13 +111,11 @@ public class ReadLaterActivity extends BaseActivity {
         mTopicMos = (ArrayList<TopicMo>) DBManager.getInstance(this).queryAllTopicMo();
         mNewsMos = (ArrayList<NewsMo>) DBManager.getInstance(this).queryAllNewsMo();
 
-        mTopicAdapter = new TopicAdapter(this);
         mTopicAdapter.showDelete(true);
         mTopicRecycler.getRecyclerView().setAdapter(mTopicAdapter);
         mTopicRecycler.getRecyclerView().setLayoutManager(new LinearLayoutManager(this));
         mTopicAdapter.updateTopics(true, mTopicMos);
 
-        mNewsAdapter = new NewsAdapter(this);
         mNewsAdapter.showDelete(true);
         mNewsRecycler.getRecyclerView().setAdapter(mNewsAdapter);
         mNewsRecycler.getRecyclerView().setLayoutManager(new LinearLayoutManager(this));

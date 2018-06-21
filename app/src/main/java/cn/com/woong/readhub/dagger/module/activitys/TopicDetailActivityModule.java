@@ -1,6 +1,6 @@
-package cn.com.woong.readhub.di.module.activitys;
+package cn.com.woong.readhub.dagger.module.activitys;
 
-import cn.com.woong.readhub.di.scope.PerActivity;
+import cn.com.woong.readhub.dagger.scope.PerActivity;
 import cn.com.woong.readhub.ui.topic.topicdetail.TopicDetailActivity;
 import cn.com.woong.readhub.ui.widget.newsview.NewsAdapter;
 import dagger.Module;

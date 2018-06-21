@@ -14,11 +14,13 @@ import javax.inject.Inject;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import cn.com.woong.readhub.R;
+import dagger.android.AndroidInjection;
 
 /**
  * @author wong
  */
-public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends RxAppCompatActivity implements BaseContract.BaseView {
+public abstract class BaseDaggerActivity<T extends BaseContract.BasePresenter> extends RxAppCompatActivity implements BaseContract.BaseView {
+    @Inject
     @Nullable
     protected T mPresenter;
 
@@ -27,6 +29,7 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         int layoutId = getLayoutId();
         setContentView(layoutId);

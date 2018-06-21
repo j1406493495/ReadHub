@@ -28,6 +28,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.base.BaseActivity;
+import cn.com.woong.readhub.base.BaseDaggerActivity;
 import cn.com.woong.readhub.bean.NewsMo;
 import cn.com.woong.readhub.bean.TopicMo;
 import cn.com.woong.readhub.bean.TopicTimeLineMo;
@@ -44,7 +45,7 @@ import io.reactivex.functions.Consumer;
  *         Created by wong on 2018/4/21.
  */
 
-public class TopicDetailActivity extends BaseActivity<TopicDetailPresenter> implements TopicDetailContract.View {
+public class TopicDetailActivity extends BaseDaggerActivity<TopicDetailPresenter> implements TopicDetailContract.View {
     @BindView(R.id.title_bar)
     TitleBarLayout titleBar;
     @BindView(R.id.topic_detail_scrollview)
@@ -65,9 +66,9 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailPresenter> impl
     private static final String TOPIC_ID = "topic_id";
     private String mTopicId;
 
-    TimeLineAdapter mTimeLineAdapter;
-    private ArrayList<TopicTimeLineMo> mTopicTimeLineMos = new ArrayList<>();
+    private TimeLineAdapter mTimeLineAdapter;
     private NewsViewPagetAdapter mNewsViewPagetAdapter;
+    private ArrayList<TopicTimeLineMo> mTopicTimeLineMos = new ArrayList<>();
     private ArrayList<NewsMo> mNewsMos = new ArrayList<>();
     private ArrayList<View> mNewsViewList = new ArrayList<>();
 
@@ -75,12 +76,6 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailPresenter> impl
         Intent intent = new Intent(context, TopicDetailActivity.class);
         intent.putExtra(TOPIC_ID, topicId);
         context.startActivity(intent);
-    }
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        AndroidInjection.inject(this);
-        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -215,7 +210,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailPresenter> impl
         }
     }
 
-    private class TimeLineAdapter extends RecyclerView.Adapter {
+    public class TimeLineAdapter extends RecyclerView.Adapter {
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = getLayoutInflater().inflate(R.layout.item_topic_timeline, parent, false);

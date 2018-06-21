@@ -1,11 +1,13 @@
 package cn.com.woong.readhub.base;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.NetworkUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.kaopiz.kprogresshud.KProgressHUD;
@@ -13,14 +15,17 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 
 import javax.inject.Inject;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import cn.com.woong.readhub.R;
+import dagger.android.support.AndroidSupportInjection;
 
 /**
  * @author wong
  */
-public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends RxFragment implements BaseContract.BaseView {
+public abstract class BaseDaggerFragment<T extends BaseContract.BasePresenter> extends RxFragment implements BaseContract.BaseView {
+    @Inject
     @Nullable
     protected T mPresenter;
 
@@ -38,6 +43,12 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         attachView();
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        AndroidSupportInjection.inject(this);
+        super.onAttach(context);
     }
 
     @Override
@@ -114,6 +125,7 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
      * 贴上view
      */
     private void attachView() {
+        LogUtils.i("BaseDaggerFragment attachView mPresenter === " + mPresenter);
         if (mPresenter != null) {
             mPresenter.attachView(this);
         }

@@ -1,6 +1,6 @@
-package cn.com.woong.readhub.di.module.fragments;
+package cn.com.woong.readhub.dagger.module.fragments;
 
-import cn.com.woong.readhub.di.scope.PerFragment;
+import cn.com.woong.readhub.dagger.scope.PerFragment;
 import dagger.Module;
 
 /**
