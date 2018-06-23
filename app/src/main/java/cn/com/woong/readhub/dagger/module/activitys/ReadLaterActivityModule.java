@@ -30,7 +30,7 @@ public class ReadLaterActivityModule {
     }
 
     @Provides
-    public BasePresenter providerProsenter() {
+    public BasePresenter providerPresenter() {
         return new BasePresenter();
     }
 }
