@@ -2,15 +2,11 @@ package cn.com.woong.readhub.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-
 import com.blankj.utilcode.util.NetworkUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
-
-import javax.inject.Inject;
-
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import cn.com.woong.readhub.R;
@@ -18,10 +14,7 @@ import cn.com.woong.readhub.R;
 /**
  * @author wong
  */
-public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends RxAppCompatActivity implements BaseContract.BaseView {
-    @Nullable
-    protected T mPresenter;
-
+public abstract class BaseActivity extends RxAppCompatActivity implements BaseContract.BaseView {
     KProgressHUD mKProgressHUD;
     private Unbinder unbinder;
 
@@ -31,7 +24,6 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
         int layoutId = getLayoutId();
         setContentView(layoutId);
         unbinder = ButterKnife.bind(this);
-        attachView();
         initView();
         initData();
     }
@@ -54,25 +46,6 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
     protected void onDestroy() {
         super.onDestroy();
         unbinder.unbind();
-        detachView();
-    }
-
-    /**
-     * 分离view
-     */
-    private void detachView() {
-        if (mPresenter != null) {
-            mPresenter.detachView();
-        }
-    }
-
-    /**
-     * 贴上view
-     */
-    private void attachView() {
-        if (mPresenter != null) {
-            mPresenter.attachView(this);
-        }
     }
 
     @Override

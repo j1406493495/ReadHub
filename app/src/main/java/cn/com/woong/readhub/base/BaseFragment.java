@@ -5,14 +5,11 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.blankj.utilcode.util.NetworkUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.support.RxFragment;
-
-import javax.inject.Inject;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import cn.com.woong.readhub.R;
@@ -20,10 +17,7 @@ import cn.com.woong.readhub.R;
 /**
  * @author wong
  */
-public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends RxFragment implements BaseContract.BaseView {
-    @Nullable
-    protected T mPresenter;
-
+public abstract class BaseFragment extends RxFragment implements BaseContract.BaseView {
     private Unbinder unbinder;
     private View mRootView, mErrorView, mEmptyView;
     private KProgressHUD mKProgressHUD;
@@ -33,12 +27,6 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
     protected abstract void initView(View view);
 
     protected abstract void initData();
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        attachView();
-    }
 
     @Override
     public void onResume() {
@@ -67,7 +55,6 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
     public void onDestroy() {
         super.onDestroy();
         unbinder.unbind();
-        detachView();
     }
 
     @Override
@@ -108,24 +95,6 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
     @Override
     public <T> LifecycleTransformer<T> bindToLife() {
         return this.bindToLifecycle();
-    }
-
-    /**
-     * 贴上view
-     */
-    private void attachView() {
-        if (mPresenter != null) {
-            mPresenter.attachView(this);
-        }
-    }
-
-    /**
-     * 分离view
-     */
-    private void detachView() {
-        if (mPresenter != null) {
-            mPresenter.detachView();
-        }
     }
 
     /**
