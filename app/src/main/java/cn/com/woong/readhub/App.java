@@ -25,12 +25,17 @@ import dagger.android.support.HasSupportFragmentInjector;
  */
 
 public class App extends Application implements HasSupportFragmentInjector, HasActivityInjector {
-    private static App mInstance;
     @Inject
     DispatchingAndroidInjector<Activity> dispatchingAndroidInjectorActivity;
     @Inject
     DispatchingAndroidInjector<Fragment> dispatchingAndroidInjectorSupportFragment;
+
+    private static App mInstance;
     private ApiManager mApiManager = null;
+
+    public static App getInstance() {
+        return mInstance;
+    }
 
     public static Context getAppContext() {
         return mInstance.getApplicationContext();
@@ -38,10 +43,6 @@ public class App extends Application implements HasSupportFragmentInjector, HasA
 
     public static <T> T apiService(Class<T> clz) {
         return getInstance().mApiManager.getService(clz);
-    }
-
-    public static App getInstance() {
-        return mInstance;
     }
 
     @Override

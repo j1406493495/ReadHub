@@ -1,7 +1,6 @@
 package cn.com.woong.readhub.dagger.module;
 
 
-import cn.com.woong.readhub.dagger.module.fragments.NewsFragmentModule;
 import cn.com.woong.readhub.dagger.module.fragments.TopicFragmentModule;
 import cn.com.woong.readhub.dagger.scope.PerFragment;
 import cn.com.woong.readhub.ui.news.NewsFragment;
@@ -19,6 +18,6 @@ public abstract class AllFragmentsModule {
     abstract TopicFragment contributeTopicFragmentInjector();
 
     @PerFragment
-    @ContributesAndroidInjector(modules = NewsFragmentModule.class)
+    @ContributesAndroidInjector()
     abstract NewsFragment contributeNewsFragmentInjector();
 }

@@ -1,6 +1,5 @@
 package cn.com.woong.readhub.ui.news;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -9,19 +8,13 @@ import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-
 import java.util.ArrayList;
-
-import javax.inject.Inject;
-
 import butterknife.BindView;
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.base.BaseDaggerFragment;
-import cn.com.woong.readhub.base.BaseFragment;
 import cn.com.woong.readhub.bean.NewsMo;
 import cn.com.woong.readhub.ui.widget.newsview.NewsView;
 import cn.com.woong.readhub.utils.CommonUtils;
-import dagger.android.support.AndroidSupportInjection;
 
 /**
  * Created by wong on 2018/3/9.
