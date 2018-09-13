@@ -29,11 +29,9 @@ public class TopicMo extends BaseMo implements Parcelable {
     public String summary;
     public String title;
     public String updateAt;
-    @Convert(columnType = String.class, converter = TimeLineMoConverter.class)
-    public TimeLineMo timeline;
-
-    public TopicMo() {
-    }
+    public String timeline;
+//    @Convert(columnType = String.class, converter = TimeLineMoConverter.class)
+//    public TimeLineMo timeline;
 
     @Override
     public int describeContents() {
@@ -50,7 +48,7 @@ public class TopicMo extends BaseMo implements Parcelable {
         dest.writeString(this.summary);
         dest.writeString(this.title);
         dest.writeString(this.updateAt);
-        dest.writeParcelable(this.timeline, 0);
+        dest.writeString(this.timeline);
     }
 
     public String getId() {
@@ -117,12 +115,15 @@ public class TopicMo extends BaseMo implements Parcelable {
         this.updateAt = updateAt;
     }
 
-    public TimeLineMo getTimeline() {
+    public String getTimeline() {
         return this.timeline;
     }
 
-    public void setTimeline(TimeLineMo timeline) {
+    public void setTimeline(String timeline) {
         this.timeline = timeline;
+    }
+
+    public TopicMo() {
     }
 
     protected TopicMo(Parcel in) {
@@ -134,13 +135,13 @@ public class TopicMo extends BaseMo implements Parcelable {
         this.summary = in.readString();
         this.title = in.readString();
         this.updateAt = in.readString();
-        this.timeline = in.readParcelable(TimeLineMo.class.getClassLoader());
+        this.timeline = in.readString();
     }
 
-    @Generated(hash = 2017185363)
+    @Generated(hash = 780102330)
     public TopicMo(String id, String createAt, ArrayList<NewsMo> newsArray,
             long order, String publishDate, String summary, String title,
-            String updateAt, TimeLineMo timeline) {
+            String updateAt, String timeline) {
         this.id = id;
         this.createAt = createAt;
         this.newsArray = newsArray;

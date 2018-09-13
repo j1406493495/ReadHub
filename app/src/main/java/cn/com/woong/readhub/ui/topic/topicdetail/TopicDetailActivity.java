@@ -149,15 +149,15 @@ public class TopicDetailActivity extends BaseDaggerActivity<TopicDetailPresenter
         tvTopicTitle.setText(topicMo.title);
         tvTopicSummary.setText(topicMo.summary);
 
-        mTopicTimeLineMos.clear();
-        if (topicMo.timeline != null && topicMo.timeline.topics != null
-                && topicMo.timeline.topics.size() > 0) {
-            mTopicTimeLineMos.addAll(topicMo.timeline.topics);
-        } else {
-            tvTopicTimeLine.setVisibility(View.GONE);
-            timelineRecyclerView.setVisibility(View.GONE);
-        }
-        mTimeLineAdapter.notifyDataSetChanged();
+//        mTopicTimeLineMos.clear();
+//        if (topicMo.timeline != null && topicMo.timeline.topics != null
+//                && topicMo.timeline.topics.size() > 0) {
+//            mTopicTimeLineMos.addAll(topicMo.timeline.topics);
+//        } else {
+//            tvTopicTimeLine.setVisibility(View.GONE);
+//            timelineRecyclerView.setVisibility(View.GONE);
+//        }
+//        mTimeLineAdapter.notifyDataSetChanged();
 
         mNewsMos.clear();
         mNewsViewList.clear();
