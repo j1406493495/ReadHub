@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import cn.com.woong.readhub.App;
 import cn.com.woong.readhub.base.BasePresenter;
+import cn.com.woong.readhub.bean.TopicDetailMo;
 import cn.com.woong.readhub.bean.TopicMo;
 import cn.com.woong.readhub.domain.apiservice.ReadhubApiService;
 import cn.com.woong.readhub.domain.RxSchedulers;
@@ -23,14 +24,14 @@ public class TopicDetailPresenter extends BasePresenter<TopicDetailContract.View
         mView.showLoading();
         App.apiService(ReadhubApiService.class)
                 .apiTopicDetail(topicId)
-                .compose(RxSchedulers.<TopicMo>io_main())
-                .compose(mView.<TopicMo>bindToLife())
-                .subscribe(new Consumer<TopicMo>() {
+                .compose(RxSchedulers.<TopicDetailMo>io_main())
+                .compose(mView.<TopicDetailMo>bindToLife())
+                .subscribe(new Consumer<TopicDetailMo>() {
                     @Override
-                    public void accept(TopicMo topicMo) throws Exception {
+                    public void accept(TopicDetailMo topicDetailMo) throws Exception {
                         mView.hideLoading();
-                        if (topicMo != null) {
-                            mView.updateTopicDetail(topicMo);
+                        if (topicDetailMo != null) {
+                            mView.updateTopicDetail(topicDetailMo);
                         }
                     }
                 }, new Consumer<Throwable>() {

@@ -1,6 +1,7 @@
 package cn.com.woong.readhub.ui.topic.topicdetail;
 
 import cn.com.woong.readhub.base.BaseContract;
+import cn.com.woong.readhub.bean.TopicDetailMo;
 import cn.com.woong.readhub.bean.TopicMo;
 
 /**
@@ -9,7 +10,7 @@ import cn.com.woong.readhub.bean.TopicMo;
 
 public interface TopicDetailContract {
     interface View extends BaseContract.BaseView {
-        void updateTopicDetail(TopicMo topicMo);
+        void updateTopicDetail(TopicDetailMo topicDetailMo);
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {

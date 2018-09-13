@@ -30,6 +30,7 @@ import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.base.BaseActivity;
 import cn.com.woong.readhub.base.BaseDaggerActivity;
 import cn.com.woong.readhub.bean.NewsMo;
+import cn.com.woong.readhub.bean.TopicDetailMo;
 import cn.com.woong.readhub.bean.TopicMo;
 import cn.com.woong.readhub.bean.TopicTimeLineMo;
 import cn.com.woong.readhub.ui.widget.TitleBarLayout;
@@ -145,24 +146,24 @@ public class TopicDetailActivity extends BaseDaggerActivity<TopicDetailPresenter
     }
 
     @Override
-    public void updateTopicDetail(TopicMo topicMo) {
-        tvTopicTitle.setText(topicMo.title);
-        tvTopicSummary.setText(topicMo.summary);
+    public void updateTopicDetail(TopicDetailMo topicDetailMo) {
+        tvTopicTitle.setText(topicDetailMo.title);
+        tvTopicSummary.setText(topicDetailMo.summary);
 
-//        mTopicTimeLineMos.clear();
-//        if (topicMo.timeline != null && topicMo.timeline.topics != null
-//                && topicMo.timeline.topics.size() > 0) {
-//            mTopicTimeLineMos.addAll(topicMo.timeline.topics);
-//        } else {
-//            tvTopicTimeLine.setVisibility(View.GONE);
-//            timelineRecyclerView.setVisibility(View.GONE);
-//        }
-//        mTimeLineAdapter.notifyDataSetChanged();
+        mTopicTimeLineMos.clear();
+        if (topicDetailMo.timeline != null && topicDetailMo.timeline.topics != null
+                && topicDetailMo.timeline.topics.size() > 0) {
+            mTopicTimeLineMos.addAll(topicDetailMo.timeline.topics);
+        } else {
+            tvTopicTimeLine.setVisibility(View.GONE);
+            timelineRecyclerView.setVisibility(View.GONE);
+        }
+        mTimeLineAdapter.notifyDataSetChanged();
 
         mNewsMos.clear();
         mNewsViewList.clear();
-        if (topicMo.getNewsArray() != null && topicMo.getNewsArray().size() > 0) {
-            mNewsMos.addAll(topicMo.getNewsArray());
+        if (topicDetailMo.getNewsArray() != null && topicDetailMo.getNewsArray().size() > 0) {
+            mNewsMos.addAll(topicDetailMo.getNewsArray());
         }
 
         if (mNewsMos.size() > 0) {

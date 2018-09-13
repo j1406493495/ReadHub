@@ -2,6 +2,7 @@ package cn.com.woong.readhub.domain.apiservice;
 
 import java.util.Map;
 
+import cn.com.woong.readhub.bean.TopicDetailMo;
 import cn.com.woong.readhub.bean.TopicMo;
 import cn.com.woong.readhub.resp.BaseResponse;
 import cn.com.woong.readhub.resp.NewsResp;
@@ -45,7 +46,7 @@ public interface ReadhubApiService {
      * @return
      */
     @GET("topic/{topicId}")
-    Observable<TopicMo> apiTopicDetail(
+    Observable<TopicDetailMo> apiTopicDetail(
             @Path("topicId") String topicId);
 
     /**
