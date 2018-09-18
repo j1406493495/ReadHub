@@ -29,6 +29,7 @@ import butterknife.BindView;
 import cn.com.woong.readhub.R;
 import cn.com.woong.readhub.base.BaseActivity;
 import cn.com.woong.readhub.base.BaseDaggerActivity;
+import cn.com.woong.readhub.bean.NewsDetailMo;
 import cn.com.woong.readhub.bean.NewsMo;
 import cn.com.woong.readhub.bean.TopicDetailMo;
 import cn.com.woong.readhub.bean.TopicMo;
@@ -70,7 +71,7 @@ public class TopicDetailActivity extends BaseDaggerActivity<TopicDetailPresenter
     private TimeLineAdapter mTimeLineAdapter;
     private NewsViewPagetAdapter mNewsViewPagetAdapter;
     private ArrayList<TopicTimeLineMo> mTopicTimeLineMos = new ArrayList<>();
-    private ArrayList<NewsMo> mNewsMos = new ArrayList<>();
+    private ArrayList<NewsDetailMo> mNewsMos = new ArrayList<>();
     private ArrayList<View> mNewsViewList = new ArrayList<>();
 
     public static void startTopicDetailActivity(Context context, String topicId) {
@@ -205,7 +206,7 @@ public class TopicDetailActivity extends BaseDaggerActivity<TopicDetailPresenter
         @Override
         public Object instantiateItem(@NonNull ViewGroup container, int position) {
             NewsViewHolder viewHolder = new NewsViewHolder(TopicDetailActivity.this, mNewsViewList.get(position));
-            viewHolder.bind(mNewsMos.get(position));
+            viewHolder.bind(CommonUtils.changeFromNewsDetailMo(mNewsMos.get(position)));
             container.addView(mNewsViewList.get(position));
             return mNewsViewList.get(position);
         }

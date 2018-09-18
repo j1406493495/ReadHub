@@ -20,7 +20,7 @@ import cn.com.woong.readhub.db.converter.TimeLineMoConverter;
 public class TopicDetailMo extends BaseMo implements Parcelable {
     public String id;
     public String createAt;
-    public ArrayList<NewsMo> newsArray;
+    public ArrayList<NewsDetailMo> newsArray;
     public long order;
     public String publishDate;
     public String summary;
@@ -28,11 +28,11 @@ public class TopicDetailMo extends BaseMo implements Parcelable {
     public String updateAt;
     public TimeLineMo timeline;
 
-    public ArrayList<NewsMo> getNewsArray() {
+    public ArrayList<NewsDetailMo> getNewsArray() {
         return this.newsArray;
     }
 
-    public void setNewsArray(ArrayList<NewsMo> newsArray) {
+    public void setNewsArray(ArrayList<NewsDetailMo> newsArray) {
         this.newsArray = newsArray;
     }
 
@@ -60,7 +60,7 @@ public class TopicDetailMo extends BaseMo implements Parcelable {
     protected TopicDetailMo(Parcel in) {
         this.id = in.readString();
         this.createAt = in.readString();
-        this.newsArray = in.createTypedArrayList(NewsMo.CREATOR);
+        this.newsArray = in.createTypedArrayList(NewsDetailMo.CREATOR);
         this.order = in.readLong();
         this.publishDate = in.readString();
         this.summary = in.readString();
