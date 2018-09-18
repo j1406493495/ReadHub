@@ -16,8 +16,8 @@ android {
         applicationId "cn.com.woong.readhub"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 5
-        versionName "1.0.3"
+        versionCode 104
+        versionName "1.0.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
