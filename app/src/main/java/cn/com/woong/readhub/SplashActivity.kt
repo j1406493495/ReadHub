@@ -3,10 +3,10 @@ package cn.com.woong.readhub
 /**
  * Created by wong on 2018/12/29.
  */
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
+import android.app.Activity
+import android.content.Intent
+import android.os.Bundle
+import android.os.Handler
 
 /**
  * SplashActivity
