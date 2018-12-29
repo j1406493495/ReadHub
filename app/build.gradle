@@ -1,6 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao' // apply plugin
 
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+
 android {
     signingConfigs {
         tSignConfig {
