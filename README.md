@@ -15,7 +15,7 @@ gif图清晰度不足，还请见谅。
 
 ##### 热门话题、科技动态、开发者资讯、区块链资讯
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fz422x41dzg30840e81l4.gif)
+![](https://ws2.sinaimg.cn/large/006tNc79ly1fz439mne7cg30840e8qv5.gif)
 
 ##### 热门详情、资讯详情
 
