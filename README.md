@@ -15,25 +15,21 @@ gif图清晰度不足，还请见谅。
 
 ##### 热门话题、科技动态、开发者资讯、区块链资讯
 
-![gif1](https://github.com/j1406493495/ReadHub/blob/master/apk/gif1.gif)
+![](https://ws3.sinaimg.cn/large/006tNc79ly1fz422x41dzg30840e81l4.gif)
 
 ##### 热门详情、资讯详情
 
-![gif2](https://github.com/j1406493495/ReadHub/blob/master/apk/gif2.gif)
+![](https://ws4.sinaimg.cn/large/006tNc79ly1fz42831b8dg30820e8hdw.gif)
 
 ##### 稍后读
 
-![gif3](https://github.com/j1406493495/ReadHub/blob/master/apk/gif3.gif)
+![](https://ws1.sinaimg.cn/large/006tNc79ly1fz42aw5qxbg30820e8hdw.gif)
 
 ##### 截图分享
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1frq53o33y2j30ge15sq8c.jpg)
-
-
+![](https://ws1.sinaimg.cn/large/006tNc79ly1fz42w0ovbgg30820e8hdt.gif)
 
 ### 项目简介
-
-
 
 ##### 技术简介
 
