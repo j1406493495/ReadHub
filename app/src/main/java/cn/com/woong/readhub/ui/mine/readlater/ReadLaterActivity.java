@@ -56,14 +56,14 @@ public class ReadLaterActivity extends BaseDaggerActivity<BasePresenter> {
     @BindView(R.id.readlater_view_pager)
     ViewPager readlaterViewPager;
 
-    @Inject
-    ShowEmptyRecyclerView mNewsRecycler;
-    @Inject
-    ShowEmptyRecyclerView mTopicRecycler;
-    @Inject
-    TopicAdapter mTopicAdapter;
-    @Inject
-    NewsAdapter mNewsAdapter;
+//    @Inject
+    ShowEmptyRecyclerView mNewsRecycler = new ShowEmptyRecyclerView(this);
+//    @Inject
+    ShowEmptyRecyclerView mTopicRecycler = new ShowEmptyRecyclerView(this);
+//    @Inject
+    TopicAdapter mTopicAdapter = new TopicAdapter(this);
+//    @Inject
+    NewsAdapter mNewsAdapter = new NewsAdapter(this);
 
     private ViewPagerAdapter mViewPagerAdapter;
     private ArrayList<View> mReadLaterViews = new ArrayList<>();

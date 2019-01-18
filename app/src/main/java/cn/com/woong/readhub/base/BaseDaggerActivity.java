@@ -20,7 +20,7 @@ import dagger.android.AndroidInjection;
  * @author wong
  */
 public abstract class BaseDaggerActivity<T extends BaseContract.BasePresenter> extends RxAppCompatActivity implements BaseContract.BaseView {
-    @Inject
+//    @Inject
     @Nullable
     protected T mPresenter;
 

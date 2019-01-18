@@ -11,7 +11,7 @@ import dagger.Provides;
  * Created by wong on 2018/4/22.
  */
 
-@PerActivity
+//@PerActivity
 @Module
 public class TopicDetailActivityModule {
     @Provides

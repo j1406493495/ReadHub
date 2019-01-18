@@ -25,7 +25,7 @@ import dagger.android.support.AndroidSupportInjection;
  * @author wong
  */
 public abstract class BaseDaggerFragment<T extends BaseContract.BasePresenter> extends RxFragment implements BaseContract.BaseView {
-    @Inject
+//    @Inject
     @Nullable
     protected T mPresenter;
 

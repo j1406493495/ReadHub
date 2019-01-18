@@ -16,13 +16,13 @@ import io.reactivex.functions.Consumer;
 
 public class TopicDetailPresenter extends BasePresenter<TopicDetailContract.View> implements TopicDetailContract.Presenter {
 
-    @Inject
+//    @Inject
     TopicDetailPresenter () {}
 
     @Override
     public void getTopicDetail(String topicId) {
         mView.showLoading();
-        App.apiService(ReadhubApiService.class)
+        App.Companion.apiService(ReadhubApiService.class)
                 .apiTopicDetail(topicId)
                 .compose(RxSchedulers.<TopicDetailMo>io_main())
                 .compose(mView.<TopicDetailMo>bindToLife())

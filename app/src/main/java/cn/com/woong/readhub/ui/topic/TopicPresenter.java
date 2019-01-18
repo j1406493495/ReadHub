@@ -14,13 +14,13 @@ import io.reactivex.functions.Consumer;
  */
 
 public class TopicPresenter extends BasePresenter<TopicContract.View> implements TopicContract.Presenter {
-    @Inject
+//    @Inject
     public TopicPresenter() {
     }
 
     @Override
     public void getTopicNews(final String order) {
-        App.apiService(ReadhubApiService.class)
+        App.Companion.apiService(ReadhubApiService.class)
                 .apiTopic(order, Constant.TOPIC_PAGE_SIZE)
                 .compose(RxSchedulers.<TopicResp>io_main())
                 .compose(mView.<TopicResp>bindToLife())

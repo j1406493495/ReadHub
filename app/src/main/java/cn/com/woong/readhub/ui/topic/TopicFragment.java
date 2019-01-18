@@ -36,8 +36,8 @@ public class TopicFragment extends BaseDaggerFragment<TopicPresenter> implements
     @BindView(R.id.topic_recycler_view)
     RecyclerView topicRecyclerView;
 
-    @Inject
-    TopicAdapter mTopicAdapter;
+//    @Inject
+    TopicAdapter mTopicAdapter = new TopicAdapter(getActivity());
 
     private String mLastOrder;
 

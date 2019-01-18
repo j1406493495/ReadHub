@@ -12,7 +12,7 @@ import dagger.Provides;
  * Created by wong on 2018/3/9.
  */
 
-@PerFragment
+//@PerFragment
 @Module
 public class TopicFragmentModule {
     @Provides

@@ -30,7 +30,7 @@ public class ApiManager {
     private PersistentCookieJar cookieJar;
 
     public ApiManager() {
-        cookieJar = new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(App.getAppContext()));
+        cookieJar = new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(App.Companion.getAppContext()));
 
         // init okhttp 3 logger
         HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor();

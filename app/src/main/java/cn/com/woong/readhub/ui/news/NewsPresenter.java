@@ -16,14 +16,14 @@ import io.reactivex.functions.Consumer;
  */
 
 public class NewsPresenter extends BasePresenter<NewsContract.View> implements NewsContract.Presenter {
-    @Inject
+//    @Inject
     public NewsPresenter() {
 
     }
 
     @Override
     public void getTechNews(final String publishDate) {
-        App.apiService(ReadhubApiService.class)
+        App.Companion.apiService(ReadhubApiService.class)
                 .apiTeachNews(publishDate, Constant.NEWS_PAGE_SIZE)
                 .compose(RxSchedulers.<NewsResp>io_main())
                 .compose(mView.<NewsResp>bindToLife())
@@ -44,7 +44,7 @@ public class NewsPresenter extends BasePresenter<NewsContract.View> implements N
 
     @Override
     public void getDevelopNews(final String publishDate) {
-        App.apiService(ReadhubApiService.class)
+        App.Companion.apiService(ReadhubApiService.class)
                 .apiDevelopNews(publishDate, Constant.NEWS_PAGE_SIZE)
                 .compose(RxSchedulers.<NewsResp>io_main())
                 .compose(mView.<NewsResp>bindToLife())
@@ -65,7 +65,7 @@ public class NewsPresenter extends BasePresenter<NewsContract.View> implements N
 
     @Override
     public void getBlockchainNews(final String publishDate) {
-        App.apiService(ReadhubApiService.class)
+        App.Companion.apiService(ReadhubApiService.class)
                 .apiBlockchainNews(publishDate, Constant.NEWS_PAGE_SIZE)
                 .compose(RxSchedulers.<NewsResp>io_main())
                 .compose(mView.<NewsResp>bindToLife())
