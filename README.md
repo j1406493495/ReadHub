@@ -1,6 +1,10 @@
 # Readhub
 Readhub非官方Android客户端。
 
+<font color=#FF0000 size=60> 注意：master分支为kotlin版本，目前正在逐步从java版本转化，非常不稳定。</font>
+
+<font color=#FF0000 size=60>java分支为Java版本，目前相对稳定。</font>
+
 扫码下载apk：
 
 ![](https://ws2.sinaimg.cn/large/006tKfTcgy1frq52hobp9j30aq0aq0vb.jpg)
