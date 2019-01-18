@@ -1,7 +1,7 @@
 # Readhub
 Readhub非官方Android客户端。
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fzb49b4n18j310808ut9r.jpg)
+![](https://ws1.sinaimg.cn/large/006tNc79ly1fzb4euct85j313k088gmo.jpg)
 
 扫码下载apk：
 
