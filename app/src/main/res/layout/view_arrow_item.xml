@@ -33,15 +33,15 @@
         android:paddingRight="10dp"
         android:src="@drawable/ic_arrow_right"/>
 
-    <com.suke.widget.SwitchButton
-        android:id="@+id/switch_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="10dp"
-        android:visibility="gone"
-        app:sb_checked="true"
-        app:sb_checked_color="@color/c1"
-        app:sb_show_indicator="false"/>
+    <!--<com.suke.widget.SwitchButton-->
+        <!--android:id="@+id/switch_button"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:visibility="gone"-->
+        <!--app:sb_checked="true"-->
+        <!--app:sb_checked_color="@color/c1"-->
+        <!--app:sb_show_indicator="false"/>-->
 </RelativeLayout>
