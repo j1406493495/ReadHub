@@ -15,13 +15,14 @@ class SplashActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        if (intent.flags.and(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0) {
-//            finish()
-//            return
-//        }
+        if (intent.flags.and(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0) {
+            finish()
+            return
+        }
 
-//        Handler().postDelayed({
-//            finish()
-//        }, 2000)
+        Handler().postDelayed({
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }, 2000)
     }
 }
