@@ -5,6 +5,7 @@ import kotlinx.android.parcel.Parcelize
 import org.greenrobot.greendao.annotation.Entity
 import org.greenrobot.greendao.annotation.Id
 
+@Entity
 @Parcelize
 data class NewsMo(
         @Id
