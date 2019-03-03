@@ -7,7 +7,6 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.TimeUnit
-import kotlin.reflect.KClass
 
 
 /**
@@ -15,10 +14,9 @@ import kotlin.reflect.KClass
  * Created by woong on 18/4/23.
  */
 class ApiManager {
-    private val mRetrofitServiceHashMap = mutableMapOf<KClass, Retrofit>()
-
     private val mApiRetrofit: Retrofit
-    private val cachedApis = ConcurrentHashMap()
+    private val mRetrofitServiceHashMap = mutableMapOf<Class<*>, Retrofit>()
+    private val cachedApis = ConcurrentHashMap<Class<*>, Any?>()
 
     init {
         // init okhttp 3 logger
@@ -43,12 +41,13 @@ class ApiManager {
         mRetrofitServiceHashMap.put(ReadhubApiService::class.java, mApiRetrofit)
     }
 
-    fun <T> addService(clz: Class<T>) {
+    fun addService(clz: Class<*>) {
         mRetrofitServiceHashMap.put(clz, mApiRetrofit)
     }
 
-    fun <T> getService(clz: Class<T>): T? {
+    fun getService(clz: Class<*>): Any? {
         val obj = cachedApis.get(clz)
+
         if (obj != null) {
             return obj
         } else {
