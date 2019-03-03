@@ -25,6 +25,10 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    androidExtensions {
+        experimental = true
+    }
+
     buildTypes {
         debug {
             minifyEnabled false

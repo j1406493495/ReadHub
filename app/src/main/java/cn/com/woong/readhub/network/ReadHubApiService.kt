@@ -1,5 +1,8 @@
 package cn.com.woong.readhub.network
 
+import cn.com.woong.readhub.bean.TopicDetailMo
+import cn.com.woong.readhub.network.resp.NewsResp
+import cn.com.woong.readhub.network.resp.TopicResp
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -15,20 +18,21 @@ interface ReadhubApiService {
      * @param pageSize
      * @return
      */
-//    @GET("topic")
-//    fun apiTopic(
-//            @Query("lastCursor") lastCursor: String,
-//            @Query("pageSize") pageSize: Int
-//    ): Observable<TopicResp>
+    @GET("topic")
+    fun apiTopic(
+            @Query("lastCursor") lastCursor: String,
+            @Query("pageSize") pageSize: Int
+    ): Observable<TopicResp>
 
     /**
      * topic detail
      * @param topicId
      * @return
      */
-//    @GET("topic/{topicId}")
-//    fun apiTopicDetail(
-//            @Path("topicId") topicId: String): Observable<TopicDetailMo>
+    @GET("topic/{topicId}")
+    fun apiTopicDetail(
+            @Path("topicId") topicId: String
+    ): Observable<TopicDetailMo>
 
     /**
      * 科技动态
@@ -37,11 +41,11 @@ interface ReadhubApiService {
      * @param pageSize
      * @return
      */
-//    @GET("news")
-//    fun apiTeachNews(
-//            @Query("lastCursor") lastCursor: String,
-//            @Query("pageSize") pageSize: Int
-//    ): Observable<NewsResp>
+    @GET("news")
+    fun apiTeachNews(
+            @Query("lastCursor") lastCursor: String,
+            @Query("pageSize") pageSize: Int
+    ): Observable<NewsResp>
 
 
     /**
@@ -51,11 +55,11 @@ interface ReadhubApiService {
      * @param pageSize
      * @return
      */
-//    @GET("technews")
-//    fun apiDevelopNews(
-//            @Query("lastCursor") lastCursor: String,
-//            @Query("pageSize") pageSize: Int
-//    ): Observable<NewsResp>
+    @GET("technews")
+    fun apiDevelopNews(
+            @Query("lastCursor") lastCursor: String,
+            @Query("pageSize") pageSize: Int
+    ): Observable<NewsResp>
 
 
     /**
@@ -65,9 +69,9 @@ interface ReadhubApiService {
      * @param pageSize
      * @return
      */
-//    @GET("blockchain")
-//    fun apiBlockchainNews(
-//            @Query("lastCursor") lastCursor: String,
-//            @Query("pageSize") pageSize: Int
-//    ): Observable<NewsResp>
+    @GET("blockchain")
+    fun apiBlockchainNews(
+            @Query("lastCursor") lastCursor: String,
+            @Query("pageSize") pageSize: Int
+    ): Observable<NewsResp>
 }

@@ -53,7 +53,7 @@ class ApiManager {
         } else {
             val retrofit = mRetrofitServiceHashMap.get(clz)
             if (retrofit != null) {
-                val service = retrofit!!.create(clz)
+                val service = retrofit.create(clz)
                 cachedApis.put(clz, service)
                 return service
             } else {
