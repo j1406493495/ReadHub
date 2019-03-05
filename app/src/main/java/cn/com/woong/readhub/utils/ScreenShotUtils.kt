@@ -1,19 +1,19 @@
 package cn.com.woong.readhub.utils
 
-import android.graphics.Canvas.ALL_SAVE_FLAG
 import android.graphics.Bitmap
 import android.widget.Toast
 import android.R
-import java.nio.file.Files.exists
+import android.content.Context
 import android.graphics.BitmapFactory
-import android.opengl.ETC1.getWidth
-import com.blankj.utilcode.util.FragmentUtils.setBackgroundResource
-import android.opengl.ETC1.getHeight
+import android.graphics.Canvas
+import android.graphics.Color
+import android.os.Environment
 import android.widget.ScrollView
-import android.os.Environment.getExternalStorageDirectory
-import com.sun.tools.corba.se.idl.Util.getAbsolutePath
-
-
+import com.blankj.utilcode.util.TimeUtils
+import java.io.File
+import java.io.FileNotFoundException
+import java.io.FileOutputStream
+import java.io.IOException
 
 class ScreenShotUtils {
     private val FILE_SAVE_PATH = Environment.getExternalStorageDirectory().getAbsolutePath()
@@ -70,51 +70,49 @@ class ScreenShotUtils {
      * @return
      */
     fun toConformBitmap(headBitmap: Bitmap?, infoBitmap: Bitmap, footBitmap: Bitmap): Bitmap? {
-        if (headBitmap == null) {
-            return null
-        }
+        headBitmap?.let {
+            val headWidth = headBitmap.width
+            val infoBitmapWidth = infoBitmap.width
+            val footWidth = footBitmap.width
 
-        val headWidth = headBitmap.width
-        val infoBitmapWidth = infoBitmap.width
-        val footWidth = footBitmap.width
+            val headHeight = headBitmap.height
+            val infoBitmapHeight = infoBitmap.height
+            val footHeight = footBitmap.height
 
-        val headHeight = headBitmap.height
-        val infoBitmapHeight = infoBitmap.height
-        val footHeight = footBitmap.height
+            val newBitmap = Bitmap.createBitmap(infoBitmapWidth, headHeight + infoBitmapHeight + footHeight, Bitmap.Config.ARGB_8888)
+            val canvas = Canvas(newBitmap)
 
-        val newBitmap = Bitmap.createBitmap(infoBitmapWidth, headHeight + infoBitmapHeight + footHeight, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(newBitmap)
+            // 在 0，0坐标开始画入headBitmap
+            canvas.drawBitmap(headBitmap, 0, 0, null)
+            //因为手机不同图片的大小的可能小了 就绘制白色的界面填充剩下的界面
+            if (headWidth < infoBitmapWidth) {
+                val fillBitmap = Bitmap.createBitmap(infoBitmapWidth - headWidth, headHeight, Bitmap.Config.ARGB_8888)
+                val headCanvas = Canvas(fillBitmap)
+                headCanvas.drawColor(Color.WHITE)
+                canvas.drawBitmap(fillBitmap, headWidth, 0, null)
+            }
 
-        // 在 0，0坐标开始画入headBitmap
-        canvas.drawBitmap(headBitmap, 0, 0, null)
-        //因为手机不同图片的大小的可能小了 就绘制白色的界面填充剩下的界面
-        if (headWidth < infoBitmapWidth) {
-            val fillBitmap = Bitmap.createBitmap(infoBitmapWidth - headWidth, headHeight, Bitmap.Config.ARGB_8888)
-            val headCanvas = Canvas(fillBitmap)
-            headCanvas.drawColor(Color.WHITE)
-            canvas.drawBitmap(fillBitmap, headWidth, 0, null)
-        }
+            // 在 0，headHeight坐标开始填充infoBitmap
+            canvas.drawBitmap(infoBitmap, 0, headHeight, null)
 
-        // 在 0，headHeight坐标开始填充infoBitmap
-        canvas.drawBitmap(infoBitmap, 0, headHeight, null)
+            // 在 0，headHeight + infoBitmapHeight坐标开始填充infoBitmap
+            canvas.drawBitmap(footBitmap, 0, headHeight + infoBitmapHeight, null)
+            //因为手机不同图片的大小的可能小了 就绘制白色的界面填充剩下的界面
+            if (footWidth < infoBitmapWidth) {
+                val fillBitmap = Bitmap.createBitmap(infoBitmapWidth - footWidth, footHeight, Bitmap.Config.ARGB_8888)
+                val footCanvas = Canvas(fillBitmap)
+                footCanvas.drawColor(Color.WHITE)
+                canvas.drawBitmap(fillBitmap, footWidth, headHeight + infoBitmapHeight, null)
+            }
 
-        // 在 0，headHeight + infoBitmapHeight坐标开始填充infoBitmap
-        canvas.drawBitmap(footBitmap, 0, headHeight + infoBitmapHeight, null)
-        //因为手机不同图片的大小的可能小了 就绘制白色的界面填充剩下的界面
-        if (footWidth < infoBitmapWidth) {
-            val fillBitmap = Bitmap.createBitmap(infoBitmapWidth - footWidth, footHeight, Bitmap.Config.ARGB_8888)
-            val footCanvas = Canvas(fillBitmap)
-            footCanvas.drawColor(Color.WHITE)
-            canvas.drawBitmap(fillBitmap, footWidth, headHeight + infoBitmapHeight, null)
-        }
+            canvas.save(Canvas.ALL_SAVE_FLAG)
+            canvas.restore()// 存储
 
-        canvas.save(Canvas.ALL_SAVE_FLAG)
-        canvas.restore()// 存储
+            headBitmap.recycle()
+            infoBitmap.recycle()
+            footBitmap.recycle()
 
-        headBitmap.recycle()
-        infoBitmap.recycle()
-        footBitmap.recycle()
-
-        return newBitmap
+            return newBitmap
+        } ?: return null
     }
 }

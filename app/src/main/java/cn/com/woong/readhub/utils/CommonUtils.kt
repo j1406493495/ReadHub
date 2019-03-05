@@ -2,26 +2,25 @@ package cn.com.woong.readhub.utils
 
 import cn.com.woong.readhub.bean.NewsMo
 import cn.com.woong.readhub.bean.NewsDetailMo
-import jdk.nashorn.internal.objects.NativeDate.getTime
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.util.*
 
 
-class CommonUtils {
+object CommonUtils {
     @JvmStatic
     fun getTimeStampByReadhubDateString(date: String?): Long? {
-        if (date == null) {
-            return 0L
-        }
+        date?.let {
+            val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.CHINA)
+            format.setTimeZone(TimeZone.getTimeZone("UTC"))
 
-        val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.CHINA)
-        format.setTimeZone(TimeZone.getTimeZone("UTC"))
-
-        try {
-            return format.parse(date).getTime()
-        } catch (e: ParseException) {
-            e.printStackTrace()
-            return 0L
-        }
-
+            try {
+                return format.parse(date).getTime()
+            } catch (e: ParseException) {
+                e.printStackTrace()
+                return 0L
+            }
+        } ?: return 0L
     }
 
     @JvmStatic
