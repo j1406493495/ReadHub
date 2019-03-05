@@ -2,6 +2,7 @@ package cn.com.woong.readhub
 
 import android.app.Application
 import android.content.Context
+import cn.com.woong.readhub.db.DBManager
 import com.blankj.utilcode.util.Utils
 import com.facebook.stetho.Stetho
 
@@ -26,6 +27,7 @@ class App : Application() {
         super.onCreate()
         mInstance = this
         Utils.init(this)
+        DBManager.getInstance(this).init()
         Stetho.initializeWithDefaults(this)
     }
 }
