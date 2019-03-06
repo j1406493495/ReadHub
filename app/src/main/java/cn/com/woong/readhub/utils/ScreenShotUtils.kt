@@ -2,13 +2,13 @@ package cn.com.woong.readhub.utils
 
 import android.graphics.Bitmap
 import android.widget.Toast
-import android.R
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Color
 import android.os.Environment
 import android.widget.ScrollView
+import cn.com.woong.readhub.R
 import com.blankj.utilcode.util.TimeUtils
 import java.io.File
 import java.io.FileNotFoundException
