@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit
  * Created by woong on 18/4/23.
  */
 class ApiManager {
+    private val BASE_URL = "https://api.readhub.me/"
     private val mApiRetrofit: Retrofit
     private val mRetrofitServiceHashMap = mutableMapOf<Class<*>, Retrofit>()
     private val cachedApis = ConcurrentHashMap<Class<*>, Any?>()
@@ -38,31 +39,26 @@ class ApiManager {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
 
-        mRetrofitServiceHashMap.put(ReadhubApiService::class.java, mApiRetrofit)
+        mRetrofitServiceHashMap[ReadhubApiService::class.java] = mApiRetrofit
     }
 
-    fun addService(clz: Class<*>) {
-        mRetrofitServiceHashMap.put(clz, mApiRetrofit)
+    fun <T> addService(clz: Class<T>) {
+        mRetrofitServiceHashMap[clz] = mApiRetrofit
     }
 
-    fun getService(clz: Class<*>): Any? {
-        val obj = cachedApis.get(clz)
+    fun <T> getService(clz: Class<T>): T? {
+        val obj = cachedApis[clz]
 
         if (obj != null) {
-            return obj
+            return obj as T?
         } else {
-            val retrofit = mRetrofitServiceHashMap.get(clz)
-            if (retrofit != null) {
-                val service = retrofit.create(clz)
-                cachedApis.put(clz, service)
+            val retrofit = mRetrofitServiceHashMap[clz]
+
+            retrofit.let {
+                val service = retrofit?.create(clz)
+                cachedApis[clz] = service
                 return service
-            } else {
-                return null
             }
         }
-    }
-
-    companion object {
-        private val BASE_URL = "https://api.readhub.me/"
     }
 }
