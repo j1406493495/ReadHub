@@ -12,20 +12,15 @@ import com.facebook.stetho.Stetho
  */
 class App : Application() {
     companion object {
-        var mInstance: App? = null
-
-        fun getInstance(): App? {
-            return mInstance
+        val sInstance: App by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
+            App()
         }
-
-        fun getAppContext(): Context? {
-            return mInstance?.getApplicationContext()
-        }
+        lateinit var sContext: App
     }
 
     override fun onCreate() {
         super.onCreate()
-        mInstance = this
+        sContext = this
         Utils.init(this)
         DBManager.getInstance(this).init()
         Stetho.initializeWithDefaults(this)
