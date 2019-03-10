@@ -8,17 +8,17 @@
               android:fitsSystemWindows="true"
               android:orientation="vertical">
 
-    <!--<cn.com.woong.readhub.ui.widget.TitleBarLayout-->
-        <!--android:id="@+id/title_bar"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="44dp"/>-->
+    <cn.com.woong.readhub.ui.widget.TitleBarLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"/>
 
-    <!--<cn.com.woong.readhub.ui.widget.ArrowItemView-->
-        <!--android:id="@+id/arrow_english"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="44dp"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--app:arrowContent="@string/english_showable"-->
-        <!--app:arrowLabelVisible="false"-->
-        <!--app:arrowRightVisible="false"/>-->
+    <cn.com.woong.readhub.ui.widget.ArrowItemView
+        android:id="@+id/arrow_english"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="10dp"
+        app:arrowContent="@string/english_showable"
+        app:arrowLabelVisible="false"
+        app:arrowRightVisible="false"/>
 </LinearLayout>

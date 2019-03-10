@@ -7,36 +7,36 @@
     android:background="@color/b6"
     android:orientation="vertical">
 
-    <!--<cn.com.woong.readhub.ui.widget.ArrowItemView-->
-        <!--android:id="@+id/arrow_read_later"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--app:arrowContent="@string/read_later"-->
-        <!--app:arrowLabel="@drawable/ic_collect_blue"/>-->
+    <cn.com.woong.readhub.ui.widget.ArrowItemView
+        android:id="@+id/arrow_read_later"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:arrowContent="@string/read_later"
+        app:arrowLabel="@drawable/ic_collect_blue"/>
 
-    <!--<cn.com.woong.readhub.ui.widget.ArrowItemView-->
-        <!--android:id="@+id/arrow_setting"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="1dp"-->
-        <!--android:visibility="gone"-->
-        <!--app:arrowContent="@string/setting"-->
-        <!--app:arrowLabel="@drawable/ic_setting"/>-->
+    <cn.com.woong.readhub.ui.widget.ArrowItemView
+        android:id="@+id/arrow_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:visibility="gone"
+        app:arrowContent="@string/setting"
+        app:arrowLabel="@drawable/ic_setting"/>
 
-    <!--<cn.com.woong.readhub.ui.widget.ArrowItemView-->
-        <!--android:id="@+id/arrow_check_update"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--app:arrowContent="@string/check_update"-->
-        <!--app:arrowLabel="@drawable/ic_update"/>-->
+    <cn.com.woong.readhub.ui.widget.ArrowItemView
+        android:id="@+id/arrow_check_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:arrowContent="@string/check_update"
+        app:arrowLabel="@drawable/ic_update"/>
 
-    <!--<cn.com.woong.readhub.ui.widget.ArrowItemView-->
-        <!--android:id="@+id/arrow_about"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="1dp"-->
-        <!--app:arrowContent="@string/about"-->
-        <!--app:arrowLabel="@drawable/ic_info"/>-->
+    <cn.com.woong.readhub.ui.widget.ArrowItemView
+        android:id="@+id/arrow_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        app:arrowContent="@string/about"
+        app:arrowLabel="@drawable/ic_info"/>
 </LinearLayout>

@@ -7,10 +7,10 @@
               android:fitsSystemWindows="true"
               android:orientation="vertical">
 
-    <!--<cn.com.woong.readhub.ui.widget.TitleBarLayout-->
-        <!--android:id="@+id/title_bar"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="44dp"/>-->
+    <cn.com.woong.readhub.ui.widget.TitleBarLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"/>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/readlater_tab_layout"

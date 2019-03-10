@@ -3,6 +3,7 @@ package cn.com.woong.readhub.ui.widget
 import android.content.Context
 import android.support.annotation.NonNull
 import android.support.annotation.Nullable
+import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,10 @@ class ShowEmptyRecyclerView @JvmOverloads constructor(@NonNull context: Context,
 
     init {
         LayoutInflater.from(context).inflate(R.layout.view_show_empty_recyclerview, this)
+    }
+
+    fun getRecyclerView() : RecyclerView {
+        return recycler_view
     }
 
     fun showEmptyView(show: Boolean, content: String) {
