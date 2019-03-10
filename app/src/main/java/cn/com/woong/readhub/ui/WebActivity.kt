@@ -11,15 +11,18 @@ import kotlinx.android.synthetic.main.activity_web.*
 import android.content.Intent
 
 class WebActivity : AppCompatActivity() {
-    private val WEB_URL = "web_url"
     private var mWebUrl: String? = null
 
     var mAgentWeb: AgentWeb? = null
 
-    fun startWebActivity(context: Context, url: String) {
-        val intent = Intent(context, WebActivity::class.java)
-        intent.putExtra(WEB_URL, url)
-        context.startActivity(intent)
+    companion object {
+        private const val WEB_URL = "web_url"
+
+        fun startWebActivity(context: Context, url: String) {
+            val intent = Intent(context, WebActivity::class.java)
+            intent.putExtra(WEB_URL, url)
+            context.startActivity(intent)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
