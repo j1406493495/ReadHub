@@ -1,6 +1,13 @@
 package cn.com.woong.readhub.base
 
-interface BaseContract {
-    interface BasePresenter
-    interface BaseView
+open class BaseContract {
+    interface View {
+        fun showLoading()
+        fun hideLoading()
+    }
+
+    interface Presenter<T : BaseContract.View> {
+        fun attachView(view: T)
+        fun detachView()
+    }
 }
