@@ -1,8 +1,8 @@
 package cn.com.woong.readhub
 
 import android.app.Application
-import android.content.Context
 import cn.com.woong.readhub.db.DBManager
+import cn.com.woong.readhub.network.ApiManager
 import com.blankj.utilcode.util.Utils
 import com.facebook.stetho.Stetho
 
@@ -11,6 +11,8 @@ import com.facebook.stetho.Stetho
  * @author Woong
  */
 class App : Application() {
+    private var mApiManager: ApiManager? = null
+
     companion object {
         val sInstance: App by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
             App()
@@ -21,8 +23,13 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         sContext = this
+        mApiManager = ApiManager()
         Utils.init(this)
         DBManager.getInstance(this).init()
         Stetho.initializeWithDefaults(this)
+    }
+
+    fun <T> apiService(clz: Class<T>): T? {
+        return sInstance.mApiManager?.getService(clz)
     }
 }
