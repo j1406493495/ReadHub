@@ -4,9 +4,9 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class TimeLineMo(var topics: ArrayList<TopicTimeLineMo>? = null,
+data class TimeLineMo(var topics: ArrayList<TopicTimeLineMo>,
                       var message: String,
                       var errorCode: Int,
-                      var keywords: ArrayList<String>? = null) :  Parcelable
+                      var keywords: ArrayList<String>) :  Parcelable
 
 

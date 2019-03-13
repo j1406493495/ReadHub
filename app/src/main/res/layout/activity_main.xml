@@ -6,16 +6,16 @@
               android:clipToPadding="true"
               android:orientation="vertical">
 
-    <!--<cn.com.woong.readhub.ui.widget.TitleBarLayout-->
-        <!--android:id="@+id/title_bar"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="44dp"/>-->
+    <cn.com.woong.readhub.ui.widget.TitleBarLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"/>
 
-    <!--<cn.com.woong.readhub.ui.widget.ScrollViewPager-->
-        <!--android:id="@+id/view_pager"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="0dp"-->
-        <!--android:layout_weight="1"/>-->
+    <cn.com.woong.readhub.ui.widget.ScrollViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <View
         android:layout_width="match_parent"

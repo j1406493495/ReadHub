@@ -2,9 +2,9 @@ package cn.com.woong.readhub.base
 
 import android.view.ViewGroup
 import android.view.LayoutInflater
-import android.app.Fragment
 import android.os.Bundle
 import android.support.annotation.Nullable
+import android.support.v4.app.Fragment
 import android.view.View
 import com.kaopiz.kprogresshud.KProgressHUD
 
@@ -13,15 +13,14 @@ abstract class BaseFragment<T : BaseContract.Presenter<*>> : Fragment(), BaseCon
     private var mKProgressHUD: KProgressHUD? = null
     protected lateinit var mPresenter: T
 
-    @Nullable
-    override fun onCreateView(inflater: LayoutInflater, @Nullable container: ViewGroup, @Nullable savedInstanceState: Bundle): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         inflaterView(inflater, container)
         attachView()
         initView(mRootView)
         return mRootView
     }
 
-    override fun onActivityCreated(@Nullable savedInstanceState: Bundle) {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initData()
     }
@@ -32,7 +31,7 @@ abstract class BaseFragment<T : BaseContract.Presenter<*>> : Fragment(), BaseCon
      * @param inflater
      * @param container
      */
-    private fun inflaterView(inflater: LayoutInflater, @Nullable container: ViewGroup) {
+    private fun inflaterView(inflater: LayoutInflater, @Nullable container: ViewGroup?) {
         if (mRootView == null) {
             mRootView = inflater.inflate(getLayoutId(), container, false)
         }

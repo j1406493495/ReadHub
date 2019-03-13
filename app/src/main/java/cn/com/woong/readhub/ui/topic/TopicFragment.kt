@@ -13,9 +13,10 @@ import kotlinx.android.synthetic.main.fragment_topic.*
 
 class TopicFragment : BaseFragment<TopicPresenter>(), TopicContract.View {
     private var mTopicAdapter: TopicAdapter? = null
-    private var mLastOrder: String? = null
+    private lateinit var mLastOrder: String
 
     override fun getLayoutId(): Int {
+        mPresenter = TopicPresenter()
         return R.layout.fragment_topic
     }
 

@@ -9,13 +9,13 @@ import java.util.*
 
 object CommonUtils {
     @JvmStatic
-    fun getTimeStampByReadhubDateString(date: String?): Long? {
+    fun getTimeStampByReadhubDateString(date: String?): Long {
         date?.let {
             val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.CHINA)
-            format.setTimeZone(TimeZone.getTimeZone("UTC"))
+            format.timeZone = TimeZone.getTimeZone("UTC")
 
             try {
-                return format.parse(date).getTime()
+                return format.parse(date).time
             } catch (e: ParseException) {
                 e.printStackTrace()
                 return 0L
