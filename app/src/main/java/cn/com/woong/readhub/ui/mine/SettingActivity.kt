@@ -5,6 +5,7 @@ import cn.com.woong.readhub.ui.widget.ArrowItemView
 import com.blankj.utilcode.util.BarUtils
 import android.content.Intent
 import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import cn.com.woong.readhub.R
@@ -35,9 +36,9 @@ class SettingActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun startSettingActivity(activity: Activity) {
-            val intent = Intent(activity, SettingActivity::class.java)
-            activity.startActivity(intent)
+        fun startSettingActivity(context: Context) {
+            val intent = Intent(context, SettingActivity::class.java)
+            context.startActivity(intent)
         }
     }
 }

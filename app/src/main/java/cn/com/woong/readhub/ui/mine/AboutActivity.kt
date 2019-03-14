@@ -4,6 +4,7 @@ import cn.com.woong.readhub.ui.WebActivity
 import com.blankj.utilcode.util.BarUtils
 import android.content.Intent
 import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import cn.com.woong.readhub.R
@@ -34,9 +35,9 @@ class AboutActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun startAboutActivity(activity: Activity) {
-            val intent = Intent(activity, AboutActivity::class.java)
-            activity.startActivity(intent)
+        fun startAboutActivity(context: Context) {
+            val intent = Intent(context, AboutActivity::class.java)
+            context.startActivity(intent)
         }
     }
 }

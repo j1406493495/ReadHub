@@ -12,6 +12,7 @@ import cn.com.woong.readhub.bean.TopicMo
 import com.blankj.utilcode.util.BarUtils
 import android.content.Intent
 import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import cn.com.woong.readhub.ui.widget.newsview.NewsAdapter
 import cn.com.woong.readhub.ui.widget.ShowEmptyRecyclerView
@@ -138,9 +139,9 @@ class ReadLaterActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun startReadLaterActivity(activity: Activity) {
-            val intent = Intent(activity, ReadLaterActivity::class.java)
-            activity.startActivity(intent)
+        fun startReadLaterActivity(context: Context) {
+            val intent = Intent(context, ReadLaterActivity::class.java)
+            context.startActivity(intent)
         }
     }
 }
