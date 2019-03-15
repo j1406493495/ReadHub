@@ -3,20 +3,23 @@ package cn.com.woong.readhub.ui.news
 import cn.com.woong.readhub.network.RxSchedulers
 import cn.com.woong.readhub.network.ReadhubApiService
 import cn.com.woong.readhub.App
+import cn.com.woong.readhub.base.BaseContract
 import cn.com.woong.readhub.base.BasePresenter
 import cn.com.woong.readhub.constant.Constant
 import com.blankj.utilcode.util.LogUtils
 import io.reactivex.functions.Consumer
 
-
-class NewsPresenter : BasePresenter<NewsContract.View>(), NewsContract.Presenter {
+class NewsPresenter(var mView: BaseContract.IView) : BasePresenter<NewsContract.View>(), NewsContract.Presenter {
+    override fun getView(): NewsContract.View {
+        return mView as NewsContract.View
+    }
 
     override fun getTechNews(publishDate: String) {
         App.sInstance.apiService(ReadhubApiService::class.java)
                 ?.apiTeachNews(publishDate, Constant.NEWS_PAGE_SIZE)
                 ?.compose(RxSchedulers.io_main())
                 ?.subscribe( {
-                    mView?.updateTechNews(publishDate, it.data!!)
+                    getView()?.updateTechNews(publishDate, it.data!!)
                 }, {
                     LogUtils.e("apiTeachNews error == ${it}")
                 })
@@ -28,7 +31,7 @@ class NewsPresenter : BasePresenter<NewsContract.View>(), NewsContract.Presenter
                 ?.apiDevelopNews(publishDate, Constant.NEWS_PAGE_SIZE)
                 ?.compose(RxSchedulers.io_main())
                 ?.subscribe(Consumer {
-                    mView?.updateDevelopNews(publishDate, it.data!!)
+                    getView()?.updateDevelopNews(publishDate, it.data!!)
                 }, Consumer {
                     LogUtils.e("apiDevelopNews error == ${it}")
                 })
@@ -39,7 +42,7 @@ class NewsPresenter : BasePresenter<NewsContract.View>(), NewsContract.Presenter
                 ?.apiBlockchainNews(publishDate, Constant.NEWS_PAGE_SIZE)
                 ?.compose(RxSchedulers.io_main())
                 ?.subscribe(Consumer {
-                    mView?.updateBlockchainNews(publishDate, it.data!!)
+                    getView()?.updateBlockchainNews(publishDate, it.data!!)
                 }, Consumer {
                     LogUtils.e("apiBlockChainNews error == ${it}")
                 })

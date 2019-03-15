@@ -5,13 +5,13 @@ import cn.com.woong.readhub.bean.NewsMo
 
 
 interface NewsContract {
-    interface View : BaseContract.View {
+    interface View : BaseContract.IView {
         fun updateTechNews(publishDate: String, newsMos: ArrayList<NewsMo>)
         fun updateDevelopNews(publishDate: String, newsMos: ArrayList<NewsMo>)
         fun updateBlockchainNews(publishDate: String, newsMos: ArrayList<NewsMo>)
     }
 
-    interface Presenter : BaseContract.Presenter<View> {
+    interface Presenter : BaseContract.IPresenter<View> {
         fun getTechNews(publishDate: String)
         fun getDevelopNews(publishDate: String)
         fun getBlockchainNews(publishDate: String)

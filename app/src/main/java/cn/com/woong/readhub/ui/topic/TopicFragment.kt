@@ -16,16 +16,19 @@ class TopicFragment : BaseFragment<TopicPresenter>(), TopicContract.View {
     private lateinit var mLastOrder: String
 
     override fun getLayoutId(): Int {
-        mPresenter = TopicPresenter()
         return R.layout.fragment_topic
     }
 
     override fun initView(view: View?) {
-        topic_recycler_view.layoutManager = LinearLayoutManager(getActivity())
-        topic_recycler_view.adapter = mTopicAdapter
+
     }
 
     override fun initData() {
+        mPresenter = TopicPresenter(this)
+
+        topic_recycler_view.layoutManager = LinearLayoutManager(activity)
+        topic_recycler_view.adapter = mTopicAdapter
+
         mLastOrder = ""
         LogUtils.i("TopicFragment initData mPresenter === $mPresenter")
 

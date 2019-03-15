@@ -5,11 +5,11 @@ import cn.com.woong.readhub.bean.TopicMo
 
 
 interface TopicContract {
-    interface View : BaseContract.View {
+    interface View : BaseContract.IView {
         fun updateTopicData(order: String, topicMos: ArrayList<TopicMo>)
     }
 
-    interface Presenter : BaseContract.Presenter<View> {
+    interface Presenter : BaseContract.IPresenter<View> {
         fun getTopicNews(order: String)
     }
 }

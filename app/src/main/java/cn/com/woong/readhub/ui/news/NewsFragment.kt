@@ -21,16 +21,17 @@ class NewsFragment : BaseFragment<NewsPresenter>(), NewsContract.View {
     private var mCurrentTabPos = 0
 
     override fun getLayoutId(): Int {
-        mPresenter = NewsPresenter()
         return R.layout.fragment_news
     }
 
     override fun initView(view: View?) {
-        initViewPager()
     }
 
     override fun initData() {
+        mPresenter = NewsPresenter(this)
         mPresenter?.getTechNews("")
+
+        initViewPager()
 
         news_tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {

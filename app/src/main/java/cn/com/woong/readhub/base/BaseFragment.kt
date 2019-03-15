@@ -8,20 +8,19 @@ import android.support.v4.app.Fragment
 import android.view.View
 import com.kaopiz.kprogresshud.KProgressHUD
 
-abstract class BaseFragment<T : BaseContract.Presenter<*>> : Fragment(), BaseContract.View {
+abstract class BaseFragment<P : BaseContract.IPresenter<*>> : Fragment(), BaseContract.IView {
     private var mRootView: View? = null
     private var mKProgressHUD: KProgressHUD? = null
-    protected lateinit var mPresenter: T
+    protected lateinit var mPresenter: P
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         inflaterView(inflater, container)
-        attachView()
-        initView(mRootView)
         return mRootView
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        initView(mRootView)
         initData()
     }
 
@@ -37,28 +36,9 @@ abstract class BaseFragment<T : BaseContract.Presenter<*>> : Fragment(), BaseCon
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        detachView()
-    }
-
     protected abstract fun getLayoutId(): Int
     protected abstract fun initView(view: View?)
     protected abstract fun initData()
-
-    /**
-     * 分离view
-     */
-    private fun detachView() {
-        mPresenter.detachView()
-    }
-
-    /**
-     * 贴上view
-     */
-    private fun attachView() {
-        mPresenter.attachView(this as Nothing)
-    }
 
     override fun showLoading() {
         mKProgressHUD = KProgressHUD.create(activity)

@@ -4,11 +4,11 @@ import cn.com.woong.readhub.base.BaseContract
 import cn.com.woong.readhub.bean.TopicDetailMo
 
 interface TopicDetailContract {
-    interface View : BaseContract.View {
+    interface View : BaseContract.IView {
         fun updateTopicDetail(topicDetailMo: TopicDetailMo)
     }
 
-    interface Presenter : BaseContract.Presenter<View> {
+    interface Presenter : BaseContract.IPresenter<View> {
         fun getTopicDetail(topicId: String)
     }
 }

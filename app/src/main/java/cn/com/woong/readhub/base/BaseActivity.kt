@@ -4,42 +4,22 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.kaopiz.kprogresshud.KProgressHUD
 
-abstract class BaseActivity<T : BaseContract.Presenter<*>> : AppCompatActivity(), BaseContract.View {
+abstract class BaseActivity<P : BaseContract.IPresenter<*>> : AppCompatActivity(), BaseContract.IView {
     private var mKProgressHUD: KProgressHUD? = null
-    protected lateinit var mPresenter: T
+    protected lateinit var mPresenter: P
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val layoutId = getLayoutId()
         setContentView(layoutId)
-        attachView()
         initView()
         initData()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        detachView()
     }
 
     protected abstract fun getLayoutId(): Int
     protected abstract fun initView()
     protected abstract fun initData()
-
-    /**
-     * 分离view
-     */
-    private fun detachView() {
-        mPresenter.detachView()
-    }
-
-    /**
-     * 贴上view
-     */
-    private fun attachView() {
-        mPresenter.attachView(this as Nothing)
-    }
 
     override fun showLoading() {
         mKProgressHUD = KProgressHUD.create(this)

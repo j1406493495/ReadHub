@@ -36,7 +36,7 @@ class TopicDetailActivity : BaseActivity<TopicDetailPresenter>(), TopicDetailCon
     private val mNewsViewList = arrayListOf<View>()
 
     override fun getLayoutId(): Int {
-        mPresenter = TopicDetailPresenter()
+        mPresenter = TopicDetailPresenter(this)
         return R.layout.activity_topic_detail
     }
 
