@@ -32,7 +32,7 @@ abstract class BaseFragment<P : BaseContract.IPresenter<*>> : Fragment(), BaseCo
      */
     private fun inflaterView(inflater: LayoutInflater, @Nullable container: ViewGroup?) {
         if (mRootView == null) {
-            mRootView = inflater.inflate(getLayoutId(), container, false)
+            mRootView = inflater.inflate(getLayoutId(), null)
         }
     }
 

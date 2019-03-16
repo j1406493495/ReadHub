@@ -10,6 +10,9 @@ import cn.com.woong.readhub.ui.news.NewsFragment
 import cn.com.woong.readhub.ui.topic.TopicFragment
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.view.ViewGroup
+import cn.com.woong.readhub.base.BaseFragment
 import com.blankj.utilcode.util.BarUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -57,9 +60,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.rb_tab_topic -> pos = 0
                 R.id.rb_tab_news -> pos = 1
                 R.id.rb_tab_mine -> pos = 2
-                else -> {
-                }
+                else -> { }
             }
+
             view_pager.currentItem = pos
             title_bar.setTitle(mTitleStrs.get(pos))
         }

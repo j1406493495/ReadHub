@@ -28,5 +28,9 @@
 
         <activity android:name=".MainActivity"/>
         <activity android:name=".ui.WebActivity"/>
+        <activity android:name=".ui.mine.AboutActivity"/>
+        <activity android:name=".ui.mine.ReadLaterActivity"/>
+        <activity android:name=".ui.mine.SettingActivity"/>
+        <activity android:name=".ui.topic.topicdetail.TopicDetailActivity"/>
     </application>
 </manifest>
