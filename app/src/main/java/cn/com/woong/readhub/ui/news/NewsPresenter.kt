@@ -15,6 +15,7 @@ class NewsPresenter(var mView: BaseContract.IView) : BasePresenter<NewsContract.
     }
 
     override fun getTechNews(publishDate: String) {
+        LogUtils.i("apiTachNews === ")
         App.sInstance.apiService(ReadhubApiService::class.java)
                 ?.apiTeachNews(publishDate, Constant.NEWS_PAGE_SIZE)
                 ?.compose(RxSchedulers.io_main())
@@ -27,6 +28,7 @@ class NewsPresenter(var mView: BaseContract.IView) : BasePresenter<NewsContract.
     }
 
     override fun getDevelopNews(publishDate: String) {
+        LogUtils.i("apiDevelopNews === ")
         App.sInstance.apiService(ReadhubApiService::class.java)
                 ?.apiDevelopNews(publishDate, Constant.NEWS_PAGE_SIZE)
                 ?.compose(RxSchedulers.io_main())
@@ -38,6 +40,7 @@ class NewsPresenter(var mView: BaseContract.IView) : BasePresenter<NewsContract.
     }
 
     override fun getBlockchainNews(publishDate: String) {
+        LogUtils.i("apiBlockchainNews === ")
         App.sInstance.apiService(ReadhubApiService::class.java)
                 ?.apiBlockchainNews(publishDate, Constant.NEWS_PAGE_SIZE)
                 ?.compose(RxSchedulers.io_main())

@@ -19,14 +19,13 @@ class TopicPresenter(var mView: BaseContract.IView) : BasePresenter<TopicContrac
 
     @SuppressLint("CheckResult")
     override fun getTopicNews(order: String) {
+        LogUtils.i("apiTopicNews === ")
         App.sInstance.apiService(ReadhubApiService::class.java)
                 ?.apiTopic(order, Constant.TOPIC_PAGE_SIZE)
                 ?.compose(RxSchedulers.io_main())
-                ?.subscribe(Consumer<TopicResp> { topicResp ->
-                    if (topicResp.data != null) {
-                        getView()?.updateTopicData(order, topicResp.data!!)
-                    }
-                }, Consumer<Throwable> {
+                ?.subscribe( {
+                    getView()?.updateTopicData(order, it.data!!)
+                }, {
                     LogUtils.e("apiTopic error ==== ${it}")
                 })
     }

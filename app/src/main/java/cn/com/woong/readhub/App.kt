@@ -11,25 +11,25 @@ import com.facebook.stetho.Stetho
  * @author Woong
  */
 class App : Application() {
-    private var mApiManager: ApiManager? = null
 
     companion object {
         val sInstance: App by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
             App()
         }
         lateinit var sContext: App
+        lateinit var sApiManager: ApiManager
     }
 
     override fun onCreate() {
         super.onCreate()
         sContext = this
-        mApiManager = ApiManager()
+        sApiManager = ApiManager()
         Utils.init(this)
         DBManager.getInstance(this).init()
         Stetho.initializeWithDefaults(this)
     }
 
     fun <T> apiService(clz: Class<T>): T? {
-        return sInstance.mApiManager?.getService(clz)
+        return sApiManager.getService(clz)
     }
 }

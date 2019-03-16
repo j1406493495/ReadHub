@@ -1,5 +1,6 @@
 package cn.com.woong.readhub.ui.topic
 
+import android.content.Context
 import android.text.TextUtils
 import cn.com.woong.readhub.bean.TopicMo
 import com.ajguan.library.EasyRefreshLayout
@@ -26,6 +27,7 @@ class TopicFragment : BaseFragment<TopicPresenter>(), TopicContract.View {
     override fun initData() {
         mPresenter = TopicPresenter(this)
 
+        mTopicAdapter = TopicAdapter(activity as Context)
         topic_recycler_view.layoutManager = LinearLayoutManager(activity)
         topic_recycler_view.adapter = mTopicAdapter
 
