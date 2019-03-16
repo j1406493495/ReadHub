@@ -70,21 +70,23 @@ class ReadLaterActivity : AppCompatActivity() {
         mTopicMos = DBManager.getInstance(this).queryAllTopicMo() as ArrayList<TopicMo>
         mNewsMos = DBManager.getInstance(this).queryAllNewsMo() as ArrayList<NewsMo>
 
+        mTopicAdapter = TopicAdapter(this)
         mTopicAdapter?.showDelete(true)
         mTopicRecycler?.getRecyclerView()?.setAdapter(mTopicAdapter)
         mTopicRecycler?.getRecyclerView()?.setLayoutManager(LinearLayoutManager(this))
         mTopicAdapter?.updateTopics(true, mTopicMos)
 
+        mNewsAdapter = NewsAdapter(this)
         mNewsAdapter?.showDelete(true)
         mNewsRecycler?.getRecyclerView()?.setAdapter(mNewsAdapter)
         mNewsRecycler?.getRecyclerView()?.setLayoutManager(LinearLayoutManager(this))
         mNewsAdapter?.updateNews(true, mNewsMos)
 
-        if (mTopicMos.size === 0) {
+        if (mTopicMos.size == 0) {
             mTopicRecycler!!.showEmptyView(true, getString(R.string.no_readlater))
         }
 
-        if (mNewsMos.size === 0) {
+        if (mNewsMos.size == 0) {
             mNewsRecycler!!.showEmptyView(true, getString(R.string.no_readlater))
         }
     }
@@ -94,7 +96,7 @@ class ReadLaterActivity : AppCompatActivity() {
         mTopicAdapter!!.removeTopic(event.position)
 
         mTopicMos.removeAt(event.position)
-        if (mTopicMos.size === 0) {
+        if (mTopicMos.size == 0) {
             mTopicRecycler!!.showEmptyView(true, getString(R.string.no_readlater))
         }
     }
@@ -104,7 +106,7 @@ class ReadLaterActivity : AppCompatActivity() {
         mNewsAdapter!!.removeNews(event.position)
 
         mNewsMos.removeAt(event.position)
-        if (mNewsMos.size === 0) {
+        if (mNewsMos.size == 0) {
             mNewsRecycler!!.showEmptyView(true, getString(R.string.no_readlater))
         }
     }
