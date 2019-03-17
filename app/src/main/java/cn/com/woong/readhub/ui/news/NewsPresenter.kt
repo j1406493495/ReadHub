@@ -4,12 +4,11 @@ import cn.com.woong.readhub.network.RxSchedulers
 import cn.com.woong.readhub.network.ReadhubApiService
 import cn.com.woong.readhub.App
 import cn.com.woong.readhub.base.BaseContract
-import cn.com.woong.readhub.base.BasePresenter
 import cn.com.woong.readhub.constant.Constant
 import com.blankj.utilcode.util.LogUtils
 import io.reactivex.functions.Consumer
 
-class NewsPresenter(var mView: BaseContract.IView) : BasePresenter<NewsContract.View>(), NewsContract.Presenter {
+class NewsPresenter(var mView: BaseContract.IView) : NewsContract.Presenter {
     override fun getView(): NewsContract.View {
         return mView as NewsContract.View
     }

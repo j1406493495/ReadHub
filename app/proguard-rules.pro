@@ -131,6 +131,8 @@
     public *** is*();
     public *;
 }
+# kotlin data class 混淆
+-keep class cn.com.woong.readhub.bean.** { *; }
 
 #Fragment不需要在AndroidManifest.xml中注册，需要额外保护下
 -keep public class * extends android.support.v4.app.Fragment
@@ -149,7 +151,7 @@
 -keep class com.google.gson.stream.** { *; }
 # 使用Gson时需要配置Gson的解析对象及变量都不混淆。不然Gson会找不到变量。
 # 将下面替换成自己的实体类
--keep class cn.com.woong.readhub.resp.** { *; }
+-keep class cn.com.woong.readhub.network.resp.** { *; }
 
 # Retrofit混淆配置
 # Platform calls Class.forName on types which do not exist on Android to determine platform.

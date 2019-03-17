@@ -1,7 +1,7 @@
 # Readhub
 Readhub非官方Android客户端。
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fzb4euct85j313k088gmo.jpg)
+**master 分支为 Kotlin 版本，java 分支为 Java 版本。**
 
 扫码下载apk：
 

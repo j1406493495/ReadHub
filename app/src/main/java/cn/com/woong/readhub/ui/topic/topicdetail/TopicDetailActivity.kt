@@ -21,6 +21,7 @@ import cn.com.woong.readhub.bean.TopicTimeLineMo
 import cn.com.woong.readhub.ui.widget.newsview.NewsViewHolder
 import cn.com.woong.readhub.utils.CommonUtils
 import cn.com.woong.readhub.utils.ScreenShotUtils
+import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.TimeUtils
 import com.tbruyelle.rxpermissions2.RxPermissions
 import kotlinx.android.synthetic.main.activity_topic_detail.*
@@ -88,8 +89,8 @@ class TopicDetailActivity : BaseActivity<TopicDetailPresenter>(), TopicDetailCon
         tv_topic_summary.text = topicDetailMo.summary
 
         mTopicTimeLineMos.clear()
-        if (topicDetailMo.timeline != null && topicDetailMo.timeline.topics != null
-                && topicDetailMo.timeline.topics!!.size > 0) {
+//        if (topicDetailMo.timeline != null && topicDetailMo.timeline.topics != null
+        if (topicDetailMo.timeline.topics.size > 0) {
             mTopicTimeLineMos.addAll(topicDetailMo.timeline.topics)
         } else {
             tv_topic_timeline.visibility = View.GONE

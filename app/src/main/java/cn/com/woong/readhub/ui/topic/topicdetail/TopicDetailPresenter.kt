@@ -4,17 +4,17 @@ import cn.com.woong.readhub.network.RxSchedulers
 import cn.com.woong.readhub.network.ReadhubApiService
 import cn.com.woong.readhub.App
 import cn.com.woong.readhub.base.BaseContract
-import cn.com.woong.readhub.base.BasePresenter
 import com.blankj.utilcode.util.LogUtils
 import io.reactivex.functions.Consumer
 
 
-class TopicDetailPresenter(var mView: BaseContract.IView) : BasePresenter<TopicDetailContract.View>(), TopicDetailContract.Presenter {
+class TopicDetailPresenter(var mView: BaseContract.IView) : TopicDetailContract.Presenter {
     override fun getView(): TopicDetailContract.View {
         return mView as TopicDetailContract.View
     }
 
     override fun getTopicDetail(topicId: String) {
+        LogUtils.i("apiTopicDetail === ")
         getView()!!.showLoading()
         App.sInstance.apiService(ReadhubApiService::class.java)
                 ?.apiTopicDetail(topicId)
@@ -23,7 +23,7 @@ class TopicDetailPresenter(var mView: BaseContract.IView) : BasePresenter<TopicD
                     getView()?.hideLoading()
                     getView()?.updateTopicDetail(it)
                 }, Consumer {
-                    LogUtils.e("apiTopicDetail == ${it}")
+                    LogUtils.e("apiTopicDetail error == ${it}")
                 })
     }
 }

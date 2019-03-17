@@ -1,18 +1,15 @@
 package cn.com.woong.readhub.ui.topic
 
 import android.annotation.SuppressLint
-import cn.com.woong.readhub.network.resp.TopicResp
 import cn.com.woong.readhub.network.RxSchedulers
 import cn.com.woong.readhub.network.ReadhubApiService
 import cn.com.woong.readhub.App
 import cn.com.woong.readhub.base.BaseContract
-import cn.com.woong.readhub.base.BasePresenter
 import cn.com.woong.readhub.constant.Constant
 import com.blankj.utilcode.util.LogUtils
-import io.reactivex.functions.Consumer
 
 
-class TopicPresenter(var mView: BaseContract.IView) : BasePresenter<TopicContract.View>(), TopicContract.Presenter {
+class TopicPresenter(var mView: BaseContract.IView) : TopicContract.Presenter {
     override fun getView(): TopicContract.View {
         return mView as TopicContract.View
     }
