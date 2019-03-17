@@ -3,9 +3,15 @@ Readhub非官方Android客户端。
 
 **master 分支为 Kotlin 版本，java 分支为 Java 版本。**
 
+[Kotlin 转换指南（一、环境搭建）](http://woong.cn/2019/01/21/readhub-kotlin1.html)
+
+[Kotlin 转换指南（二、数据库和网络请求](http://woong.cn/2019/03/08/readhub-kotlin2.html)
+
+[Kotlin 转换指南（三、MVP 架构](http://woong.cn/2019/03/17/readhub-kotlin3.html)
+
 扫码下载apk：
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1frq52hobp9j30aq0aq0vb.jpg)
+![](https://ws2.sinaimg.cn/large/006tKfTcly1g165ivxdq5j30as0au3yv.jpg)
 
 
 
@@ -35,14 +41,13 @@ gif图清晰度不足，还请见谅。
 
 ##### 技术简介
 
-- MVP架构
-- Retrofit+RxJava请求接口数据
-- Dagger、ButterKnife简化代码
-- Glide图片加载
-- AgentWeb显示新闻
-- greenDao实现稍后读功能
-- RxPermissions动态权限管理
-- [ResultBack](https://github.com/j1406493495/ResultBack)(startActivityForResult回调封装，一行代码解决onActivityResult维护繁琐，支持RxJava)
+- MVP 架构
+- Retrofit+RxJava 请求接口数据
+- Glide 图片加载
+- AgentWeb 显示新闻
+- greenDao 实现稍后读功能
+- RxPermissions 动态权限管理
+- [ResultBack](https://github.com/j1406493495/ResultBack)(startActivityForResult 回调封装，一行代码解决 onActivityResult 维护繁琐，支持 RxJava)
 - eventbus
 
 
@@ -50,13 +55,11 @@ gif图清晰度不足，还请见谅。
 ##### Readhub api
 
 ```
-private static final String BASE_URL = "https://api.readhub.me/";
+private val BASE_URL = "https://api.readhub.me/"
 ```
 
-
-
 ```
-    /**
+      /**
      * 热门话题
      *
      * @param lastCursor
@@ -64,10 +67,10 @@ private static final String BASE_URL = "https://api.readhub.me/";
      * @return
      */
     @GET("topic")
-    Observable<TopicResp> apiTopic(
-            @Query("lastCursor") String lastCursor,
-            @Query("pageSize") int pageSize
-    );
+    fun apiTopic(
+            @Query("lastCursor") lastCursor: String,
+            @Query("pageSize") pageSize: Int
+    ): Observable<TopicResp>
 
     /**
      * topic detail
@@ -75,8 +78,9 @@ private static final String BASE_URL = "https://api.readhub.me/";
      * @return
      */
     @GET("topic/{topicId}")
-    Observable<TopicMo> apiTopicDetail(
-            @Path("topicId") String topicId);
+    fun apiTopicDetail(
+            @Path("topicId") topicId: String
+    ): Observable<TopicDetailMo>
 
     /**
      * 科技动态
@@ -86,10 +90,10 @@ private static final String BASE_URL = "https://api.readhub.me/";
      * @return
      */
     @GET("news")
-    Observable<NewsResp> apiTeachNews(
-            @Query("lastCursor") String lastCursor,
-            @Query("pageSize") int pageSize
-    );
+    fun apiTeachNews(
+            @Query("lastCursor") lastCursor: String,
+            @Query("pageSize") pageSize: Int
+    ): Observable<NewsResp>
 
 
     /**
@@ -100,10 +104,10 @@ private static final String BASE_URL = "https://api.readhub.me/";
      * @return
      */
     @GET("technews")
-    Observable<NewsResp> apiDevelopNews(
-            @Query("lastCursor") String lastCursor,
-            @Query("pageSize") int pageSize
-    );
+    fun apiDevelopNews(
+            @Query("lastCursor") lastCursor: String,
+            @Query("pageSize") pageSize: Int
+    ): Observable<NewsResp>
 
 
     /**
@@ -114,10 +118,10 @@ private static final String BASE_URL = "https://api.readhub.me/";
      * @return
      */
     @GET("blockchain")
-    Observable<NewsResp> apiBlockchainNews(
-            @Query("lastCursor") String lastCursor,
-            @Query("pageSize") int pageSize
-    );
+    fun apiBlockchainNews(
+            @Query("lastCursor") lastCursor: String,
+            @Query("pageSize") pageSize: Int
+    ): Observable<NewsResp>
 ```
 
 
