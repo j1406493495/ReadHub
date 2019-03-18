@@ -3,11 +3,13 @@ Readhub非官方Android客户端。
 
 **master 分支为 Kotlin 版本，java 分支为 Java 版本。**
 
+
+
 [Kotlin 转换指南（一、环境搭建）](http://woong.cn/2019/01/21/readhub-kotlin1.html)
 
-[Kotlin 转换指南（二、数据库和网络请求](http://woong.cn/2019/03/08/readhub-kotlin2.html)
+[Kotlin 转换指南（二、数据库和网络请求）](http://woong.cn/2019/03/08/readhub-kotlin2.html)
 
-[Kotlin 转换指南（三、MVP 架构](http://woong.cn/2019/03/17/readhub-kotlin3.html)
+[Kotlin 转换指南（三、MVP 架构）](http://woong.cn/2019/03/17/readhub-kotlin3.html)
 
 扫码下载apk：
 
